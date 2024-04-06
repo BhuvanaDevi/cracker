@@ -164,27 +164,171 @@ if ($id != '') {
                     <?php } 
                     if($no==1) {
                       ?>
-                      <tr><td style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
+                 <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
                       <?php
                     }
                     if($no==2) { ?>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
-                      <tr><td><br/></td></tr>
+                   <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
                       <?php
                     }
                     if($no==3) { ?>
@@ -254,35 +398,196 @@ if ($id != '') {
                       
                        <?php }
                   if($no==4) { ?>
-                    <tr><td><br/></td></tr>
-                    <tr><td><br/></td></tr>
-                    <tr><td><br/></td></tr>
-                    <tr><td><br/></td></tr>
-                    <tr><td><br/></td></tr>
-                    <tr><td><br/></td></tr>
-                <?php }
+                   <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                         <?php }
                  if($no==5) { ?>
-                  <tr><td><br/></td></tr>
-                  <tr><td><br/></td></tr>
-                  <tr><td><br/></td></tr>
-                  <tr><td><br/></td></tr>
-                  <tr><td><br/></td></tr>
-              <?php }
+                <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                       <?php }
                if($no==6) { ?>
-                <tr><td><br/></td></tr>
-                <tr><td><br/></td></tr>
-                <tr><td><br/></td></tr>
-                <tr><td><br/></td></tr>
-            <?php }
+              <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>\
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                       <?php }
              if($no==7) { ?>
-              <tr><td><br/></td></tr>
-              <tr><td><br/></td></tr>
-              <tr><td><br/></td></tr>
-          <?php }
+            <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                       <?php }
            if($no==9) { ?>
-            <tr><td><br/></td></tr>
-            <tr><td><br/></td></tr>
-        <?php }
+        <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                      
+                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
+                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
+                       <?php }
                     ?>
                   </tbody>
                 </table>
