@@ -32,7 +32,7 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-rocket"></i><span class="app-menu__label">Bill</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-          <li><a class="treeview-item" href="add-bill.php"><i class="icon fa fa-circle-o"></i>Add Bill</a></li>
+          <li><a class="treeview-item" href="add-bills.php"><i class="icon fa fa-circle-o"></i>Add Bill</a></li>
             <li><a class="treeview-item" href="view-bill.php"><i class="icon fa fa-circle-o"></i>View Bill</a></li>
           </ul>
         </li>

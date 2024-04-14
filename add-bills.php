@@ -18,101 +18,284 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
   <script src="externallink/jqueryv.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $('#qty,#rate,#discount,#qty1,#rate1,#qty2,#rate2,#qty3,#rate3,#qty4,#rate4,#qty5,#rate5,#qty6,#rate6,#qty7,#rate7,#qty8,#rate8,#qty9,#rate9').change(function() {
-        var qty = $('#qty').val();
-        var rate = $('#rate').val();
+      $('#qty,#rate,#qty1,#rate1,#qty2,#rate2,#qty3,#rate3,#qty4,#rate4,#qty5,#rate5,#qty6,#rate6,#qty7,#rate7,#qty8,#rate8,#qty9,#rate9,#per,#per1,#per2,#per3,#per4,#per5,#per6,#per7,#per8,#per9').change(function() {
 
-        var amt = qty * rate;
+        var cracker_name = $('#cracker_name').val();
+        var carton = $('#carton').val();
+        var carton_content = $('#carton_contents').val();
+        cartoncontent = carton_content.split(" ");
+        contentss = cartoncontent[0];
+        content_type = cartoncontent[1];
+
+        var qty_type = $('#qty').val();
+        qtyvals = qty_type.split(" ");
+        qty = qtyvals[0];
+
+        var rate = $('#rate').val();
+        var per = $('#per').val();
+
+        if ((cracker_name == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') || content_type == "Pocket" || content_type == "Piece") {
+          perstring = '"' + per + '"';
+          persplit = perstring.split(" ");
+          perval = persplit[0].replace('"', "");
+
+          var pers = 1 / parseInt(perval);
+          if(cracker_name == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi' ) {
+          var amt= carton * rate;
+          }
+         else {
+              var amt = qty * rate * pers;
+        } 
+      }
+      else {
+          var amt = qty * rate;
+        }
+
         $('#amount').val(amt);
 
-        if (isNaN(qty1)) {
-          qty1 = 0;
-        }
+        var cracker_name1 = $('#cracker_name1').val();
+        var carton1 = $('#carton1').val();
+        var carton_content1 = $('#carton_contents1').val();
+        cartoncontent1 = carton_content1.split(" ");
+        contentss1 = cartoncontent1[0];
+        content_type1 = cartoncontent1[1];
 
-        var qty1 = $('#qty1').val();
+        var qty_type1 = $('#qty1').val();
+        qtyvals1 = qty_type1.split(" ");
+        qty1 = qtyvals1[0];
+
         var rate1 = $('#rate1').val();
+        var per1 = $('#per1').val();
 
-        var amt1 = qty1 * rate1;
-        $('#amount1').val(amt1);
+        if (content_type1 == "Pocket" || content_type1 == "Piece") {
+          perstring1 = '"' + per1 + '"';
+          persplit1 = perstring1.split(" ");
+          perval1 = persplit1[0].replace('"', "");
 
-        if (isNaN(qty2)) {
-          qty2 = 0;
+         var pers1 = 1 / parseInt(perval1);
+        
+          var amt1 = qty1 * rate1 * pers1;
+        } else {
+          var amt1 = qty1 * rate1;
         }
 
-        var qty2 = $('#qty2').val();
-        var rate2 = $('#rate2').val();
+        $('#amount1').val(amt1);
+  
+        var cracker_name2 = $('#cracker_name2').val();
+        var carton2 = $('#carton2').val();
+        var carton_content2 = $('#carton_contents2').val();
+        cartoncontent2 = carton_content2.split(" ");
+        contentss2 = cartoncontent2[0];
+        content_type2 = cartoncontent2[1];
 
-        var amt2 = qty2 * rate2;
+        var qty_type2 = $('#qty2').val();
+        qtyvals2 = qty_type2.split(" ");
+        qty2 = qtyvals2[0];
+
+        var rate2 = $('#rate2').val();
+        var per2 = $('#per2').val();
+
+        if ((cracker_name2 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi' || (content_type2 == "Pocket" || content_type2 == "Piece")) {
+          perstring2 = '"' + per2 + '"';
+          persplit2 = perstring2.split(" ");
+          perval2 = persplit2[0].replace('"', "");
+
+          var pers2 = 1 / parseInt(perval2);
+          var amt2 = qty2 * rate2 * pers2;
+        } else {
+          var amt2 = qty2 * rate2;
+        }
+
         $('#amount2').val(amt2);
 
-        if (isNaN(qty3)) {
-          qty3 = 0;
+        var cracker_name3 = $('#cracker_name3').val();
+        var carton3 = $('#carton3').val();
+        var carton_content3 = $('#carton_contents3').val();
+        cartoncontent3 = carton_content3.split(" ");
+        contentss3 = cartoncontent3[0];
+        content_type3 = cartoncontent3[1];
+
+        var qty_type3 = $('#qty3').val();
+        qtyvals3 = qty_type3.split(" ");
+        qty3 = qtyvals3[0];
+
+        var rate3 = $('#rate3').val();
+        var per3 = $('#per3').val();
+
+        if ((cracker_name3 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi' || (content_type3 == "Pocket" || content_type3 == "Piece")) {
+          perstring3 = '"' + per3 + '"';
+          persplit3 = perstring3.split(" ");
+          perval3 = persplit3[0].replace('"', "");
+
+          var pers3 = 1 / parseInt(perval3);
+          var amt3 = qty3 * rate3 * pers3;
+        } else {
+          var amt3 = qty3 * rate3;
         }
 
-        var qty3 = $('#qty3').val();
-        var rate3 = $('#rate3').val();
-
-        var amt3 = qty3 * rate3;
         $('#amount3').val(amt3);
 
-        if (isNaN(qty4)) {
-          qty4 = 0;
+        var cracker_name4 = $('#cracker_name4').val();
+        var carton4 = $('#carton4').val();
+        var carton_content4 = $('#carton_contents4').val();
+        cartoncontent4 = carton_content4.split(" ");
+        contentss4 = cartoncontent4[0];
+        content_type4 = cartoncontent4[1];
+
+        var qty_type4 = $('#qty4').val();
+        qtyvals4 = qty_type4.split(" ");
+        qty4 = qtyvals4[0];
+
+        var rate4 = $('#rate4').val();
+        var per4 = $('#per4').val();
+
+        if ((cracker_name4 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi' || (content_type4 == "Pocket" || content_type4 == "Piece")) {
+          perstring4 = '"' + per4 + '"';
+          persplit4 = perstring4.split(" ");
+          perval4 = persplit4[0].replace('"', "");
+
+          var pers4 = 1 / parseInt(perval4);
+          var amt4 = qty4 * rate4 * pers4;
+        } else {
+          var amt4 = qty4 * rate4;
         }
 
-        var qty4 = $('#qty4').val();
-        var rate4 = $('#rate4').val();
-
-        var amt4 = qty4 * rate4;
         $('#amount4').val(amt4);
 
-        if (isNaN(qty5)) {
-          qty5 = 0;
+        var cracker_name5 = $('#cracker_name5').val();
+        var carton5 = $('#carton5').val();
+        var carton_content5 = $('#carton_contents5').val();
+        cartoncontent5 = carton_content5.split(" ");
+        contentss5 = cartoncontent5[0];
+        content_type5 = cartoncontent5[1];
+
+        var qty_type5 = $('#qty5').val();
+        qtyvals5 = qty_type5.split(" ");
+        qty5 = qtyvals5[0];
+
+        var rate5 = $('#rate5').val();
+        var per5 = $('#per5').val();
+
+        if ((cracker_name5 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi' || (content_type5 == "Pocket" || content_type5 == "Piece")) {
+          perstring5 = '"' + per5 + '"';
+          persplit5 = perstring5.split(" ");
+          perval5 = persplit5[0].replace('"', "");
+
+          var pers5 = 1 / parseInt(perval5);
+          var amt5 = qty5 * rate5 * pers5;
+        } else {
+          var amt5 = qty5 * rate5;
         }
 
-        var qty5 = $('#qty5').val();
-        var rate5 = $('#rate5').val();
-
-        var amt5 = qty5 * rate5;
         $('#amount5').val(amt5);
 
-        if (isNaN(qty6)) {
-          qty6 = 0;
+        var cracker_name6 = $('#cracker_name6').val();
+        var carton6 = $('#carton6').val();
+        var carton_content6 = $('#carton_contents6').val();
+        cartoncontent6 = carton_content6.split(" ");
+        contentss6 = cartoncontent6[0];
+        content_type6 = cartoncontent6[1];
+
+        var qty_type6 = $('#qty6').val();
+        qtyvals6 = qty_type6.split(" ");
+        qty6 = qtyvals6[0];
+
+        var rate6 = $('#rate6').val();
+        var per6 = $('#per6').val();
+
+        if ((cracker_name6 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi' || (content_type6 == "Pocket" || content_type6 == "Piece")) {
+          perstring6 = '"' + per6 + '"';
+          persplit6 = perstring6.split(" ");
+          perval6 = persplit6[0].replace('"', "");
+
+          var pers6 = 1 / parseInt(perval6);
+          var amt6 = qty6 * rate6 * pers6;
+        } else {
+          var amt6 = qty6 * rate6;
         }
 
-        var qty6 = $('#qty6').val();
-        var rate6 = $('#rate6').val();
-
-        var amt6 = qty6 * rate6;
         $('#amount6').val(amt6);
 
-        if (isNaN(qty7)) {
-          qty7 = 0;
+        var cracker_name7 = $('#cracker_name7').val();
+        var carton7 = $('#carton7').val();
+        var carton_content7 = $('#carton_contents7').val();
+        cartoncontent7 = carton_content7.split(" ");
+        contentss7 = cartoncontent7[0];
+        content_type7 = cartoncontent7[1];
+
+        var qty_type7 = $('#qty7').val();
+        qtyvals7 = qty_type7.split(" ");
+        qty7 = qtyvals7[0];
+
+        var rate7 = $('#rate7').val();
+        var per7 = $('#per7').val();
+
+        if ((cracker_name7 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi' || (content_type7 == "Pocket" || content_type7 == "Piece")) {
+          perstring7 = '"' + per7 + '"';
+          persplit7 = perstring7.split(" ");
+          perval7 = persplit7[0].replace('"', "");
+
+          var pers7 = 1 / parseInt(perval7);
+          var amt7 = qty7 * rate7 * pers7;
+        } else {
+          var amt7 = qty7 * rate7;
         }
 
-        var qty7 = $('#qty7').val();
-        var rate7 = $('#rate7').val();
-
-        var amt7 = qty7 * rate7;
         $('#amount7').val(amt7);
 
-        if (isNaN(qty8)) {
-          qty8 = 0;
+        var cracker_name8 = $('#cracker_name8').val();
+        var carton8 = $('#carton8').val();
+        var carton_content8 = $('#carton_contents8').val();
+        cartoncontent8 = carton_content8.split(" ");
+        contentss8 = cartoncontent8[0];
+        content_type8 = cartoncontent8[1];
+
+        var qty_type8 = $('#qty8').val();
+        qtyvals8 = qty_type8.split(" ");
+        qty8 = qtyvals8[0];
+
+        var rate8 = $('#rate8').val();
+        var per8 = $('#per8').val();
+
+        if ((cracker_name8 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi' || (content_type8 == "Pocket" || content_type8 == "Piece")) {
+          perstring8 = '"' + per8 + '"';
+          persplit8 = perstring8.split(" ");
+          perval8 = persplit8[0].replace('"', "");
+
+          var pers8 = 1 / parseInt(perval8);
+          var amt8 = qty8 * rate8 * pers8;
+        } else {
+          var amt8 = qty8 * rate8;
         }
 
-        var qty8 = $('#qty8').val();
-        var rate8 = $('#rate8').val();
-
-        var amt8 = qty8 * rate8;
         $('#amount8').val(amt8);
 
-        if (isNaN(qty9)) {
-          qty9 = 0;
+
+        var cracker_name9 = $('#cracker_name9').val();
+        var carton9 = $('#carton9').val();
+        var carton_content9 = $('#carton_contents9').val();
+        cartoncontent9 = carton_content9.split(" ");
+        contentss9 = cartoncontent9[0];
+        content_type9 = cartoncontent9[1];
+
+        var qty_type9 = $('#qty9').val();
+        qtyvals9 = qty_type9.split(" ");
+        qty9 = qtyvals9[0];
+
+        var rate9 = $('#rate9').val();
+        var per9 = $('#per9').val();
+
+        if ((cracker_name9 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi' || (content_type9 == "Pocket" || content_type9 == "Piece")) {
+          perstring9 = '"' + per9 + '"';
+          persplit9 = perstring9.split(" ");
+          perval9 = persplit9[0].replace('"', "");
+
+          var pers9 = 1 / parseInt(perval9);
+          var amt9 = qty9 * rate9 * pers9;
+        } else {
+          var amt9 = qty9 * rate9;
         }
 
-        var qty9 = $('#qty9').val();
-        var rate9 = $('#rate9').val();
-
-        var amt9 = qty9 * rate9;
         $('#amount9').val(amt9);
 
         if (isNaN(amt)) {
@@ -179,7 +362,9 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
 
             $('#net_amount').val(Math.round(netamount));
+
           } else if (state_type == "Intrastate") {
+
             $('#cgst').val('');
             $('#sgst').val('');
             $('#cgst_amount').val('');
@@ -197,9 +382,8 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
             var netfix = tax.toFixed(2);
 
             $('#round_off').val((netfloor - netfix).toFixed(2));
-
-
             $('#net_amount').val(Math.round(netamount));
+
           }
 
         }
@@ -210,49 +394,51 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var amount = $('#good_value').val();
         var dis = (amount * discount) / 100;
         $('#discount_amount').val(Math.round(dis));
-       
+
         var taxable = Math.round(amount - dis);
-          $('#taxable_value').val(taxable);
+        $('#taxable_value').val(taxable);
+        var state_type = $('#state_type').val();
+              console.log(state_type);
+              var igst = $('#igst').val();
+              var sgst = $('#sgst').val();
+                var cgst = $('#cgst').val();
+              
+                console.log(igst+""+sgst+""+cgst);
+               if (state_type == "Interstate") {
+                $('#cgst').val('');
+                $('#sgst').val('');
+                $('#cgst_amount').val('');
+                $('#sgst_amount').val('');
 
-        if (state_type == "Interstate") {
-          var sgst = $('#sgst').val();
-          var cgst = $('#cgst').val();
-          $('#igst').val('');
-          $('#igst_amount').val('');
-          var calsgst = (sgst * taxable) / 100;
-          var calcgst = (cgst * taxable) / 100;
-          $('#sgst_amount').val(calsgst);
-          $('#cgst_amount').val(calcgst);
-          var tax = parseFloat(calsgst) + parseFloat(calcgst);
-          var netamount = parseFloat(taxable) + parseFloat(tax);
+                var caligst = (igst * taxable) / 100;
+                $('#igst_amount').val(caligst);
 
-          var netfloor = Math.floor(tax);
-          var netfix = tax.toFixed(2);
+                var tax = parseFloat(caligst);
+                var netamount = (parseFloat(taxable)) + parseFloat(tax);
+                $('#net_amount').val(Math.round(netamount));
+                var netfloor = Math.floor(tax);
+                var netfix = tax.toFixed(2);
 
-          $('#round_off').val((netfloor - netfix).toFixed(2));
+                $('#round_off').val((netfloor - netfix).toFixed(2));
 
+              } else if (state_type == "Intrastate") {
+                $('#igst').val('');
+                $('#igst_amount').val('');
+                var calsgst = (sgst * taxable) / 100;
+                var calcgst = (cgst * taxable) / 100;
+                $('#sgst_amount').val(calsgst);
+                $('#cgst_amount').val(calcgst);
 
-          $('#net_amount').val(Math.round(netamount));
-        } else if (state_type == "Intrastate") {
-          $('#cgst').val('');
-          $('#sgst').val('');
-          $('#cgst_amount').val('');
-          $('#sgst_amount').val('');
-          var igst = $('#igst').val();
+                var tax = parseFloat(calsgst) + parseFloat(calcgst);
 
-          var caligst = (igst * taxable) / 100;
-          $('#igst_amount').val(caligst);
-          var tax = caligst;
-          var netamount = parseFloat(taxable) + parseFloat(tax);
+                var netamount = (parseFloat(taxable)) + parseFloat(tax);
+                $('#net_amount').val(Math.round(netamount));
+                var netfloor = Math.floor(tax);
+                var netfix = tax.toFixed(2);
 
-          var netfloor = Math.floor(tax);
-          var netfix = tax.toFixed(2);
+                $('#round_off').val((netfloor - netfix).toFixed(2));
 
-          $('#round_off').val((netfloor - netfix).toFixed(2));
-
-
-          $('#net_amount').val(Math.round(netamount));
-        }
+              }
       });
 
       $('#consignee_name').change(function() {
@@ -270,7 +456,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
             if (response.msg == "Success") {
               $('#gstin').val(response.data.gstin);
               $('#state').val(response.data.state);
-              $('#place').val(response.data.place);
+              $('#place').val(response.data.place+" - "+response.data.pincode);
               $('#consignee_address').val(response.data.address1 + " " + response.data.address2);
             }
             if (response.msg == "Failure") {}
@@ -280,134 +466,313 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
 
       $('#carton,#carton_contents,#carton1,#carton_contents1,#carton2,#carton_contents2,#carton3,#carton_contents3,#carton4,#carton_contents4,#carton5,#carton_contents5,#carton6,#carton_contents6,#carton7,#carton_contents7,#carton8,#carton_contents8,#carton9,#carton_contents9').change(function() {
+        var cracker_name = $('#cracker_name').val();
+        var cracker_name1 = $('#cracker_name1').val();
+        var cracker_name2 = $('#cracker_name2').val();
+        var cracker_name3 = $('#cracker_name3').val();
+        var cracker_name4 = $('#cracker_name4').val();
+        var cracker_name5 = $('#cracker_name5').val();
+        var cracker_name6 = $('#cracker_name6').val();
+        var cracker_name7 = $('#cracker_name7').val();
+        var cracker_name8 = $('#cracker_name8').val();
+        var cracker_name9 = $('#cracker_name9').val();
+
         var carton = $('#carton').val();
         var carton_content = $('#carton_contents').val();
-        cartoncontent = '"' + carton_content + '"';
-        cartoncontents = cartoncontent.split(" ");
-        contentss = cartoncontents[0].replace('"', "");
+        cartoncontent = carton_content.split(" ");
+        contentss = cartoncontent[0];
+        content_type = cartoncontent[1];
+        var rate = $('#rate').val();
+        var per = $('#per').val();
 
         var qty = parseInt(carton) * parseInt(contentss);
-        $('#qty').val(qty);
+        $('#qty').val(qty + " " + content_type);
+        
+        if ((cracker_name == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') || (content_type == "Pocket" || content_type == "Piece")) {
+          perstring = '"' + per + '"';
+          persplit = perstring.split(" ");
+          perval = persplit[0].replace('"', "");
 
-        var rate = $('#rate').val();
-        var amt = qty * rate;
+          var pers = 1 / parseInt(perval);
+          if(cracker_name == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') {
+            var amt = carton * rate ;
+      }
+          else {
+          var amt = qty * rate * pers;
+          }
+        } else {
+          var amt = qty * rate;
+        }
+
         $('#amount').val(amt);
 
         var carton1 = $('#carton1').val();
         var carton_content1 = $('#carton_contents1').val();
-        cartoncontent1 = '"' + carton_content1 + '"';
-        cartoncontents1 = cartoncontent1.split(" ");
-        contentss1 = cartoncontents1[0].replace('"', "");
+        cartoncontent1 = carton_content1.split(" ");
+        contentss1 = cartoncontent1[0];
+        content_type1 = cartoncontent1[1];
 
         var qty1 = parseInt(carton1) * parseInt(contentss1);
-        $('#qty1').val(qty1);
+        $('#qty1').val(qty1+" "+content_type1);
 
         var rate1 = $('#rate1').val();
-        var amt1 = qty1 * rate1;
+        var per1 = $('#per1').val();
+
+        if ((cracker_name1 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') || (content_type1 == "Pocket" || content_type1 == "Piece")) {
+          perstring1 = '"' + per1 + '"';
+          persplit1 = perstring1.split(" ");
+          perval1 = persplit1[0].replace('"', "");
+
+          var pers1 = 1 / parseInt(perval1);
+          if(cracker_name1 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
+            var amt1 = carton1 * rate1 ;
+      }
+          else {
+            console.log(pers1);
+          var amt1 = qty1 * rate1 * pers1;
+          }
+        } else {
+          var amt1 = qty1 * rate1;
+        }
+
         $('#amount1').val(amt1);
 
         var carton2 = $('#carton2').val();
         var carton_content2 = $('#carton_contents2').val();
-        cartoncontent2 = '"' + carton_content2 + '"';
-        cartoncontents2 = cartoncontent2.split(" ");
-        contentss2 = cartoncontents2[0].replace('"', "");
+        cartoncontent2 = carton_content2.split(" ");
+        contentss2 = cartoncontent2[0];
+        content_type2 = cartoncontent2[1];
 
         var qty2 = parseInt(carton2) * parseInt(contentss2);
+        $('#qty2').val(qty2+" "+content_type2);
 
-        $('#qty2').val(qty2);
         var rate2 = $('#rate2').val();
-        var amt2 = qty2 * rate2;
+        var per2 = $('#per2').val();
+
+        if ((cracker_name2 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') || (content_type2 == "Pocket" || content_type2 == "Piece")) {
+          perstring2 = '"' + per2 + '"';
+          persplit2 = perstring2.split(" ");
+          perval2 = persplit2[0].replace('"', "");
+
+          var pers2 = 1 / parseInt(perval2);
+          if(cracker_name2 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
+            var amt2 = carton2 * rate2 ;
+      }
+          else {
+          var amt2 = qty2 * rate2 * pers2;
+          }
+        } else {
+          var amt2 = qty2 * rate2;
+        }
+
         $('#amount2').val(amt2);
 
         var carton3 = $('#carton3').val();
         var carton_content3 = $('#carton_contents3').val();
-        cartoncontent3 = '"' + carton_content3 + '"';
-        cartoncontents3 = cartoncontent3.split(" ");
-        contentss3 = cartoncontents3[0].replace('"', "");
+        cartoncontent3 = carton_content3.split(" ");
+        contentss3 = cartoncontent3[0];
+        content_type3 = cartoncontent3[1];
 
         var qty3 = parseInt(carton3) * parseInt(contentss3);
+        $('#qty3').val(qty3+" "+content_type3);
 
-        $('#qty3').val(qty3);
         var rate3 = $('#rate3').val();
-        var amt3 = qty3 * rate3;
+        var per3 = $('#per3').val();
+
+        if ((cracker_name3 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') || (content_type3 == "Pocket" || content_type3 == "Piece")) {
+                perstring3 = '"' + per3 + '"';
+          persplit3 = perstring3.split(" ");
+          perval3 = persplit3[0].replace('"', "");
+
+          var pers3 = 1 / parseInt(perval3);
+          if(cracker_name3 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
+            var amt3 = carton3 * rate3 ;
+      }
+          else {
+          var amt3 = qty3 * rate3 * pers3;
+          }
+        } else {
+          var amt3 = qty3 * rate3;
+        }
+
         $('#amount3').val(amt3);
 
         var carton4 = $('#carton4').val();
         var carton_content4 = $('#carton_contents4').val();
-        cartoncontent4 = '"' + carton_content4 + '"';
-        cartoncontents4 = cartoncontent4.split(" ");
-        contentss4 = cartoncontents4[0].replace('"', "");
+        cartoncontent4 = carton_content4.split(" ");
+        contentss4 = cartoncontent4[0];
+        content_type4 = cartoncontent4[1];
 
         var qty4 = parseInt(carton4) * parseInt(contentss4);
+        $('#qty4').val(qty4+" "+content_type4);
 
-        $('#qty4').val(qty4);
         var rate4 = $('#rate4').val();
-        var amt4 = qty4 * rate4;
+        var per4 = $('#per4').val();
+
+        if ((cracker_name4 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') || (content_type4 == "Pocket" || content_type4 == "Piece")) {
+          perstring4 = '"' + per4 + '"';
+          persplit4 = perstring4.split(" ");
+          perval4 = persplit4[0].replace('"', "");
+
+          var pers4 = 1 / parseInt(perval4);
+          if(cracker_name4 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
+            var amt4 = carton4 * rate4 ;
+      }
+          else {
+          var amt4 = qty4 * rate4 * pers4;
+          }
+        } else {
+          var amt4 = qty4 * rate4;
+        }
         $('#amount4').val(amt4);
 
         var carton5 = $('#carton5').val();
         var carton_content5 = $('#carton_contents5').val();
-        cartoncontent5 = '"' + carton_content5 + '"';
-        cartoncontents5 = cartoncontent5.split(" ");
-        contentss5 = cartoncontents5[0].replace('"', "");
+        cartoncontent5 = carton_content5.split(" ");
+        contentss5 = cartoncontent5[0];
+        content_type5 = cartoncontent5[1];
 
         var qty5 = parseInt(carton5) * parseInt(contentss5);
 
-        $('#qty5').val(qty5);
+        $('#qty5').val(qty5+" "+content_type5);
         var rate5 = $('#rate5').val();
-        var amt5 = qty5 * rate5;
+        var per5 = $('#per5').val();
+
+        if ((cracker_name5 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') || (content_type5 == "Pocket" || content_type5 == "Piece")) {
+          perstring5 = '"' + per5 + '"';
+          persplit5 = perstring5.split(" ");
+          perval5 = persplit5[0].replace('"', "");
+
+          var pers5 = 1 / parseInt(perval5);
+          if(cracker_name5 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
+            var amt5= carton5 * rate5 ;
+      }
+          else {
+          var amt5 = qty5 * rate5 * pers5;
+          }
+        } else {
+          var amt5 = qty5 * rate5;
+        }
         $('#amount5').val(amt5);
 
         var carton6 = $('#carton6').val();
         var carton_content6 = $('#carton_contents6').val();
-        cartoncontent6 = '"' + carton_content6 + '"';
-        cartoncontents6 = cartoncontent6.split(" ");
-        contentss6 = cartoncontents6[0].replace('"', "");
+        cartoncontent6 = carton_content6.split(" ");
+        contentss6 = cartoncontent6[0];
+        content_type6 = cartoncontent6[1];
 
         var qty6 = parseInt(carton6) * parseInt(contentss6);
 
-        $('#qty6').val(qty6);
+        $('#qty6').val(qty6+" "+content_type6);
         var rate6 = $('#rate6').val();
-        var amt6 = qty6 * rate6;
+        var per6 = $('#per2').val();
+
+        if ((cracker_name6 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') || (content_type6 == "Pocket" || content_type6 == "Piece")) {
+          perstring6 = '"' + per6 + '"';
+          persplit6 = perstring6.split(" ");
+          perval6 = persplit6[0].replace('"', "");
+
+          var pers6 = 1 / parseInt(perval6);
+          if(cracker_name6 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
+            var amt6 = carton6 * rate6 ;
+      }
+          else {
+          var amt6 = qty6 * rate6 * pers6;
+          }
+        } else {
+          var amt6 = qty6 * rate6;
+        }
+
         $('#amount6').val(amt6);
 
         var carton7 = $('#carton7').val();
         var carton_content7 = $('#carton_contents7').val();
-        cartoncontent7 = '"' + carton_content7 + '"';
-        cartoncontents7 = cartoncontent7.split(" ");
-        contentss7 = cartoncontents7[0].replace('"', "");
+        cartoncontent7 = carton_content7.split(" ");
+        contentss7 = cartoncontent7[0];
+        content_type7 = cartoncontent7[1];
 
         var qty7 = parseInt(carton7) * parseInt(contentss7);
 
-        $('#qty7').val(qty7);
+        $('#qty7').val(qty7+" "+content_type7);
         var rate7 = $('#rate7').val();
-        var amt7 = qty7 * rate7;
+        var per7 = $('#per7').val();
+
+        if ((cracker_name7 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') || (content_type7 == "Pocket" || content_type7 == "Piece")) {
+          perstring7 = '"' + per7 + '"';
+          persplit7 = perstring7.split(" ");
+          perval7 = persplit7[0].replace('"', "");
+
+          var pers7 = 1 / parseInt(perval7);
+          if(cracker_name7 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
+            var amt7 = carton7 * rate7 ;
+      }
+          else {
+          var amt7 = qty7 * rate7 * pers7;
+          }
+        } else {
+          var amt7 = qty7 * rate7;
+        }
+
         $('#amount7').val(amt7);
 
         var carton8 = $('#carton8').val();
         var carton_content8 = $('#carton_contents8').val();
-        cartoncontent8 = '"' + carton_content8 + '"';
-        cartoncontents8 = cartoncontent8.split(" ");
-        contentss8 = cartoncontents8[0].replace('"', "");
+        cartoncontent8 = carton_content8.split(" ");
+        contentss8 = cartoncontent8[0];
+        content_type8 = cartoncontent8[1];
 
         var qty8 = parseInt(carton8) * parseInt(contentss8);
+        $('#qty8').val(qty8+" "+content_type8);
 
-        $('#qty8').val(qty8);
         var rate8 = $('#rate8').val();
-        var amt8 = qty8 * rate8;
+        var per8 = $('#per8').val();
+
+        if ((cracker_name8 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') || (content_type8 == "Pocket" || content_type8 == "Piece")) {
+          perstring8 = '"' + per8 + '"';
+          persplit8 = perstring8.split(" ");
+          perval8 = persplit8[0].replace('"', "");
+
+          var pers8 = 1 / parseInt(perval8);
+          if(cracker_name8 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
+            var amt8 = carton8 * rate8 ;
+      }
+          else {
+          var amt8 = qty8 * rate8 * pers8;
+          }
+        } else {
+          var amt8 = qty8 * rate8;
+        }
+
         $('#amount8').val(amt8);
 
         var carton9 = $('#carton9').val();
         var carton_content9 = $('#carton_contents9').val();
-        cartoncontent9 = '"' + carton_content9 + '"';
-        cartoncontents9 = cartoncontent9.split(" ");
-        contentss9 = cartoncontents9[0].replace('"', "");
+        cartoncontent9 = carton_content9.split(" ");
+        contentss9 = cartoncontent9[0];
+        content_type9 = cartoncontent9[1];
 
         var qty9 = parseInt(carton9) * parseInt(contentss9);
 
-        $('#qty9').val(qty9);
+        $('#qty9').val(qty9+" "+content_type1);
         var rate9 = $('#rate9').val();
-        var amt9 = qty9 * rate9;
+        var per9 = $('#per9').val();
+
+        if ((cracker_name9 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') || (content_type9 == "Pocket" || content_type9 == "Piece")) {
+          perstring9 = '"' + per9 + '"';
+          persplit9 = perstring9.split(" ");
+          perval9 = persplit9[0].replace('"', "");
+
+          var pers9 = 1 / parseInt(perval9);
+          if(cracker_name9 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
+            var amt9 = carton9* rate9 ;
+      }
+          else {
+          var amt9 = qty9 * rate9 * pers9;
+          }
+        } else {
+          var amt9 = qty9 * rate9;
+        }
+
         $('#amount9').val(amt9);
 
         if (isNaN(contentss)) {
@@ -441,7 +806,38 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           contentss9 = 0;
         }
 
-        $('#total_carton').val(parseInt(contentss) + parseInt(contentss1) + parseInt(contentss2) + parseInt(contentss3) + parseInt(contentss4) + parseInt(contentss5) + parseInt(contentss6) + parseInt(contentss7) + parseInt(contentss8) + parseInt(contentss9));
+        if (isNaN(carton) || carton == '') {
+          carton = 0;
+        }
+        if (isNaN(carton1) || carton1 == '') {
+          carton1 = 0;
+        }
+        if (isNaN(carton2) || carton2 == '') {
+          carton2 = 0;
+        }
+        if (isNaN(carton3) || carton3 == '') {
+          carton3 = 0;
+        }
+        if (isNaN(carton4) || carton4 == '') {
+          carton4 = 0;
+        }
+        if (isNaN(carton5) || carton5 == '') {
+          carton5 = 0;
+        }
+        if (isNaN(carton6) || carton6 == '') {
+          carton6 = 0;
+        }
+        if (isNaN(carton7) || carton7 == '') {
+          carton7 = 0;
+        }
+        if (isNaN(carton8) || carton8 == '') {
+          carton8 = 0;
+        }
+        if (isNaN(carton9) || carton9 == '') {
+          carton9 = 0;
+        }
+
+        $('#total_carton').val(parseInt(carton) + parseInt(carton1) + parseInt(carton2) + parseInt(carton3) + parseInt(carton4) + parseInt(carton5) + parseInt(carton6) + parseInt(carton7) + parseInt(carton8) + parseInt(carton9));
 
         if (isNaN(amt)) {
           amt = 0;
@@ -714,6 +1110,25 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
               var taxable = $('#taxable_value').val();
               console.log(taxable);
               if (vals == "Interstate") {
+                $('#igst').val(response.data.igst);
+                $('#cgst').val('');
+                $('#sgst').val('');
+                $('#cgst_amount').val('');
+                $('#sgst_amount').val('');
+
+                var igst = $('#igst').val();
+                var caligst = (igst * taxable) / 100;
+                $('#igst_amount').val(caligst);
+
+                var tax = parseFloat(caligst);
+                var netamount = (parseFloat(taxable)) + parseFloat(tax);
+                $('#net_amount').val(Math.round(netamount));
+                var netfloor = Math.floor(tax);
+                var netfix = tax.toFixed(2);
+
+                $('#round_off').val((netfloor - netfix).toFixed(2));
+
+              } else if (vals == "Intrastate") {
                 $('#cgst').val(response.data.cgst);
                 $('#sgst').val(response.data.sgst);
                 $('#igst').val('');
@@ -734,24 +1149,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
                 $('#round_off').val((netfloor - netfix).toFixed(2));
 
-              } else if (vals == "Intrastate") {
-                $('#igst').val(response.data.igst);
-                $('#cgst').val('');
-                $('#sgst').val('');
-                $('#cgst_amount').val('');
-                $('#sgst_amount').val('');
-
-                var igst = $('#igst').val();
-                var caligst = (igst * taxable) / 100;
-                $('#igst_amount').val(caligst);
-
-                var tax = parseFloat(caligst);
-                var netamount = (parseFloat(taxable)) + parseFloat(tax);
-                $('#net_amount').val(Math.round(netamount));
-                var netfloor = Math.floor(tax);
-                var netfix = tax.toFixed(2);
-
-                $('#round_off').val((netfloor - netfix).toFixed(2));
               }
             }
           }
@@ -805,15 +1202,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           <div class="tile-body">
             <?php
             if ($id != '') {
-              $sql = "select * from customerbill where id=$id";
+              $sql = "select * from customerbill where invoice_no=$id";
               $exe_sql = mysqli_query($con, $sql);
-              $val_sql = mysqli_fetch_assoc($exe_sql);
+              $val_sql = mysqli_fetch_all($exe_sql);
+              // print_r($val_sql[0][1]);die();
             }
             ?>
             <div class="row col-md-12">
               <div class="form-group col-md-3">
                 <label class="control-label">Consignee Name</label>
-                <input list="consignee" class="form-control" value="<?= isset($val_sql['consignee_name']) ? $val_sql['consignee_name'] : "" ?>" name="consignee_name" id="consignee_name" placeholder="Enter consignee name">
+                <input list="consignee" class="form-control" value="<?= isset($val_sql[0][1]) ? $val_sql[0][1] : "" ?>" name="consignee_name" id="consignee_name" placeholder="Enter consignee name">
                 <datalist id="consignee">
                   <?php
                   $consigneesql = "select * from consignee";
@@ -827,22 +1225,21 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">State</label>
-                <input class="form-control" name="state" id="state" value="<?= isset($val_sql['state']) ? $val_sql['state'] : "" ?>" type="text" placeholder="Enter State">
+                <input class="form-control" name="state" id="state" value="<?= isset($val_sql[0][2]) ? $val_sql[0][2] : "" ?>" type="text" placeholder="Enter State">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">GSTIN</label>
-                <input class="form-control" value="<?= isset($val_sql['gstin']) ? $val_sql['gstin'] : "" ?>" name="gstin" id="gstin" type="text" placeholder="Enter GSTIN">
+                <input class="form-control" value="<?= isset($val_sql[0][4]) ? $val_sql[0][4] : "" ?>" name="gstin" id="gstin" type="text" placeholder="Enter GSTIN">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Consigness Address</label>
-                <textarea class="form-control" value="<?= isset($val_sql['consignee_address']) ? $val_sql['consignee_address'] : "" ?>" name="consignee_address" id="consignee_address" placeholder="Enter Consignee Address">
-                  </textarea>
+                <textarea class="form-control" name="consignee_address" id="consignee_address" placeholder="Enter Consignee Address"><?= isset($val_sql[0][5]) ? $val_sql[0][5] : "" ?></textarea>
               </div>
             </div>
             <div class="row col-md-12">
               <div class="form-group col-md-2">
-                <label class="control-label">Plcaes</label>
-                <input class="form-control" value="<?= isset($val_sql['place']) ? $val_sql['place'] : "" ?>" name="place" id="place" type="text" placeholder="Enter place">
+                <label class="control-label">Places</label>
+                <input class="form-control" value="<?= isset($val_sql[0][6]) ? $val_sql[0][6] : "" ?>" name="place" id="place" type="text" placeholder="Enter place">
               </div>
               <div class="form-group col-md-2">
                 <?php
@@ -856,49 +1253,50 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                 }
                 ?>
                 <label class="control-label">Invoice No</label>
-                <input class="form-control" value="<?= isset($val_sql['invoice_no']) ? $val_sql['invoice_no'] : $inv ?>" type="text" name="invoice_no" id="invoice_no" placeholder="Invoice No">
+                <input class="form-control" value="<?= isset($val_sql[0][7]) ? $val_sql[0][7] : $inv ?>" type="text" name="invoice_no" id="invoice_no" placeholder="Invoice No">
               </div>
               <div class="form-group col-md-2">
                 <label class="control-label">Invoice Date</label>
                 <?php $date = date('d-m-Y'); ?>
-                <input class="form-control" value="<?= isset($val_sql['invoice_date']) ? $val_sql['invoice_date'] : $date ?>" type="date" name="invoice_date" id="invoice_date" placeholder="">
+                <input class="form-control" value="<?= isset($val_sql[0][8]) ? $val_sql[0][8] : $date ?>" type="date" name="invoice_date" id="invoice_date" placeholder="">
               </div>
               <div class="form-group col-md-2">
                 <label class="control-label">E-Way Bill</label>
-                <input class="form-control" value="<?= isset($val_sql['eway_bill']) ? $val_sql['eway_bill'] : "" ?>" type="text" name="eway_bill" id="eway_bill" placeholder="Enter E-way Bill">
+                <input class="form-control" value="<?= isset($val_sql[0][9]) ? $val_sql[0][9] : "" ?>" type="text" name="eway_bill" id="eway_bill" placeholder="Enter E-way Bill">
               </div>
               <div class="form-group col-md-2">
                 <label class="control-label">HSN Code</label>
-                <input class="form-control" value="<?= isset($val_sql['hsn_code']) ? $val_sql['hsn_code'] : "3604" ?>" type="text" name="hsn_code" id="hsn_code" placeholder="Enter HSN Code">
+                <input class="form-control" value="<?= isset($val_sql[0][10]) ? $val_sql[0][10] : "3604" ?>" type="text" name="hsn_code" id="hsn_code" placeholder="Enter HSN Code">
               </div>
               <div class="form-group col-md-2">
                 <label class="control-label">Vehicle No</label>
-                <input class="form-control" value="<?= isset($val_sql['vehicle_no']) ? $val_sql['vehicle_no'] : "" ?>" type="text" name="vehicle_no" id="vehicle_no" placeholder="Enter Vehicle No">
+                <input class="form-control" value="<?= isset($val_sql[0][11]) ? $val_sql[0][11] : "" ?>" type="text" name="vehicle_no" id="vehicle_no" placeholder="Enter Vehicle No">
               </div>
             </div>
             <div class="row col-md-12">
               <div class="form-group col-md-2">
                 <label class="control-label">Despatched From</label>
-                <input class="form-control" type="text" value="<?= isset($val_sql['despatched_from']) ? $val_sql['despatched_from'] : "" ?>" name="despatched_from" id="despatched_from" placeholder="Enter Despateched From">
+                <input class="form-control" type="text" value="<?= isset($val_sql[0][12]) ? $val_sql[0][12] : "" ?>" name="despatched_from" id="despatched_from" placeholder="Enter Despateched From">
               </div>
               <div class="form-group col-md-2">
                 <label class="control-label">Despatched To</label>
-                <input class="form-control" type="text" value="<?= isset($val_sql['despatched_to']) ? $val_sql['despatched_to'] : "" ?>" name="despatched_to" id="despatched_to" placeholder="Enter Despateched To">
+                <input class="form-control" type="text" value="<?= isset($val_sql[0][13]) ? $val_sql[0][13] : "" ?>" name="despatched_to" id="despatched_to" placeholder="Enter Despateched To">
               </div>
               <div class="form-group col-md-3">
-                <label class="control-label">Transaport Name</label>
-                <input class="form-control" value="<?= isset($val_sql['transport_name']) ? $val_sql['transport_name'] : "" ?>" type="text" name="transport_name" id="transport_name" placeholder="Enter Transport Name">
+                <label class="control-label">Transport Name</label>
+                <input class="form-control" value="<?= isset($val_sql[0][14]) ? $val_sql[0][14] : "" ?>" type="text" name="transport_name" id="transport_name" placeholder="Enter Transport Name">
               </div>
               <div class="form-group col-md-2">
-                <label class="control-label">Transaport GSTIN</label>
-                <input class="form-control" value="<?= isset($val_sql['transport_gstin']) ? $val_sql['transport_gstin'] : "" ?>" type="text" name="transport_gstin" id="transport_gstin" placeholder="Enter Transport GSTIN">
+                <label class="control-label">Transport GSTIN</label>
+                <input class="form-control" value="<?= isset($val_sql[0][15]) ? $val_sql[0][15] : "" ?>" type="text" name="transport_gstin" id="transport_gstin" placeholder="Enter Transport GSTIN">
               </div>
               <div class="form-group col-md-3">
+                <?= $states = isset($val_sql[0][3]) ? $val_sql[0][3] : ""; ?>
                 <label class="control-label">GST Type</label>
                 <select class="form-control" name="state_type" id="state_type">
                   <option value="" disabled selected>Select State</option>
-                  <option value="Interstate">Interstate</option>
-                  <option value="Intrastate">Intrastate</option>
+                  <option value="Interstate" <?=($states=="Interstate") ? 'Selected' : ''?>>Interstate</option>
+                  <option value="Intrastate" <?=($states=="Intrastate") ? 'Selected' : ''?>>Intrastate</option>
                 </select>
               </div>
             </div>
@@ -919,7 +1317,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                       <label class="control-label">Carton From - To</label>
                     </div>
                     <div class="form-group col-md-2">
-                      <label class="control-label">Consignee Name</label>
+                      <label class="control-label">Particulars</label>
                     </div>
                     <div class="form-group col-md-1">
                       <label class="control-label">Carton</label>
@@ -946,10 +1344,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                   <div class="panel-body">
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to" id="carton_from_to" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[0][16]) ? $val_sql[0][16] : "" ?>" name="carton_from_to" id="carton_from_to" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name" id="cracker_name" placeholder="Enter cracker name">
+                        <input list="cracker" class="form-control" value="<?= isset($val_sql[0][17]) ? $val_sql[0][17] : "" ?>" name="cracker_name" id="cracker_name" placeholder="Enter cracker name">
                         <datalist id="cracker">
                           <?php
                           $crackersql = "select * from cracker";
@@ -962,19 +1360,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton" id="carton" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton" id="carton" value="<?= isset($val_sql[0][18]) ? $val_sql[0][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents" id="carton_contents" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents" id="carton_contents" value="<?= isset($val_sql[0][19]) ? $val_sql[0][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty" id="qty" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[0][21]) ? $val_sql[0][21] : "" ?>" name="qty" id="qty" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate" id="rate" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate" id="rate" value="<?= isset($val_sql[0][22]) ? $val_sql[0][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per" id="per" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[0][23]) ? $val_sql[0][23] : "" ?>" name="per" id="per" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -982,16 +1380,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount" id="amount" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount" id="amount" value="<?= isset($val_sql[0][24]) ? $val_sql[0][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to1" id="carton_from_to1" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[1][16]) ? $val_sql[1][16] : "" ?>" name="carton_from_to1" id="carton_from_to1" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker1" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name1" id="cracker_name1" placeholder="Enter cracker name">
+                        <input list="cracker1" class="form-control" value="<?= isset($val_sql[1][17]) ? $val_sql[1][17] : "" ?>" name="cracker_name1" id="cracker_name1" placeholder="Enter cracker name">
                         <datalist id="cracker1">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1004,19 +1402,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton1" id="carton1" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton1" id="carton1" value="<?= isset($val_sql[1][18]) ? $val_sql[1][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents1" id="carton_contents1" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents1" id="carton_contents1" value="<?= isset($val_sql[1][19]) ? $val_sql[1][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty1" id="qty1" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[1][21]) ? $val_sql[1][21] : "" ?>" name="qty1" id="qty1" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate1" id="rate1" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate1" id="rate1" value="<?= isset($val_sql[1][22]) ? $val_sql[1][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per1" id="per1" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[1][23]) ? $val_sql[1][23]: "" ?>" name="per1" id="per1" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1024,16 +1422,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount1" id="amount1" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount1" id="amount1" value="<?= isset($val_sql[1][24]) ? $val_sql[1][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to2" id="carton_from_to2" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[2][16]) ? $val_sql[2][16] : "" ?>" name="carton_from_to2" id="carton_from_to2" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker2" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name2" id="cracker_name2" placeholder="Enter cracker name">
+                        <input list="cracker2" class="form-control" value="<?= isset($val_sql[2][17]) ? $val_sql[2][17] : "" ?>" name="cracker_name2" id="cracker_name2" placeholder="Enter cracker name">
                         <datalist id="cracker2">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1046,19 +1444,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton2" id="carton2" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton2" id="carton2" value="<?= isset($val_sql[2][18]) ? $val_sql[2][18]: "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents2" id="carton_contents2" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents2" id="carton_contents2" value="<?= isset($val_sql[2][19]) ? $val_sql[2][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty2" id="qty2" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[2][21]) ? $val_sql[2][21] : "" ?>" name="qty2" id="qty2" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate2" id="rate2" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate2" id="rate2" value="<?= isset($val_sql[2][22]) ? $val_sql[2][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per2" id="per2" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[2][23]) ? $val_sql[2][23] : "" ?>" name="per2" id="per2" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1066,16 +1464,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount2" id="amount2" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount2" id="amount2" value="<?= isset($val_sql[2][24]) ? $val_sql[2][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to3" id="carton_from_to3" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[3][16]) ? $val_sql[3][16] : "" ?>" name="carton_from_to3" id="carton_from_to3" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker3" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name3" id="cracker_name3" placeholder="Enter cracker name">
+                        <input list="cracker3" class="form-control" value="<?= isset($val_sql[3][17]) ? $val_sql[3][17] : "" ?>" name="cracker_name3" id="cracker_name3" placeholder="Enter cracker name">
                         <datalist id="cracker3">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1088,19 +1486,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton3" id="carton3" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton3" id="carton3" value="<?= isset($val_sql[3][18]) ? $val_sql[3][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents3" id="carton_contents3" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents3" id="carton_contents3" value="<?= isset($val_sql[3][19]) ? $val_sql[3][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty3" id="qty3" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[3][21]) ? $val_sql[3][21] : "" ?>" name="qty3" id="qty3" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate3" id="rate3" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate3" id="rate3" value="<?= isset($val_sql[3][22]) ? $val_sql[3][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per3" id="per3" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[3][23]) ? $val_sql[3][23] : "" ?>" name="per3" id="per3" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1108,16 +1506,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount3" id="amount3" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount3" id="amount3" value="<?= isset($val_sql[3][24]) ? $val_sql[3][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to4" id="carton_from_to4" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[4][16]) ? $val_sql[4][16] : "" ?>" name="carton_from_to4" id="carton_from_to4" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker4" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name4" id="cracker_name4" placeholder="Enter cracker name">
+                        <input list="cracker4" class="form-control" value="<?= isset($val_sql[4][17]) ? $val_sql[4][17] : "" ?>" name="cracker_name4" id="cracker_name4" placeholder="Enter cracker name">
                         <datalist id="cracker4">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1130,19 +1528,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton4" id="carton4" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton4" id="carton4" value="<?= isset($val_sql[4][18]) ? $val_sql[4][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents4" id="carton_contents4" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents4" id="carton_contents4" value="<?= isset($val_sql[4][19]) ? $val_sql[4][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty4" id="qty4" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[4][21]) ? $val_sql[4][21] : "" ?>" name="qty4" id="qty4" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate4" id="rate4" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate4" id="rate4" value="<?= isset($val_sql[4][22]) ? $val_sql[4][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per4" id="per4" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[4][23]) ? $val_sql[4][23]: "" ?>" name="per4" id="per4" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1150,7 +1548,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount4" id="amount4" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount4" id="amount4" value="<?= isset($val_sql[4][24]) ? $val_sql[4][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
@@ -1198,10 +1596,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                   <div class="panel-body">
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to5" id="carton_from_to5" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[5][16]) ? $val_sql[5][16] : "" ?>" name="carton_from_to5" id="carton_from_to5" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker5" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name5" id="cracker_name5" placeholder="Enter cracker name">
+                        <input list="cracker5" class="form-control" value="<?= isset($val_sql[5][17]) ? $val_sql[5][17] : "" ?>" name="cracker_name5" id="cracker_name5" placeholder="Enter cracker name">
                         <datalist id="cracker5">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1214,19 +1612,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton5" id="carton5" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton5" id="carton5" value="<?= isset($val_sql[5][18]) ? $val_sql[5][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents5" id="carton_contents5" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents5" id="carton_contents5" value="<?= isset($val_sql[5][19]) ? $val_sql[5][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty5" id="qty5" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[5][21]) ? $val_sql[5][21] : "" ?>" name="qty5" id="qty5" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate5" id="rate5" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate5" id="rate5" value="<?= isset($val_sql[5][22]) ? $val_sql[5][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per5" id="per5" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[5][23]) ? $val_sql[5][23]: "" ?>" name="per5" id="per5" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1234,16 +1632,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount5" id="amount5" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount5" id="amount5" value="<?= isset($val_sql[5][24]) ? $val_sql[5][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to6" id="carton_from_to6" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[6][16]) ? $val_sql[6][16] : "" ?>" name="carton_from_to6" id="carton_from_to6" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker6" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name6" id="cracker_name6" placeholder="Enter cracker name">
+                        <input list="cracker6" class="form-control" value="<?= isset($val_sql[6][17]) ? $val_sql[6][17] : "" ?>" name="cracker_name6" id="cracker_name6" placeholder="Enter cracker name">
                         <datalist id="cracker6">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1256,19 +1654,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton6" id="carton6" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton6" id="carton6" value="<?= isset($val_sql[6][18]) ? $val_sql[6][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents6" id="carton_contents6" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents6" id="carton_contents6" value="<?= isset($val_sql[6][19]) ? $val_sql[6][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty6" id="qty6" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[6][21]) ? $val_sql[6][21] : "" ?>" name="qty6" id="qty6" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate6" id="rate6" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate6" id="rate6" value="<?= isset($val_sql[6][22]) ? $val_sql[6][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per6" id="per6" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[6][23]) ? $val_sql[6][23] : "" ?>" name="per6" id="per6" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1276,16 +1674,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount6" id="amount6" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount6" id="amount6" value="<?= isset($val_sql[6][24]) ? $val_sql[6][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to7" id="carton_from_to7" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[7][16]) ? $val_sql[7][16] : "" ?>" name="carton_from_to7" id="carton_from_to7" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker7" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name7" id="cracker_name7" placeholder="Enter cracker name">
+                        <input list="cracker7" class="form-control" value="<?= isset($val_sql[7][17]) ? $val_sql[7][17] : "" ?>" name="cracker_name7" id="cracker_name7" placeholder="Enter cracker name">
                         <datalist id="cracker7">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1298,19 +1696,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton7" id="carton7" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton7" id="carton7" value="<?= isset($val_sql[7][18]) ? $val_sql[7][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents7" id="carton_contents7" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents7" id="carton_contents7" value="<?= isset($val_sql[7][19]) ? $val_sql[7][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty7" id="qty7" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[7][21]) ? $val_sql[7][21] : "" ?>" name="qty7" id="qty7" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate7" id="rate7" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate7" id="rate7" value="<?= isset($val_sql[7][22]) ? $val_sql[7][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per7" id="per7" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[7][23]) ? $val_sql[7][23] : "" ?>" name="per7" id="per7" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1318,16 +1716,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount7" id="amount7" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount7" id="amount7" value="<?= isset($val_sql[7][24]) ? $val_sql[7][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to8" id="carton_from_to8" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[8][16]) ? $val_sql[8][16] : "" ?>" name="carton_from_to8" id="carton_from_to8" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker8" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name8" id="cracker_name8" placeholder="Enter cracker name">
+                        <input list="cracker8" class="form-control" value="<?= isset($val_sql[8][17]) ? $val_sql[8][17] : "" ?>" name="cracker_name8" id="cracker_name8" placeholder="Enter cracker name">
                         <datalist id="cracker8">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1340,19 +1738,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton8" id="carton8" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton8" id="carton8" value="<?= isset($val_sql[8][18]) ? $val_sql[8][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents8" id="carton_contents8" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents8" id="carton_contents8" value="<?= isset($val_sql[8][19]) ? $val_sql[8][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty8" id="qty8" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[8][21]) ? $val_sql[8][21] : "" ?>" name="qty8" id="qty8" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate8" id="rate8" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate8" id="rate8" value="<?= isset($val_sql[8][22]) ? $val_sql[8][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per8" id="per8" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[8][23]) ? $val_sql[8][23] : "" ?>" name="per8" id="per8" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1360,16 +1758,16 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount8" id="amount8" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount8" id="amount8" value="<?= isset($val_sql[8][24]) ? $val_sql[8][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['carton_from_to']) ? $val_sql['carton_from_to'] : "" ?>" name="carton_from_to9" id="carton_from_to9" placeholder="Carton From - To">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[9][16]) ? $val_sql[9][16] : "" ?>" name="carton_from_to9" id="carton_from_to9" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker9" class="form-control" value="<?= isset($val_sql['cracker_name']) ? $val_sql['cracker_name'] : "" ?>" name="cracker_name9" id="cracker_name9" placeholder="Enter cracker name">
+                        <input list="cracker9" class="form-control" value="<?= isset($val_sql[9][17]) ? $val_sql[9][17] : "" ?>" name="cracker_name9" id="cracker_name9" placeholder="Enter cracker name">
                         <datalist id="cracker9">
                           <?php
                           $crackersql = "select * from cracker";
@@ -1382,19 +1780,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton9" id="carton9" value="<?= isset($val_sql['carton']) ? $val_sql['carton'] : "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton9" id="carton9" value="<?= isset($val_sql[9][18]) ? $val_sql[9][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton_contents9" id="carton_contents9" value="<?= isset($val_sql['carton_contents']) ? $val_sql['carton_contents'] : "" ?>" placeholder="Contents">
+                        <input class="form-control" type="text" name="carton_contents9" id="carton_contents9" value="<?= isset($val_sql[9][19]) ? $val_sql[9][19] : "" ?>" placeholder="Contents">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" value="<?= isset($val_sql['qty']) ? $val_sql['qty'] : "" ?>" name="qty9" id="qty9" placeholder="Qty">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[9][21]) ? $val_sql[9][21] : "" ?>" name="qty9" id="qty9" placeholder="Qty">
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="rate9" id="rate9" value="<?= isset($val_sql['rate']) ? $val_sql['rate'] : "" ?>" placeholder="Rate">
+                        <input class="form-control" type="text" name="rate9" id="rate9" value="<?= isset($val_sql[9][22]) ? $val_sql[9][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql['per']) ? $pe[1] : "" ?>" name="per9" id="per9" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[9][23]) ? $val_sql[9][23] : "" ?>" name="per9" id="per9" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -1402,7 +1800,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                         </datalist>
                       </div>
                       <div class="form-group col-md-2">
-                        <input class="form-control" type="text" name="amount9" id="amount9" value="<?= isset($val_sql['amount']) ? $val_sql['amount'] : "" ?>" placeholder="Amount">
+                        <input class="form-control" type="text" name="amount9" id="amount9" value="<?= isset($val_sql[9][24]) ? $val_sql[9][24] : "" ?>" placeholder="Amount">
                       </div>
                     </div>
 
@@ -1413,33 +1811,33 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
 
             <div class="row col-md-12">
-              <div class="form-group col-md-2"></div>
+              <div class="form-group col-md-1"></div>
               <div class="form-group col-md-3 text-right">
                 <label class="control-label">Total&nbsp;Cartons</label>
               </div>
               <div class="form-group col-md-1">
-                <input class="form-control" type="text" name="total_carton" id="total_carton" value="<?= isset($val_sql['total_carton']) ? $val_sql['total_carton'] : "" ?>" placeholder="Count">
+                <input class="form-control" type="text" name="total_carton" id="total_carton" value="<?= isset($val_sql[0][25]) ? $val_sql[0][25] : "" ?>" placeholder="Count">
               </div>
-              <div class="form-group col-md-1">
+              <div class="form-group col-md-2">
               </div>
               <div class="form-group col-md-3 text-right">
                 <label class="control-label">Good&nbsp;Value</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="good_value" id="good_value" value="<?= isset($val_sql['good_value']) ? $val_sql['good_value'] : "" ?>" placeholder="Taxable">
+                <input class="form-control" type="text" name="good_value" id="good_value" value="<?= isset($val_sql[0][26]) ? $val_sql[0][26] : "" ?>" placeholder="Taxable">
               </div>
             </div>
             <div class="row col-md-12">
               <div class="form-group col-md-7">
               </div>
               <div class="form-group col-md-2 text-right">
-                <input class="form-control" type="text" name="discount" id="discount" value="<?= isset($val_sql['discount']) ? $val_sql['discount'] : "" ?>" placeholder="Discount">
+                <input class="form-control" type="text" name="discount" id="discount" value="<?= isset($val_sql[0][28]) ? $val_sql[0][28] : "" ?>" placeholder="Discount">
               </div>
               <div class="form-group col-md-1 text-right">
                 <label class="control-label">Less : DISC.</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="discount_amount" id="discount_amount" value="<?= isset($val_sql['discount_amount']) ? $val_sql['discount_amount'] : "" ?>" placeholder="Discount Amount">
+                <input class="form-control" type="text" name="discount_amount" id="discount_amount" value="<?= isset($val_sql[0][29]) ? $val_sql[0][29] : "" ?>" placeholder="Discount Amount">
               </div>
             </div>
             <div class="row col-md-12">
@@ -1447,46 +1845,46 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                 <label class="control-label">Taxable&nbsp;Value</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="taxable_value" id="taxable_value" value="<?= isset($val_sql['taxable_value']) ? $val_sql['taxable_value'] : "" ?>" placeholder="Taxable">
+                <input class="form-control" type="text" name="taxable_value" id="taxable_value" value="<?= isset($val_sql[0][30]) ? $val_sql[0][30] : "" ?>" placeholder="Taxable">
               </div>
             </div>
             <div class="row col-md-12">
               <div class="form-group col-md-7">
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="igst" id="igst" value="<?= isset($val_sql['igst']) ? $val_sql['igst'] : "" ?>" placeholder="Igst">
+                <input class="form-control" type="text" name="igst" id="igst" value="<?= isset($val_sql[0][31]) ? $val_sql[0][31] : "" ?>" placeholder="Igst">
               </div>
               <div class="form-group col-md-1 text-center">
                 <label class="control-label">IGST</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="igst_amount" id="igst_amount" value="<?= isset($val_sql['igst_amount']) ? $val_sql['igst_amount'] : "" ?>" placeholder="Igst Amount">
+                <input class="form-control" type="text" name="igst_amount" id="igst_amount" value="<?= isset($val_sql[0][32]) ? $val_sql[0][32] : "" ?>" placeholder="Igst Amount">
               </div>
             </div>
             <div class="row col-md-12">
               <div class="form-group col-md-7">
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="sgst" id="sgst" value="<?= isset($val_sql['sgst']) ? $val_sql['sgst'] : "" ?>" placeholder="Sgst">
+                <input class="form-control" type="text" name="sgst" id="sgst" value="<?= isset($val_sql[0][35]) ? $val_sql[0][35] : "" ?>" placeholder="Sgst">
               </div>
               <div class="form-group col-md-1 text-center">
                 <label class="control-label">SGST</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="sgst_amount" id="sgst_amount" value="<?= isset($val_sql['sgst_amount']) ? $val_sql['sgst_amount'] : "" ?>" placeholder="Sgst Amount">
+                <input class="form-control" type="text" name="sgst_amount" id="sgst_amount" value="<?= isset($val_sql[0][36]) ? $val_sql[0][36] : "" ?>" placeholder="Sgst Amount">
               </div>
             </div>
             <div class="row col-md-12">
               <div class="form-group col-md-7">
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="cgst" id="cgst" value="<?= isset($val_sql['cgst']) ? $val_sql['cgst'] : "" ?>" placeholder="Cgst">
+                <input class="form-control" type="text" name="cgst" id="cgst" value="<?= isset($val_sql[0][33]) ? $val_sql[0][33] : "" ?>" placeholder="Cgst">
               </div>
               <div class="form-group col-md-1 text-center">
                 <label class="control-label">CGST</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="cgst_amount" id="cgst_amount" value="<?= isset($val_sql['cgst_amount']) ? $val_sql['cgst_amount'] : "" ?>" placeholder="Cgst Amount">
+                <input class="form-control" type="text" name="cgst_amount" id="cgst_amount" value="<?= isset($val_sql[0][34]) ? $val_sql[0][34] : "" ?>" placeholder="Cgst Amount">
               </div>
             </div>
             <div class="row col-md-12">
@@ -1494,7 +1892,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                 <label class="control-label">Round&nbsp;Off</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" name="round_off" id="round_off" value="<?= isset($val_sql['round_off']) ? $val_sql['round_off'] : "" ?>" placeholder="Round Off">
+                <input class="form-control" type="text" name="round_off" id="round_off" value="<?= isset($val_sql[0][37]) ? $val_sql[0][37] : "" ?>" placeholder="Round Off">
               </div>
             </div>
             <div class="row col-md-12">
@@ -1502,7 +1900,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
                 <label class="control-label">Net&nbsp;Amount</label>
               </div>
               <div class="form-group col-md-2">
-                <input class="form-control" type="text" value="<?= isset($val_sql['net_amount']) ? $val_sql['net_amount'] : "" ?>" name="net_amount" id="net_amount" placeholder="Net Amount">
+                <input class="form-control" type="text" value="<?= isset($val_sql[0][38]) ? $val_sql[0][38] : "" ?>" name="net_amount" id="net_amount" placeholder="Net Amount">
               </div>
             </div>
             <div class="row form-group col-md-12">

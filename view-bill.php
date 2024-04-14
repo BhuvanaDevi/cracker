@@ -104,7 +104,7 @@
                     <td>
                       <div class="row col-md-12">
                         <div class="col-md-3">
-                          <a class="btn btn-info btn-sm edit" href="add-bill.php?id=<?=isset($val_sql['id'])?$val_sql['id']:""?>">
+                          <a class="btn btn-info btn-sm edit" href="add-bills.php?id=<?=isset($val_sql['invoice_no'])?$val_sql['invoice_no']:""?>">
                           <i class="fa fa-pencil delete"></i></a>
                         </div>
                         <div class="col-md-3">

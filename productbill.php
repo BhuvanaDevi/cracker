@@ -1,3 +1,8 @@
+<style>
+  body {
+    font-size: 15px !important;
+  }
+</style>
 <?php
 include("connection.php");
 $id = isset($_GET['id']) ? $_GET['id'] : "";
@@ -17,7 +22,7 @@ if ($id != '') {
 <head>
 <style>
   .table th, .table td {
-    padding: 0.75rem !important;
+    padding: 0.65rem !important;
   }
   table td {
     border-top: none !important;
@@ -66,34 +71,35 @@ if ($id != '') {
           <section class="invoice">
             <div class="row mb-0">
               <div class="row col-12">
-                <div class="col-4 text-center">
+                <div class="col-3 text-center">
                   <img src="company.jpg" width="200" />
                   <div>
                     <address>
                       <strong>
-                        <h5>GSTIN : 33AAHFJ5113G1ZR</h5>
+                        <p style="font-size: 16px;"><b>GSTIN : 33AAHFJ5113G1ZR</b></p>
                       </strong>
                     </address>
                   </div>
                 </div>
-                <div class="col-4">
-                  <h5 class="page-header text-center mt-2"> Tax Invoice</h5>
-                  <h4 class="page-header text-center mt-2" style="font-family: ui-rounded !important;"> JEYALAKSHMI PRIYA</h4>
-                  <h6 class="page-header text-center mt-2" style="font-family: cursive !important;"> SPARKLERS FACTORY & FIREWORKS</h6>
+                <div class="col-6">
+                  <h3 class="page-header text-center mt-2"> Tax Invoice</h3>
+                  <h3 class="page-header text-center mt-2" style="font-family: ui-rounded !important;"> 
+                  JEYALAKSHMI PRIYA</h3>
+                  <h3 class="page-header text-center mt-2" style="font-family: ui-rounded !important;">
+                     SPARKLERS FACTORY & FIREWORKS</h3>
                   <div class="col-12 text-center mt-2">
                     <strong>
-                      261 / 2A / 3 - Karuppasamy Nagar. <br/>S.N. Puram Road <br />Thiruthangal, Sivakasi - 626124.
-                    </strong><br />
-                    <strong> Factory at 453, 460/3B <br /> Anai Kuttam Village - 626130.
+                      261 / 2A / 3 - Karuppasamy Nagar. S.N. Puram Road   <br />Thiruthangal, Sivakasi - 626124.
+                      <br/>  Factory at 453, 460/3B Anai Kuttam Village - 626130.
                     </strong>
                   </div>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-3 text-center">
                   <img src="neer.jpg" width="200" />
                   <h6></h6>
                   <strong>
-                    <h6>LICENCE NO : E/Ho/TN/21/1151(E23679)</h6>
-                    <h6>LICENCE NO : E/Ho/TN/20/711(E23678)</h6>
+                  <p style="font-size: 11.5px;font-weight:800 !important;"><b>LICENCE NO : E/Ho/TN/21/1151(E23679)<br/>
+                  LICENCE NO : E/Ho/TN/20/711(E23678)</b></p>
                   </strong>
                 </div>
               </div>
@@ -105,6 +111,7 @@ if ($id != '') {
                 <div class="ml-4 mb-1">
                   <h6 class="mb-1"><?= strtoupper(($valbill['consignee_name'])) ?></h6>
                   <p class="mb-1"><?= $valbill['consignee_address'] ?></p>
+                  <p class="mb-1">Place : <?= $valbill['place'] ?></p>
                   <p class="mb-1">State : <?= $valbill['state'] ?></p>
                   <h6 class="mb-1">GSTIN : <?= $valbill['gstin'] ?></h6>
                 </div>
@@ -597,43 +604,43 @@ if ($id != '') {
               <div class="col-6" style="border-left: 1px solid rgba(0, 0, 0, 0.1);position: relative;left: 15px;">
                 <table class="col-12 ml-5">
                   <tr>
-                    <td class="mt-1">HSN Code </td>
+                    <td><h6>HSN Code</h6></td>
                     <td>:</td>
                     <td> <strong><?= $valbill['hsn_code'] ?></strong>
                     </td>
                   </tr>
                   <tr>
-                    <td>Total Cartons</td>
+                    <td><h6>Total Cartons</h6></td>
                     <td>:</td>
-                    <td> <?= $totalcartoncontents ?></td>
+                    <td> <?= $valbill['total_carton'] ?></td>
                   </tr>
                   <tr>
-                    <td>Despatched From</td>
+                    <td><h6>Despatched From</h6></td>
                     <td>:</td>
                     <td> <?= $valbill['despatched_from'] ?></td>
                   </tr>
                   <tr>
-                    <td>Despatched To</td>
+                    <td><h6>Despatched To</h6></td>
                     <td>:</td>
                     <td> <?= $valbill['despatched_to'] ?></td>
                   </tr>
                   <tr>
-                    <td>Vehicle No </td>
+                    <td><h6>Vehicle No</h6></td>
                     <td>:</td>
                     <td> <?= $valbill['vehicle_no'] ?></td>
                   </tr>
                   <tr>
-                    <td>Transport Name </td>
+                    <td><h6>Transport Name</h6></td>
                     <td>:</td>
                     <td> <?= $valbill['transport_name'] ?></td>
                   </tr>
                   <tr>
-                    <td>Transport GSTIN </td>
+                    <td><h6>Transport GSTIN</h6></td>
                     <td>:</td>
                     <td> <?= $valbill['transport_gstin'] ?></td>
                   </tr>
                   <tr>
-                    <td>E-way Bill </td>
+                    <td><h6>E-way Bill</h6></td>
                     <td>:</td>
                     <td> <?= $valbill['eway_bill'] ?></td>
                   </tr>
@@ -666,7 +673,7 @@ if ($id != '') {
                       <td>:</td>
                       <td></td>
                       <td>
-                        <h6><?= $valbill['igst'] ?>&nbsp;%</h6>
+                        <h6 class="pt-2"><?= $valbill['igst'] ?>&nbsp;%</h6>
                       </td>
                     </tr>
                     <tr>
@@ -676,7 +683,7 @@ if ($id != '') {
                       <td>:</td>
                       <td></td>
                       <td>
-                        <h6><?= $valbill['sgst'] ?>&nbsp;%</h6>
+                        <h6  class="pt-2"><?= $valbill['sgst'] ?>&nbsp;%</h6>
                       </td>
                     </tr>
                     <tr>
@@ -686,7 +693,7 @@ if ($id != '') {
                       <td>:</td>
                       <td></td>
                       <td>
-                        <h6><?= $valbill['cgst'] ?>&nbsp;%</h6>
+                        <h6  class="pt-2"><?= $valbill['cgst'] ?>&nbsp;%</h6>
                       </td>
                     </tr>
                     <tr>
@@ -706,18 +713,18 @@ if ($id != '') {
               <div class="col-1 text-right" style="position: relative;left:-15px;border-right:1px solid rgba(0, 0, 0, 0.1)">
                 <table>
                   <tr>
-                    <td class="pt-1">
+                    <td>
                       <h6><?= $valbill['good_value'] ?></h6>
                     </td>
                   </tr>
                   <tr>
-                    <td class="pt-1">
+                    <td>
                       <h6><?= $valbill['discount_amount'] ?></h6>
                     </td>
                   </tr>
                   <tr>
-                    <td class="pt-1">
-                      <h6><?= $valbill['taxable_value'] ?></h6>
+                    <td>
+                      <h6 class="pt-1"><?= $valbill['taxable_value'] ?></h6>
                     </td>
                   </tr>
                   <tr>
@@ -727,39 +734,39 @@ if ($id != '') {
                     <?php if ($valbill['igst_amount'] != '') { 
                       ?>
                       <td>
-                        <h6><?= $valbill['igst_amount'] ?></h6>
+                        <h6 class="pt-2"><?= $valbill['igst_amount'] ?></h6>
                       </td>
                     <?php } else { ?>
-                      <td>-</td>
+                      <td><h6 class="pt-2">-</h6></td>
                     <?php } ?>
                   </tr>
-                  <tr> <?php if ($valbill['cgst_amount'] != '') { ?>
+                  <tr> <?php if ($valbill['sgst_amount'] != '') { ?>
                       <td>
-                       <h6><?= $valbill['cgst_amount'] ?></h6>
+                       <h6 class="pt-2"><?= $valbill['sgst_amount'] ?></h6>
                       </td>
                     <?php } else { ?>
-                      <td>-</td>
-                    <?php } ?>
+                      <td><h6 class="pt-2">-</h6></td>
+                     <?php } ?>
                   </tr>
                   <tr>
-                    <?php if ($valbill['sgst_amount'] != '') { 
+                    <?php if ($valbill['cgst_amount'] != '') { 
                       ?>
                       <td>
-                       <h6><?=  $valbill['igst_amount'] ?></h6>
+                       <h6 class="pt-2"><?=  $valbill['cgst_amount'] ?></h6>
                       </td>
                     <?php } else { ?>
-                      <td>-</td>
+                      <td><h6 class="pt-2">-</h6></td>
                     <?php }
                     ?>
                   </tr>
                   <tr>
-                    <td class="pt-1">
-                      <h6><?= $valbill['round_off'] ?></h6>
+                    <td>
+                      <h6 class="pt-1"><?= $valbill['round_off'] ?></h6>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <h6><?= $valbill['net_amount'] ?></h6>
+                      <h6 class="pt-0"><?= $valbill['net_amount'] ?></h6>
                     </td>
                   </tr>
                 </table>
@@ -818,30 +825,31 @@ if ($id != '') {
             </div>
             <hr />
             <div class="row col-12">
-              <div class="col-8" style="border-left:1px solid #dee2e6">
+              <div class="col-9" style="border-left:1px solid #dee2e6">
                 <h6 class="mt-1">Declaration :</h6>
                 <h6 class="pl-4">We declare that this invoice shows the actual price of the goods and that all
                   particulars are true and collect.
                 </h6>
-                <h6><i>Company Bank Details Here</i></h6>
+                <h6><i>Company Bank Details</i></h6>
                 <table class="table table-bordered">
                   <tr>
                     <td>
-                    <b class="pl-4">Account Name : Jeyalakshmi Priya Sparklers Factory</b><br />
-                      <b class="pl-4">Bank Name : Punjab National Bank</b><br />
-                      <b class="pl-4">Account Number : 4199002100015343</b><br />
-                      <b class="pl-4">IFSC Code : PUNB0419900</b>
+                    <h6 class="mb-0 pb-0">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
+                      <h6 class="mb-0 pb-0">Bank Name : Punjab National Bank</h6><br />
+                      <h6 class="mb-0 pb-0">Account Number : 4199002100015343</h6><br />
+                      <h6 class="mb-0 pb-0">IFSC Code : PUNB0419900</b>
                     </td>
                     <td>
-                    <b class="pl-4">Account Name : Jeyalakshmi Priya Sparklers Factory</b><br />
-                      <b class="pl-4">Account Number : 003700050900353</b><br />
-                      <b class="pl-4">IFSC Code : TMBL0000003</b>
+                    <h6 class="mb-0 pb-0">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
+                    <h6 class="mb-0 pb-0">Bank Name :   Tamilnadu Mercantile Bank</h6><br />
+                      <h6 class="mb-0 pb-0">Account Number : 003700050900353</h6><br />
+                      <h6 class="mb-0 pb-0">IFSC Code : TMBL0000003</h6>
                     </td>
                   </tr>
                 </table>
               </div>
-              <div class="col-4" style="border-left:1px solid #dee2e6 !important;border-right:1px solid #dee2e6 !important;position:relative;left:30px">
-                <h6 class="pl-3 mt-1"><i>For Jeyalakshmi Priya Sparklers Factory & Fireworks</i></h6>
+              <div class="col-3" style="border-left:1px solid #dee2e6 !important;border-right:1px solid #dee2e6 !important;position:relative;left:30px">
+                <p class="mt=1"><i>For Jeyalakshmi Priya Sparklers Factory & Fireworks</i></p>
                 <h6><br /><br /><br /><br /><br /><br /><br /><br /></h6>
                 <h6 class="text-right"><i>Manager / Partner</i></h6>
               </div>

@@ -43,7 +43,7 @@ $id=isset($_GET['id'])?$_GET['id']:""; ?>
       <div class="row">
         <div class="col-md-6">
           <div class="tile">
-            <h3 class="tile-title">Intrastate</h3>
+          <h3 class="tile-title">Interstate</h3>
             <?php 
             if($id!='') {
               $sqligst = "select * from tax where id=$id";
@@ -70,8 +70,8 @@ $id=isset($_GET['id'])?$_GET['id']:""; ?>
         </div>
         <div class="col-md-6">
           <div class="tile">
-            <h3 class="tile-title">Interstate</h3>
-            <?php 
+          <h3 class="tile-title">Intrastate</h3>
+         <?php 
               $sqlcgst = "select * from tax where id=$id";
               $execgst = mysqli_query($con,$sqlcgst);
               $valcgst = mysqli_fetch_assoc($execgst);
