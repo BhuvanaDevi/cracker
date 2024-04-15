@@ -89,7 +89,7 @@ if ($id != '') {
                      SPARKLERS FACTORY & FIREWORKS</h3>
                   <div class="col-12 text-center mt-2">
                     <strong>
-                      261 / 2A / 3 - Karuppasamy Nagar. S.N. Puram Road   <br />Thiruthangal, Sivakasi - 626124.
+                      261 / 2A / 3 - Karuppasamy Nagar. S.N. Puram Road   <br />Thiruthangal, Sivakasi - 626130.
                       <br/>  Factory at 453, 460/3B Anai Kuttam Village - 626130.
                     </strong>
                   </div>
