@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 08:02 PM
+-- Generation Time: Apr 15, 2024 at 07:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -116,7 +116,9 @@ INSERT INTO `cracker` (`id`, `name`, `rate`, `per`, `casecontents`) VALUES
 (38, 'Giant 28', 0, '', ''),
 (39, 'Giant 56', 0, '', ''),
 (40, 'Power 1', 131, '10 Piece', '250 Piece'),
-(41, 'Power 2', 262, '10 Piece', '150 Piece');
+(41, 'Power 2', 262, '10 Piece', '150 Piece'),
+(42, '2 Sound Cracker', 3700, '500 Pocket', '500 Pocket'),
+(43, '3 Sound Cracker', 4100, '400 Pocket', '400 Pocket');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,7 @@ CREATE TABLE `customerbill` (
   `state_type` varchar(25) NOT NULL,
   `gstin` varchar(25) NOT NULL,
   `consignee_address` varchar(500) NOT NULL,
-  `place` varchar(15) NOT NULL,
+  `place` varchar(50) NOT NULL,
   `invoice_no` longtext NOT NULL,
   `invoice_date` varchar(15) NOT NULL,
   `eway_bill` varchar(100) NOT NULL,
@@ -187,7 +189,17 @@ INSERT INTO `customerbill` (`id`, `consignee_name`, `state`, `state_type`, `gsti
 (24, 'CHANDRA SALES PRIVATE LIMITED', 'TAMIL NADU', 'Interstate', '33AACCC1597R1Z6', '5/255 KALAYARKURICHI ', 'SIVAKASI', '6', '2024-04-04', 'Gpay', '3604', 'VEH123', 'SIVAKASI', 'CHENNAI', 'CHANDRA TRANSPORT', 'TRANS123', '10 - 11', 'King Of King Foils', 5, '1 Unit', '', 5, 238, 'Unit', '1190', 51, '120504', '', '25', '30126', '90378', 0, '', 9, '8134.02', 9, '8134.02', '-0.04', '106646'),
 (25, 'CHANDRA SALES PRIVATE LIMITED', 'TAMIL NADU', 'Interstate', '33AACCC1597R1Z6', '5/255 KALAYARKURICHI ', 'SIVAKASI', '6', '2024-04-04', 'Gpay', '3604', 'VEH123', 'SIVAKASI', 'CHENNAI', 'CHANDRA TRANSPORT', 'TRANS123', '11 - 12', 'Classic Bomb Green', 8, '2 Unit', '', 16, 274, 'Unit', '4384', 51, '120504', '', '25', '30126', '90378', 0, '', 9, '8134.02', 9, '8134.02', '-0.04', '106646'),
 (26, 'CHANDRA SALES PRIVATE LIMITED', 'TAMIL NADU', 'Interstate', '33AACCC1597R1Z6', '5/255 KALAYARKURICHI ', 'SIVAKASI', '6', '2024-04-04', 'Gpay', '3604', 'VEH123', 'SIVAKASI', 'CHENNAI', 'CHANDRA TRANSPORT', 'TRANS123', '12 - 13', 'Mini Bullter Bomb Foils', 2, '7 Unit', '', 14, 84, 'Unit', '1176', 51, '120504', '', '25', '30126', '90378', 0, '', 9, '8134.02', 9, '8134.02', '-0.04', '106646'),
-(27, 'CHANDRA SALES PRIVATE LIMITED', 'TAMIL NADU', 'Interstate', '33AACCC1597R1Z6', '5/255 KALAYARKURICHI ', 'SIVAKASI', '6', '2024-04-04', 'Gpay', '3604', 'VEH123', 'SIVAKASI', 'CHENNAI', 'CHANDRA TRANSPORT', 'TRANS123', '13 - 14', 'Giant 56', 15, '1 Unit', '', 15, 100, 'Piece', '1500', 51, '120504', '', '25', '30126', '90378', 0, '', 9, '8134.02', 9, '8134.02', '-0.04', '106646');
+(27, 'CHANDRA SALES PRIVATE LIMITED', 'TAMIL NADU', 'Interstate', '33AACCC1597R1Z6', '5/255 KALAYARKURICHI ', 'SIVAKASI', '6', '2024-04-04', 'Gpay', '3604', 'VEH123', 'SIVAKASI', 'CHENNAI', 'CHANDRA TRANSPORT', 'TRANS123', '13 - 14', 'Giant 56', 15, '1 Unit', '', 15, 100, 'Piece', '1500', 51, '120504', '', '25', '30126', '90378', 0, '', 9, '8134.02', 9, '8134.02', '-0.04', '106646'),
+(32, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '1-5', '2 3/4  Kuruvi', 1, '1500 Pocket', '', 1500, 2970, '1000 Pocket', '4455000', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(33, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '6-10', '3 1/2 Lakshmi', 1, '750 Pocket', '', 750, 750, '750 Pocket', '2032500', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(34, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '11-15', 'Red Bijili', 1, '300 Pocket', '', 300, 102, '10 Pocket', '3060', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(35, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '15-20', '2 3/4 - 36 Deluxe', 5, '250 Pocket', '', 1250, 100, '250 Pocket', '500', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(36, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '21-25', 'Classic Bomb Foils', 10, '15 Unit', '', 150, 284, 'Unit', '42600', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(37, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '21-25', 'Atom Bomb Small Green', 2, '36 Unit', '', 72, 110, 'Unit', '7920', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(38, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '26-30', 'Hydro Bomb Foils', 5, '25 Unit', '', 125, 183, 'Unit', '22875', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(39, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '31-35', 'King Of King Foils', 10, '18 Unit', '', 180, 238, 'Unit', '42840', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(40, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '36-40', 'Power 28', 5, '55 Unit', '', 275, 5, 'Pocket', '1375', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201'),
+(41, 'SRI P K TRADERS', 'JHARKHAND', 'Interstate', '20ABNPG0903A2ZN', 'NEW PLOT NO 1026 P MOUZA BAHARDHARI', 'JHARKHAND', '7', '2024-04-14', 'Online', '3604', 'VEH123', 'CHENNAI', 'SIVAKASI', 'P K TRADERS', 'GST123', '41-45', 'Square Bomb Foils', 2, '30 Unit', '', 60, 138, 'Unit', '8280', 42, '6616950', '', '10', '661695', '5955255', 18, '1071945.9', 0, '', 0, '', '-0.90', '7027201');
 
 -- --------------------------------------------------------
 
@@ -263,13 +275,13 @@ ALTER TABLE `consignee`
 -- AUTO_INCREMENT for table `cracker`
 --
 ALTER TABLE `cracker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `customerbill`
 --
 ALTER TABLE `customerbill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tax`
