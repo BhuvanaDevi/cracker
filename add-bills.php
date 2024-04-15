@@ -95,7 +95,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate2 = $('#rate2').val();
         var per2 = $('#per2').val();
 
-        if ((cracker_name2 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi' || (content_type2 == "Pocket" || content_type2 == "Piece")) {
+        if ((cracker_name2 == '2 3/4  Kuruvi') || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi' || (content_type2 == "Pocket" || content_type2 == "Piece")) {
           perstring2 = '"' + per2 + '"';
           persplit2 = perstring2.split(" ");
           perval2 = persplit2[0].replace('"', "");
@@ -122,7 +122,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate3 = $('#rate3').val();
         var per3 = $('#per3').val();
 
-        if ((cracker_name3 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi' || (content_type3 == "Pocket" || content_type3 == "Piece")) {
+        if ((cracker_name3 == '2 3/4  Kuruvi') || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi' || (content_type3 == "Pocket" || content_type3 == "Piece")) {
           perstring3 = '"' + per3 + '"';
           persplit3 = perstring3.split(" ");
           perval3 = persplit3[0].replace('"', "");
@@ -149,7 +149,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate4 = $('#rate4').val();
         var per4 = $('#per4').val();
 
-        if ((cracker_name4 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi' || (content_type4 == "Pocket" || content_type4 == "Piece")) {
+        if ((cracker_name4 == '2 3/4  Kuruvi') || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi' || (content_type4 == "Pocket" || content_type4 == "Piece")) {
           perstring4 = '"' + per4 + '"';
           persplit4 = perstring4.split(" ");
           perval4 = persplit4[0].replace('"', "");
@@ -176,7 +176,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate5 = $('#rate5').val();
         var per5 = $('#per5').val();
 
-        if ((cracker_name5 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi' || (content_type5 == "Pocket" || content_type5 == "Piece")) {
+        if ((cracker_name5 == '2 3/4  Kuruvi') || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi' || (content_type5 == "Pocket" || content_type5 == "Piece")) {
           perstring5 = '"' + per5 + '"';
           persplit5 = perstring5.split(" ");
           perval5 = persplit5[0].replace('"', "");
@@ -203,7 +203,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate6 = $('#rate6').val();
         var per6 = $('#per6').val();
 
-        if ((cracker_name6 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi' || (content_type6 == "Pocket" || content_type6 == "Piece")) {
+        if ((cracker_name6 == '2 3/4  Kuruvi') || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi' || (content_type6 == "Pocket" || content_type6 == "Piece")) {
           perstring6 = '"' + per6 + '"';
           persplit6 = perstring6.split(" ");
           perval6 = persplit6[0].replace('"', "");
@@ -230,7 +230,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate7 = $('#rate7').val();
         var per7 = $('#per7').val();
 
-        if ((cracker_name7 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi' || (content_type7 == "Pocket" || content_type7 == "Piece")) {
+        if ((cracker_name7 == '2 3/4  Kuruvi') || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi' || (content_type7 == "Pocket" || content_type7 == "Piece")) {
           perstring7 = '"' + per7 + '"';
           persplit7 = perstring7.split(" ");
           perval7 = persplit7[0].replace('"', "");
@@ -257,7 +257,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate8 = $('#rate8').val();
         var per8 = $('#per8').val();
 
-        if ((cracker_name8 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi' || (content_type8 == "Pocket" || content_type8 == "Piece")) {
+        if ((cracker_name8 == '2 3/4  Kuruvi') || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi' || (content_type8 == "Pocket" || content_type8 == "Piece")) {
           perstring8 = '"' + per8 + '"';
           persplit8 = perstring8.split(" ");
           perval8 = persplit8[0].replace('"', "");
@@ -285,7 +285,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate9 = $('#rate9').val();
         var per9 = $('#per9').val();
 
-        if ((cracker_name9 == '2 3/4  Kuruvi') || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi' || (content_type9 == "Pocket" || content_type9 == "Piece")) {
+        if ((cracker_name9 == '2 3/4  Kuruvi') || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi' || (content_type9 == "Pocket" || content_type9 == "Piece")) {
           perstring9 = '"' + per9 + '"';
           persplit9 = perstring9.split(" ");
           perval9 = persplit9[0].replace('"', "");
@@ -518,13 +518,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate1 = $('#rate1').val();
         var per1 = $('#per1').val();
 
-        if ((cracker_name1 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') || (content_type1 == "Pocket" || content_type1 == "Piece")) {
+        if ((cracker_name1 == '2 3/4  Kuruvi' || cracker_name1 == '2 Sound Cracker' || cracker_name1 == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') || (content_type1 == "Pocket" || content_type1 == "Piece")) {
           perstring1 = '"' + per1 + '"';
           persplit1 = perstring1.split(" ");
           perval1 = persplit1[0].replace('"', "");
 
           var pers1 = 1 / parseInt(perval1);
-          if(cracker_name1 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
+          if(cracker_name1 == '2 3/4  Kuruvi' || cracker_name1 == '2 Sound Cracker' || cracker_name1 == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
             var amt1 = carton1 * rate1 ;
       }
           else {
@@ -549,13 +549,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate2 = $('#rate2').val();
         var per2 = $('#per2').val();
 
-        if ((cracker_name2 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') || (content_type2 == "Pocket" || content_type2 == "Piece")) {
+        if ((cracker_name2 == '2 3/4  Kuruvi' || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') || (content_type2 == "Pocket" || content_type2 == "Piece")) {
           perstring2 = '"' + per2 + '"';
           persplit2 = perstring2.split(" ");
           perval2 = persplit2[0].replace('"', "");
 
           var pers2 = 1 / parseInt(perval2);
-          if(cracker_name2 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
+          if(cracker_name2 == '2 3/4  Kuruvi' || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
             var amt2 = carton2 * rate2 ;
       }
           else {
@@ -579,13 +579,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate3 = $('#rate3').val();
         var per3 = $('#per3').val();
 
-        if ((cracker_name3 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') || (content_type3 == "Pocket" || content_type3 == "Piece")) {
+        if ((cracker_name3 == '2 3/4  Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') || (content_type3 == "Pocket" || content_type3 == "Piece")) {
                 perstring3 = '"' + per3 + '"';
           persplit3 = perstring3.split(" ");
           perval3 = persplit3[0].replace('"', "");
 
           var pers3 = 1 / parseInt(perval3);
-          if(cracker_name3 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
+          if(cracker_name3 == '2 3/4  Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
             var amt3 = carton3 * rate3 ;
       }
           else {
@@ -609,13 +609,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate4 = $('#rate4').val();
         var per4 = $('#per4').val();
 
-        if ((cracker_name4 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') || (content_type4 == "Pocket" || content_type4 == "Piece")) {
+        if ((cracker_name4 == '2 3/4  Kuruvi' || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') || (content_type4 == "Pocket" || content_type4 == "Piece")) {
           perstring4 = '"' + per4 + '"';
           persplit4 = perstring4.split(" ");
           perval4 = persplit4[0].replace('"', "");
 
           var pers4 = 1 / parseInt(perval4);
-          if(cracker_name4 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
+          if(cracker_name4 == '2 3/4  Kuruvi' || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
             var amt4 = carton4 * rate4 ;
       }
           else {
@@ -638,13 +638,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate5 = $('#rate5').val();
         var per5 = $('#per5').val();
 
-        if ((cracker_name5 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') || (content_type5 == "Pocket" || content_type5 == "Piece")) {
+        if ((cracker_name5 == '2 3/4  Kuruvi' || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') || (content_type5 == "Pocket" || content_type5 == "Piece")) {
           perstring5 = '"' + per5 + '"';
           persplit5 = perstring5.split(" ");
           perval5 = persplit5[0].replace('"', "");
 
           var pers5 = 1 / parseInt(perval5);
-          if(cracker_name5 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
+          if(cracker_name5 == '2 3/4  Kuruvi' || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
             var amt5= carton5 * rate5 ;
       }
           else {
@@ -665,15 +665,15 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
         $('#qty6').val(qty6+" "+content_type6);
         var rate6 = $('#rate6').val();
-        var per6 = $('#per2').val();
+        var per6 = $('#per6').val();
 
-        if ((cracker_name6 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') || (content_type6 == "Pocket" || content_type6 == "Piece")) {
+        if ((cracker_name6 == '2 3/4  Kuruvi' || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') || (content_type6 == "Pocket" || content_type6 == "Piece")) {
           perstring6 = '"' + per6 + '"';
           persplit6 = perstring6.split(" ");
           perval6 = persplit6[0].replace('"', "");
 
           var pers6 = 1 / parseInt(perval6);
-          if(cracker_name6 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
+          if(cracker_name6 == '2 3/4  Kuruvi' || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
             var amt6 = carton6 * rate6 ;
       }
           else {
@@ -697,13 +697,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate7 = $('#rate7').val();
         var per7 = $('#per7').val();
 
-        if ((cracker_name7 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') || (content_type7 == "Pocket" || content_type7 == "Piece")) {
+        if ((cracker_name7 == '2 3/4  Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') || (content_type7 == "Pocket" || content_type7 == "Piece")) {
           perstring7 = '"' + per7 + '"';
           persplit7 = perstring7.split(" ");
           perval7 = persplit7[0].replace('"', "");
 
           var pers7 = 1 / parseInt(perval7);
-          if(cracker_name7 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
+          if(cracker_name7 == '2 3/4  Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
             var amt7 = carton7 * rate7 ;
       }
           else {
@@ -727,13 +727,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate8 = $('#rate8').val();
         var per8 = $('#per8').val();
 
-        if ((cracker_name8 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') || (content_type8 == "Pocket" || content_type8 == "Piece")) {
+        if ((cracker_name8 == '2 3/4  Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') || (content_type8 == "Pocket" || content_type8 == "Piece")) {
           perstring8 = '"' + per8 + '"';
           persplit8 = perstring8.split(" ");
           perval8 = persplit8[0].replace('"', "");
 
           var pers8 = 1 / parseInt(perval8);
-          if(cracker_name8 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
+          if(cracker_name8 == '2 3/4  Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
             var amt8 = carton8 * rate8 ;
       }
           else {
@@ -757,13 +757,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var rate9 = $('#rate9').val();
         var per9 = $('#per9').val();
 
-        if ((cracker_name9 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') || (content_type9 == "Pocket" || content_type9 == "Piece")) {
+        if ((cracker_name9 == '2 3/4  Kuruvi' || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') || (content_type9 == "Pocket" || content_type9 == "Piece")) {
           perstring9 = '"' + per9 + '"';
           persplit9 = perstring9.split(" ");
           perval9 = persplit9[0].replace('"', "");
 
           var pers9 = 1 / parseInt(perval9);
-          if(cracker_name9 == '2 3/4  Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
+          if(cracker_name9 == '2 3/4  Kuruvi' || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
             var amt9 = carton9* rate9 ;
       }
           else {
