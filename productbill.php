@@ -1,6 +1,15 @@
 <style>
   body {
-    font-size: 15px !important;
+    font-size: 14px !important;
+  }
+  p {
+    margin-bottom: 6px !important;
+  }
+  .table th, .table td {
+    padding: 6px !important;
+  }
+  table td {
+    border-top: none !important;
   }
 </style>
 <?php
@@ -20,14 +29,6 @@ if ($id != '') {
 <html lang="en">
 
 <head>
-<style>
-  .table th, .table td {
-    padding: 0.65rem !important;
-  }
-  table td {
-    border-top: none !important;
-  }
-</style>
 <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
   <!-- Twitter meta-->
   <meta property="twitter:card" content="summary_large_image">
@@ -117,7 +118,7 @@ if ($id != '') {
                 </div>
               </div>
               <div class="col-6" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
-                <div class="col-12 text-center  mt-4">
+                <div class="col-12 text-center  mt-5">
                   <h5>Invoice No : <?= $valbill['invoice_no'] ?></h5>
                   <h5>Date : <td><?= date('d-m-Y', strtotime($valbill['invoice_date'])) ?></td>
                   </h5>
@@ -601,48 +602,48 @@ if ($id != '') {
               </div>
             </div>
             <div class="row invoice-info" style="margin-top: -15px;">
-              <div class="col-6" style="border-left: 1px solid rgba(0, 0, 0, 0.1);position: relative;left: 15px;">
+              <div class="col-5" style="border-left: 1px solid rgba(0, 0, 0, 0.1);position: relative;left: 15px;">
                 <table class="col-12 ml-5">
                   <tr>
-                    <td><h6>HSN Code</h6></td>
-                    <td>:</td>
-                    <td> <strong><?= $valbill['hsn_code'] ?></strong>
+                    <td><p class="mt-1"><b>HSN Code</b></p></td>
+                    <td><p class="mt-1">:</p></td>
+                    <td> <p class="mt-1 text-center"><strong><?= $valbill['hsn_code'] ?></strong></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h6>Total Cartons</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['total_carton'] ?></td>
+                    <td><p>Total Cartons</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"> <?= $valbill['total_carton'] ?></p></td>
                   </tr>
                   <tr>
-                    <td><h6>Despatched From</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['despatched_from'] ?></td>
+                    <td><p>Despatched From</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"><?= $valbill['despatched_from'] ?></p></td>
                   </tr>
                   <tr>
-                    <td><h6>Despatched To</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['despatched_to'] ?></td>
+                    <td><p>Despatched To</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"><?= $valbill['despatched_to'] ?></p></td>
                   </tr>
                   <tr>
-                    <td><h6>Vehicle No</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['vehicle_no'] ?></td>
+                    <td><p>Vehicle No</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"><?= $valbill['vehicle_no'] ?></p></td>
                   </tr>
                   <tr>
-                    <td><h6>Transport Name</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['transport_name'] ?></td>
+                    <td><p>Transport Name</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"><?= $valbill['transport_name'] ?></p></td>
                   </tr>
                   <tr>
-                    <td><h6>Transport GSTIN</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['transport_gstin'] ?></td>
+                    <td><p>Transport GSTIN</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"><?= $valbill['transport_gstin'] ?></p></td>
                   </tr>
                   <tr>
-                    <td><h6>E-way Bill</h6></td>
-                    <td>:</td>
-                    <td> <?= $valbill['eway_bill'] ?></td>
+                    <td><p>E-way Bill</p></td>
+                    <td><p>:</p></td>
+                    <td><p class="text-center"><?= $valbill['eway_bill'] ?></p></td>
                   </tr>
                 </table>
               </div>
@@ -653,78 +654,78 @@ if ($id != '') {
                   <tbody>
                     <tr>
                       <td>
-                        <h6>GOODS VALUE</h6>
+                 <p> <b>GOODS VALUE</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td class="pl-1">
-                        <h6>LESS DISC : <?= $valbill['discount'] ?>%</h6>
+                        <p><b>LESS DISC : <?= $valbill['discount'] ?>%</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td class="pt-1">
-                        <h6>TAXABLE VALUE</h6>
+                        <p><b>TAXABLE VALUE</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td class="pl-3">
-                        <h6>IGST</h6>
+                        <p><b>IGST</b></p>
                       </td>
                       <td>:</td>
                       <td></td>
                       <td>
-                        <h6 class="pt-2"><?= $valbill['igst'] ?>&nbsp;%</h6>
+                        <p class="pt-2"><b><?= $valbill['igst'] ?>&nbsp;%</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td class="pl-3">
-                        <h6>SGST</h6>
+                        <p><b>SGST</b></p>
                       </td>
                       <td>:</td>
                       <td></td>
                       <td>
-                        <h6  class="pt-2"><?= $valbill['sgst'] ?>&nbsp;%</h6>
+                        <p  class="pt-2"><b><?= $valbill['sgst'] ?>&nbsp;%</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td class="pl-3">
-                        <h6>CGST</h6>
+                        <p><b>CGST</b></p>
                       </td>
                       <td>:</td>
                       <td></td>
                       <td>
-                        <h6  class="pt-2"><?= $valbill['cgst'] ?>&nbsp;%</h6>
+                        <p  class="pt-2"><b><?= $valbill['cgst'] ?>&nbsp;%</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <h6>ROUND OFF</h6>
+                        <p><b>ROUND OFF</b></p>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <h6>NET AMOUNT</h6>
+                        <p><b>NET AMOUNT</b></p>
                       </td>
                     </tr>
                 </table>
               </div>
-              <div class="col-1" style="position:relative;left:37px;border-left:1px solid rgba(0, 0, 0, 0.1)">
+              <div class="col-1" style="position:relative;left:30px;border-left:1px solid rgba(0, 0, 0, 0.1)">
               </div>
-              <div class="col-1 text-right" style="position: relative;left:-15px;border-right:1px solid rgba(0, 0, 0, 0.1)">
+              <div class="col-1 text-left" style="position: relative;left:-5px;">
                 <table>
                   <tr>
                     <td>
-                      <h6><?= $valbill['good_value'] ?></h6>
+                      <p class="mt-1"><b><?= $valbill['good_value'] ?></b></p>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <h6><?= $valbill['discount_amount'] ?></h6>
+                      <p><b><?= $valbill['discount_amount'] ?></b></p>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <h6 class="pt-1"><?= $valbill['taxable_value'] ?></h6>
+                      <p class="pt-1"><b><?= $valbill['taxable_value'] ?></b></p>
                     </td>
                   </tr>
                   <tr>
@@ -734,42 +735,44 @@ if ($id != '') {
                     <?php if ($valbill['igst_amount'] != '') { 
                       ?>
                       <td>
-                        <h6 class="pt-2"><?= $valbill['igst_amount'] ?></h6>
+                        <p class="pt-2"><b><?= $valbill['igst_amount'] ?></b></p>
                       </td>
                     <?php } else { ?>
-                      <td><h6 class="pt-2">-</h6></td>
+                      <td><p class="pt-2">-</p></td>
                     <?php } ?>
                   </tr>
                   <tr> <?php if ($valbill['sgst_amount'] != '') { ?>
                       <td>
-                       <h6 class="pt-2"><?= $valbill['sgst_amount'] ?></h6>
+                       <p class="pt-2"><b><?= $valbill['sgst_amount'] ?></b></p>
                       </td>
                     <?php } else { ?>
-                      <td><h6 class="pt-2">-</h6></td>
+                      <td><p class="pt-2">-</p></td>
                      <?php } ?>
                   </tr>
                   <tr>
                     <?php if ($valbill['cgst_amount'] != '') { 
                       ?>
                       <td>
-                       <h6 class="pt-2"><?=  $valbill['cgst_amount'] ?></h6>
+                       <p class="pt-2"><b><?=  $valbill['cgst_amount'] ?></b></p>
                       </td>
                     <?php } else { ?>
-                      <td><h6 class="pt-2">-</h6></td>
+                      <td><p class="pt-2">-</p></td>
                     <?php }
                     ?>
                   </tr>
                   <tr>
                     <td>
-                      <h6 class="pt-1"><?= $valbill['round_off'] ?></h6>
+                      <p class="pt-1"><b><?= $valbill['round_off'] ?></b></p>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <h6 class="pt-0"><?= $valbill['net_amount'] ?></h6>
+                      <p class="pt-0"><b><?= $valbill['net_amount'] ?></b></p>
                     </td>
                   </tr>
                 </table>
+              </div>
+              <div class="col-1" style="position:relative;left:-15px;border-right:1px solid rgba(0, 0, 0, 0.1)">
               </div>
             </div>
             <hr />
@@ -830,26 +833,26 @@ if ($id != '') {
                 <h6 class="pl-4">We declare that this invoice shows the actual price of the goods and that all
                   particulars are true and collect.
                 </h6>
-                <h6><i>Company Bank Details</i></h6>
+                <p><i>Company Bank Details</i></p>
                 <table class="table table-bordered">
                   <tr>
                     <td>
-                    <h6 class="mb-0 pb-0">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
-                      <h6 class="mb-0 pb-0">Bank Name : Punjab National Bank</h6><br />
-                      <h6 class="mb-0 pb-0">Account Number : 4199002100015343</h6><br />
-                      <h6 class="mb-0 pb-0">IFSC Code : PUNB0419900</b>
+                    <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
+                      <h6 style="font-size:14px !important;margin-bottom:-12px !important">Bank Name : Punjab National Bank</h6><br />
+                      <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Number : 4199002100015343</h6><br />
+                   <h6 style="font-size:14px !important;margin-bottom:-12px !important">IFSC Code : PUNB0419900</h6>
                     </td>
                     <td>
-                    <h6 class="mb-0 pb-0">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
-                    <h6 class="mb-0 pb-0">Bank Name :   Tamilnadu Mercantile Bank</h6><br />
-                      <h6 class="mb-0 pb-0">Account Number : 003700050900353</h6><br />
-                      <h6 class="mb-0 pb-0">IFSC Code : TMBL0000003</h6>
+                    <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
+                   <h6 style="font-size:14px !important;margin-bottom:-12px !important">Bank Name :   Tamilnadu Mercantile Bank</h6><br />
+                    <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Number : 003700050900353</h6><br />
+                    <h6 style="font-size:14px !important;margin-bottom:6px !important">IFSC Code : TMBL0000003</h6>
                     </td>
                   </tr>
                 </table>
               </div>
               <div class="col-3" style="border-left:1px solid #dee2e6 !important;border-right:1px solid #dee2e6 !important;position:relative;left:30px">
-                <p class="mt=1"><i>For Jeyalakshmi Priya Sparklers Factory & Fireworks</i></p>
+                <p class="mt-1"><i>For Jeyalakshmi Priya Sparklers Factory & Fireworks</i></p>
                 <h6><br /><br /><br /><br /><br /><br /><br /><br /></h6>
                 <h6 class="text-right"><i>Manager / Partner</i></h6>
               </div>
