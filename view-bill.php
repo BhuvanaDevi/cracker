@@ -17,6 +17,9 @@
     top: -6px;
     left: -4px;
   }
+  table th,table td {
+  border:1px solid #000 !important;
+}
 </style>
   <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <!-- Twitter meta-->

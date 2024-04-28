@@ -1,6 +1,18 @@
 <?php
 include("connection.php");
 $id = isset($_GET['id']) ? $_GET['id'] : "";
+
+$sqlcarton ="select * from customerbill order by id desc limit 1";
+$execarton =mysqli_query($con,$sqlcarton);
+$valcarton=mysqli_fetch_assoc($execarton);
+$last_carton = isset($valcarton['carton_from_to'])?$valcarton['carton_from_to']:"";
+$lastcarton = explode("-",$last_carton);
+if($lastcarton[1] != '') {
+  $lastval = $lastcarton[1];
+}
+else {
+  $lastval = $lastcarton[0];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +30,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
   <script src="externallink/jqueryv.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $('#qty,#rate,#qty1,#rate1,#qty2,#rate2,#qty3,#rate3,#qty4,#rate4,#qty5,#rate5,#qty6,#rate6,#qty7,#rate7,#qty8,#rate8,#qty9,#rate9,#qty10,#rate10,#qty11,#rate11,#qty12,#rate12,#qty13,#rate13,#qty14,#rate14,#per,#per1,#per2,#per3,#per4,#per5,#per6,#per7,#per8,#per9,#per10,#per11,#per12,#per13,#per14').change(function() {
+      $('#qty,#rate,#qty1,#rate1,#qty2,#rate2,#qty3,#rate3,#qty4,#rate4,#qty5,#rate5,#qty6,#rate6,#qty7,#rate7,#qty8,#rate8,#qty9,#rate9,#qty10,#rate10,#qty11,#rate11,#qty12,#rate12,#qty13,#rate13,#qty14,#rate14,#per,#per1,#per2,#per3,#per4,#per5,#per6,#per7,#per8,#per9,#per10,#per11,#per12,#per13,#per14').keyup(function() {
 
         var cracker_name = $('#cracker_name').val();
         var carton = $('#carton').val();
@@ -38,16 +50,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring = '"' + per + '"';
           persplit = perstring.split(" ");
           perval = persplit[0].replace('"', "");
-
-          var pers = 1 / parseInt(perval);
-          if(cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi' ) {
-          var amt= carton * rate;
+          if (perval == 'Piece"' || perval == 'Pocket"' || perval == 'Unit"') {
+            perval = 1;
+          } else {
+            perval = perval;
           }
-         else {
-              var amt = qty * rate * pers;
-        } 
-      }
-      else {
+
+          var pers = parseFloat(perval) / parseFloat(100);
+          if (cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') {
+            var amt = carton * rate;
+          } else {
+            var amt = qty * rate * pers;
+          }
+        } else {
           var amt = qty * rate;
         }
 
@@ -71,16 +86,21 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring1 = '"' + per1 + '"';
           persplit1 = perstring1.split(" ");
           perval1 = persplit1[0].replace('"', "");
+          if (perval1 == 'Piece"' || perval1 == 'Pocket"' || perval1 == 'Unit"') {
+            perval1 = 1;
+          } else {
+            perval1 = perval1;
+          }
 
-         var pers1 = 1 / parseInt(perval1);
-        
+          var pers1 = parseFloat(perval1) / parseFloat(100);
+
           var amt1 = qty1 * rate1 * pers1;
         } else {
           var amt1 = qty1 * rate1;
         }
 
         $('#amount1').val(amt1);
-  
+
         var cracker_name2 = $('#cracker_name2').val();
         var carton2 = $('#carton2').val();
         var carton_content2 = $('#carton_contents2').val();
@@ -99,8 +119,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring2 = '"' + per2 + '"';
           persplit2 = perstring2.split(" ");
           perval2 = persplit2[0].replace('"', "");
+          if (perval2 == 'Piece"' || perval2 == 'Pocket"' || perval2 == 'Unit"') {
+            perval2 = 1;
+          } else {
+            perval2 = perval2;
+          }
 
-          var pers2 = 1 / parseInt(perval2);
+          var pers2 = parseFloat(perval2) / parseFloat(100);
           var amt2 = qty2 * rate2 * pers2;
         } else {
           var amt2 = qty2 * rate2;
@@ -126,8 +151,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring3 = '"' + per3 + '"';
           persplit3 = perstring3.split(" ");
           perval3 = persplit3[0].replace('"', "");
+          if (perval3 == 'Piece"' || perval3 == 'Pocket"' || perval3 == 'Unit"') {
+            perval3 = 1;
+          } else {
+            perval3 = perval3;
+          }
 
-          var pers3 = 1 / parseInt(perval3);
+          var pers3 = parseFloat(perval3) / parseFloat(100);
           var amt3 = qty3 * rate3 * pers3;
         } else {
           var amt3 = qty3 * rate3;
@@ -153,8 +183,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring4 = '"' + per4 + '"';
           persplit4 = perstring4.split(" ");
           perval4 = persplit4[0].replace('"', "");
+          if (perval4 == 'Piece"' || perval4 == 'Pocket"' || perval4 == 'Unit"') {
+            perval4 = 1;
+          } else {
+            perval4 = perval4;
+          }
 
-          var pers4 = 1 / parseInt(perval4);
+          var pers4 = parseFloat(perval4) / parseFloat(100);
           var amt4 = qty4 * rate4 * pers4;
         } else {
           var amt4 = qty4 * rate4;
@@ -180,8 +215,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring5 = '"' + per5 + '"';
           persplit5 = perstring5.split(" ");
           perval5 = persplit5[0].replace('"', "");
+          if (perval5 == 'Piece"' || perval5 == 'Pocket"' || perval5 == 'Unit"') {
+            perval5 = 1;
+          } else {
+            perval5 = perval5;
+          }
 
-          var pers5 = 1 / parseInt(perval5);
+          var pers5 = parseFloat(perval5) / parseFloat(100);
           var amt5 = qty5 * rate5 * pers5;
         } else {
           var amt5 = qty5 * rate5;
@@ -207,8 +247,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring6 = '"' + per6 + '"';
           persplit6 = perstring6.split(" ");
           perval6 = persplit6[0].replace('"', "");
+          if (perval6 == 'Piece"' || perval6 == 'Pocket"' || perval6 == 'Unit"') {
+            perval6 = 1;
+          } else {
+            perval6 = perval6;
+          }
 
-          var pers6 = 1 / parseInt(perval6);
+          var pers6 = parseFloat(perval6) / parseFloat(100);
           var amt6 = qty6 * rate6 * pers6;
         } else {
           var amt6 = qty6 * rate6;
@@ -234,8 +279,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring7 = '"' + per7 + '"';
           persplit7 = perstring7.split(" ");
           perval7 = persplit7[0].replace('"', "");
+          if (perval7 == 'Piece"' || perval7 == 'Pocket"' || perval7 == 'Unit"') {
+            perval7 = 1;
+          } else {
+            perval7 = perval7;
+          }
 
-          var pers7 = 1 / parseInt(perval7);
+          var pers7 = parseFloat(perval7) / parseFloat(100);
           var amt7 = qty7 * rate7 * pers7;
         } else {
           var amt7 = qty7 * rate7;
@@ -261,8 +311,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring8 = '"' + per8 + '"';
           persplit8 = perstring8.split(" ");
           perval8 = persplit8[0].replace('"', "");
+          if (perval8 == 'Piece"' || perval8 == 'Pocket"' || perval8 == 'Unit"') {
+            perval8 = 1;
+          } else {
+            perval8 = perval8;
+          }
 
-          var pers8 = 1 / parseInt(perval8);
+          var pers8 = parseFloat(perval8) / parseFloat(100);
           var amt8 = qty8 * rate8 * pers8;
         } else {
           var amt8 = qty8 * rate8;
@@ -289,8 +344,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring9 = '"' + per9 + '"';
           persplit9 = perstring9.split(" ");
           perval9 = persplit9[0].replace('"', "");
+          if (perval9 == 'Piece"' || perval9 == 'Pocket"' || perval9 == 'Unit"') {
+            perval9 = 1;
+          } else {
+            perval9 = perval9;
+          }
 
-          var pers9 = 1 / parseInt(perval9);
+          var pers9 = parseFloat(perval9) / parseFloat(100);
           var amt9 = qty9 * rate9 * pers9;
         } else {
           var amt9 = qty9 * rate9;
@@ -316,8 +376,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring10 = '"' + per10 + '"';
           persplit10 = perstring10.split(" ");
           perval10 = persplit10[0].replace('"', "");
+          if (perval10 == 'Piece"' || perval10 == 'Pocket"' || perval10 == 'Unit"') {
+            perval10 = 1;
+          } else {
+            perval10 = perval10;
+          }
 
-          var pers10 = 1 / parseInt(perval10);
+          var pers10 = parseFloat(perval10) / parseFloat(100);
           var amt10 = qty10 * rate10 * pers10;
         } else {
           var amt10 = qty10 * rate10;
@@ -343,8 +408,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring11 = '"' + per11 + '"';
           persplit11 = perstring11.split(" ");
           perval11 = persplit11[0].replace('"', "");
+          if (perval11 == 'Piece"' || perval11 == 'Pocket"' || perval11 == 'Unit"') {
+            perval11 = 1;
+          } else {
+            perval11 = perval11;
+          }
 
-          var pers11 = 1 / parseInt(perval11);
+          var pers11 = parseFloat(perval11) / parseFloat(100);
           var amt11 = qty11 * rate11 * pers11;
         } else {
           var amt11 = qty11 * rate11;
@@ -370,8 +440,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring12 = '"' + per12 + '"';
           persplit12 = perstring12.split(" ");
           perval12 = persplit12[0].replace('"', "");
+          if (perval12 == 'Piece"' || perval12 == 'Pocket"' || perval12 == 'Unit"') {
+            perval12 = 1;
+          } else {
+            perval12 = perval12;
+          }
 
-          var pers12 = 1 / parseInt(perval12);
+          var pers12 = parseFloat(perval12) / parseFloat(100);
           var amt12 = qty12 * rate12 * pers12;
         } else {
           var amt12 = qty12 * rate12;
@@ -397,8 +472,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring13 = '"' + per13 + '"';
           persplit13 = perstring13.split(" ");
           perval13 = persplit13[0].replace('"', "");
+          if (perval13 == 'Piece"' || perval13 == 'Pocket"' || perval13 == 'Unit"') {
+            perval13 = 1;
+          } else {
+            perval13 = perval13;
+          }
 
-          var pers13 = 1 / parseInt(perval13);
+          var pers13 = parseFloat(perval13) / parseFloat(100);
           var amt13 = qty13 * rate13 * pers13;
         } else {
           var amt13 = qty13 * rate13;
@@ -424,8 +504,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring14 = '"' + per14 + '"';
           persplit14 = perstring14.split(" ");
           perval14 = persplit14[0].replace('"', "");
+          if (perval14 == 'Piece"' || perval14 == 'Pocket"' || perval14 == 'Unit"') {
+            perval14 = 1;
+          } else {
+            perval14 = perval14;
+          }
 
-          var pers14 = 1 / parseInt(perval14);
+          var pers14 = parseFloat(perval14) / parseFloat(100);
           var amt14 = qty14 * rate14 * pers14;
         } else {
           var amt14 = qty14 * rate14;
@@ -487,66 +572,62 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
         var goodvalue = amt + amt1 + amt2 + amt3 + amt4 + amt5 + amt6 + amt7 + amt8 + amt9 + amt10 + amt11 + amt12 + amt13 + amt14;
         $('#good_value').val(goodvalue);
+        console.log(goodvalue);
+   
+        if(goodvalue) {        
+        var discount = $('#discount').val();
+        var amount = goodvalue;
+        console.log(amount);
+        var dis = (amount * discount) / 100;
+        $('#discount_amount').val(Math.round(dis));
 
-        var dis = $('#discount').val();
-        if (dis != '') {
-          var discount = (good_value * dis) / 100;
-          $('#discount_amount').val(Math.round(discount));
-          var taxable = Math.round(goodvalue - discount);
-          $('#taxable_value').val(taxable);
+        var taxable = Math.round(amount - dis);
+        $('#taxable_value').val(taxable);
+        var state_type = $('#state_type').val();
+        console.log(state_type);
+        var igst = $('#igst').val();
+        var sgst = $('#sgst').val();
+        var cgst = $('#cgst').val();
 
-          var state_type = $('#state_type').val();
+        console.log(igst + "" + sgst + "" + cgst);
+        if (state_type == "Interstate") {
+          $('#cgst').val('');
+          $('#sgst').val('');
+          $('#cgst_amount').val('');
+          $('#sgst_amount').val('');
 
-          if (state_type == "Interstate") {
-            $('#igst').val('');
-            $('#igst_amount').val('');
-            var sgst = $('#sgst').val();
-            var cgst = $('#cgst').val();
-            var calsgst = (sgst * taxable) / 100;
-            var calcgst = (cgst * taxable) / 100;
-            console.log(calsgst + " " + calcgst);
-            $('#sgst_amount').val(calsgst);
-            $('#cgst_amount').val(calcgst);
+          var caligst = (igst * taxable) / 100;
+          $('#igst_amount').val(caligst);
 
-            var tax = parseFloat(calsgst) + parseFloat(calcgst);
-            var netamount = parseFloat(taxable) + parseFloat(tax);
+          var tax = parseFloat(caligst);
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
 
-            var netfloor = Math.floor(tax);
-            var netfix = tax.toFixed(2);
+          $('#round_off').val((netfloor - netfix).toFixed(2));
 
-            $('#round_off').val((netfloor - netfix).toFixed(2));
+        } else if (state_type == "Intrastate") {
+          $('#igst').val('');
+          $('#igst_amount').val('');
+          var calsgst = (sgst * taxable) / 100;
+          var calcgst = (cgst * taxable) / 100;
+          $('#sgst_amount').val(calsgst);
+          $('#cgst_amount').val(calcgst);
 
+          var tax = parseFloat(calsgst) + parseFloat(calcgst);
 
-            $('#net_amount').val(Math.round(netamount));
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
 
-          } else if (state_type == "Intrastate") {
-
-            $('#cgst').val('');
-            $('#sgst').val('');
-            $('#cgst_amount').val('');
-            $('#sgst_amount').val('');
-            var igst = $('#igst').val();
-
-            var caligst = (parseFloat(igst) * taxable) / 100;
-            console.log(caligst);
-            $('#igst_amount').val(caligst);
-            var tax = parseFloat(caligst);
-            var netamount = parseFloat(taxable) + parseFloat(tax);
-            console.log(netamount);
-
-            var netfloor = Math.floor(tax);
-            var netfix = tax.toFixed(2);
-
-            $('#round_off').val((netfloor - netfix).toFixed(2));
-            $('#net_amount').val(Math.round(netamount));
-
-          }
-
+          $('#round_off').val((netfloor - netfix).toFixed(2));
         }
-
+        }
       });
-      $('#discount').change(function() {
-        var discount = this.value;
+      $('#discount').keyup(function() {
+        var discount = $(this).val();
         var amount = $('#good_value').val();
         var dis = (amount * discount) / 100;
         $('#discount_amount').val(Math.round(dis));
@@ -554,47 +635,98 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var taxable = Math.round(amount - dis);
         $('#taxable_value').val(taxable);
         var state_type = $('#state_type').val();
-              console.log(state_type);
-              var igst = $('#igst').val();
-              var sgst = $('#sgst').val();
-                var cgst = $('#cgst').val();
-              
-                console.log(igst+""+sgst+""+cgst);
-               if (state_type == "Interstate") {
-                $('#cgst').val('');
-                $('#sgst').val('');
-                $('#cgst_amount').val('');
-                $('#sgst_amount').val('');
+        console.log(state_type);
+        var igst = $('#igst').val();
+        var sgst = $('#sgst').val();
+        var cgst = $('#cgst').val();
 
-                var caligst = (igst * taxable) / 100;
-                $('#igst_amount').val(caligst);
+        console.log(igst + "" + sgst + "" + cgst);
+        if (state_type == "Interstate") {
+          $('#cgst').val('');
+          $('#sgst').val('');
+          $('#cgst_amount').val('');
+          $('#sgst_amount').val('');
 
-                var tax = parseFloat(caligst);
-                var netamount = (parseFloat(taxable)) + parseFloat(tax);
-                $('#net_amount').val(Math.round(netamount));
-                var netfloor = Math.floor(tax);
-                var netfix = tax.toFixed(2);
+          var caligst = (igst * taxable) / 100;
+          $('#igst_amount').val(caligst);
 
-                $('#round_off').val((netfloor - netfix).toFixed(2));
+          var tax = parseFloat(caligst);
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
 
-              } else if (state_type == "Intrastate") {
-                $('#igst').val('');
-                $('#igst_amount').val('');
-                var calsgst = (sgst * taxable) / 100;
-                var calcgst = (cgst * taxable) / 100;
-                $('#sgst_amount').val(calsgst);
-                $('#cgst_amount').val(calcgst);
+          $('#round_off').val((netfloor - netfix).toFixed(2));
 
-                var tax = parseFloat(calsgst) + parseFloat(calcgst);
+        } else if (state_type == "Intrastate") {
+          $('#igst').val('');
+          $('#igst_amount').val('');
+          var calsgst = (sgst * taxable) / 100;
+          var calcgst = (cgst * taxable) / 100;
+          $('#sgst_amount').val(calsgst);
+          $('#cgst_amount').val(calcgst);
 
-                var netamount = (parseFloat(taxable)) + parseFloat(tax);
-                $('#net_amount').val(Math.round(netamount));
-                var netfloor = Math.floor(tax);
-                var netfix = tax.toFixed(2);
+          var tax = parseFloat(calsgst) + parseFloat(calcgst);
 
-                $('#round_off').val((netfloor - netfix).toFixed(2));
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
 
-              }
+          $('#round_off').val((netfloor - netfix).toFixed(2));
+
+        }
+      });
+      $('#good_value').focus(function() {
+        var amount = $(this).val();
+         var discount = $('$discount').value;
+       var dis = (amount * discount) / 100;
+        $('#discount_amount').val(Math.round(dis));
+
+        var taxable = Math.round(amount - dis);
+        $('#taxable_value').val(taxable);
+        var state_type = $('#state_type').val();
+        console.log(state_type);
+        var igst = $('#igst').val();
+        var sgst = $('#sgst').val();
+        var cgst = $('#cgst').val();
+
+        console.log(igst + "" + sgst + "" + cgst);
+        if (state_type == "Interstate") {
+          $('#cgst').val('');
+          $('#sgst').val('');
+          $('#cgst_amount').val('');
+          $('#sgst_amount').val('');
+
+          var caligst = (igst * taxable) / 100;
+          $('#igst_amount').val(caligst);
+
+          var tax = parseFloat(caligst);
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
+
+          $('#round_off').val((netfloor - netfix).toFixed(2));
+
+        } else if (state_type == "Intrastate") {
+          $('#igst').val('');
+          $('#igst_amount').val('');
+          var calsgst = (sgst * taxable) / 100;
+          var calcgst = (cgst * taxable) / 100;
+          $('#sgst_amount').val(calsgst);
+          $('#cgst_amount').val(calcgst);
+
+          var tax = parseFloat(calsgst) + parseFloat(calcgst);
+
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
+
+          $('#round_off').val((netfloor - netfix).toFixed(2));
+
+        }
       });
 
       $('#consignee_name').change(function() {
@@ -612,7 +744,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
             if (response.msg == "Success") {
               $('#gstin').val(response.data.gstin);
               $('#state').val(response.data.state);
-              $('#place').val(response.data.place+" - "+response.data.pincode);
+              $('#place').val(response.data.place + " - " + response.data.pincode);
               $('#consignee_address').val(response.data.address1 + " " + response.data.address2);
             }
             if (response.msg == "Failure") {}
@@ -621,7 +753,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
       });
 
 
-      $('#carton,#carton_contents,#carton1,#carton_contents1,#carton2,#carton_contents2,#carton3,#carton_contents3,#carton4,#carton_contents4,#carton5,#carton_contents5,#carton6,#carton_contents6,#carton7,#carton_contents7,#carton8,#carton_contents8,#carton9,#carton_contents9,#carton10,#carton_contents10,#carton11,#carton_contents11,#carton12,#carton_contents12,#carton13,#carton_contents13,#carton14,#carton_contents14').change(function() {
+      $('#carton,#carton_contents,#carton1,#carton_contents1,#carton2,#carton_contents2,#carton3,#carton_contents3,#carton4,#carton_contents4,#carton5,#carton_contents5,#carton6,#carton_contents6,#carton7,#carton_contents7,#carton8,#carton_contents8,#carton9,#carton_contents9,#carton10,#carton_contents10,#carton11,#carton_contents11,#carton12,#carton_contents12,#carton13,#carton_contents13,#carton14,#carton_contents14').keyup(function() {
         var cracker_name = $('#cracker_name').val();
         var cracker_name1 = $('#cracker_name1').val();
         var cracker_name2 = $('#cracker_name2').val();
@@ -639,33 +771,39 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cracker_name14 = $('#cracker_name14').val();
 
         var carton = $('#carton').val();
-        if(carton == 1) {
-        $('#carton_from_to').val('1');
-        }
-        else { 
-          $('#carton_from_to').val('1 - '+carton);
+        var cartonval = $('#cartonval').val();
+        var cartonvals = parseInt(carton)+parseInt(cartonval);
+        if (carton == 1) {
+          $('#carton_from_to').val(cartonval);
+        } else {
+          $('#carton_from_to').val(cartonval + ' - ' + cartonvals);
         }
         var carton_content = $('#carton_contents').val();
         cartoncontent = carton_content.split(" ");
         contentss = cartoncontent[0];
         content_type = cartoncontent[1];
+
         var rate = $('#rate').val();
         var per = $('#per').val();
 
         var qty = parseInt(carton) * parseInt(contentss);
         $('#qty').val(qty + " " + content_type);
-        
+
         if ((cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') || (content_type == "Pocket" || content_type == "Piece")) {
           perstring = '"' + per + '"';
           persplit = perstring.split(" ");
           perval = persplit[0].replace('"', "");
-
-          var pers = 1 / parseInt(perval);
-          if(cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') {
-            var amt = carton * rate ;
-      }
-          else {
-          var amt = qty * rate * pers;
+          if (perval == 'Piece"' || perval == 'Pocket"' || perval == 'Unit"') {
+            perval = 1;
+          } else {
+            perval = perval;
+          }
+        
+          var pers = parseFloat(perval) / parseFloat(100);
+    if (cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') {
+            var amt = carton * rate;
+          } else {
+            var amt = qty * rate * pers;
           }
         } else {
           var amt = qty * rate;
@@ -674,23 +812,22 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         $('#amount').val(amt);
 
         var carton1 = $('#carton1').val();
-        if(carton1 != '') {
-        var carton_start1 = (parseInt(carton))+parseInt(1);
-        var carton_end1 = parseInt(carton_start1) + parseInt(carton1) - parseInt(1);
-        if(carton1 == 1) {
-          $('#carton_from_to1').val(carton_start1);
+        if (carton1 != '') {
+          var carton_start1 = (parseInt(carton)) + parseInt(1);
+          var carton_end1 = parseInt(carton_start1) + parseInt(carton1) - parseInt(1);
+          if (carton1 == 1) {
+            $('#carton_from_to1').val(carton_start1);
+          } else {
+            $('#carton_from_to1').val(carton_start1 + ' - ' + carton_end1);
+          }
         }
-        else {
-        $('#carton_from_to1').val(carton_start1+' - '+carton_end1);
-        }
-      }
         var carton_content1 = $('#carton_contents1').val();
         cartoncontent1 = carton_content1.split(" ");
         contentss1 = cartoncontent1[0];
         content_type1 = cartoncontent1[1];
 
         var qty1 = parseInt(carton1) * parseInt(contentss1);
-        $('#qty1').val(qty1+" "+content_type1);
+        $('#qty1').val(qty1 + " " + content_type1);
 
         var rate1 = $('#rate1').val();
         var per1 = $('#per1').val();
@@ -699,14 +836,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring1 = '"' + per1 + '"';
           persplit1 = perstring1.split(" ");
           perval1 = persplit1[0].replace('"', "");
-
-          var pers1 = 1 / parseInt(perval1);
-          if(cracker_name1 == '2 3/4 Kuruvi' || cracker_name1 == '2 Sound Cracker' || cracker_name1 == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
-            var amt1 = carton1 * rate1 ;
-      }
-          else {
-            console.log(pers1);
-          var amt1 = qty1 * rate1 * pers1;
+          if (perval1 == 'Piece"' || perval1 == 'Pocket"' || perval1 == 'Unit"') {
+            perval1 = 1;
+          } else {
+            perval1 = perval1;
+          }
+        
+          var pers1 = parseFloat(perval1) / parseFloat(100);
+          if (cracker_name1 == '2 3/4 Kuruvi' || cracker_name1 == '2 Sound Cracker' || cracker_name1 == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
+            var amt1 = carton1 * rate1;
+          } else {
+            var amt1 = qty1 * rate1 * pers1;
           }
         } else {
           var amt1 = qty1 * rate1;
@@ -718,18 +858,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto2 = $('#carton_from_to1').val();
         cartonfromtosplit2 = cartonfromto2.split(" - ");
         cartonfrom2 = cartonfromtosplit2[1];
-        if(cartonfrom2==undefined){
+        if (cartonfrom2 == undefined) {
           cartonfrom2 = cartonfromtosplit2[0];
         }
-        if(carton2 != '') {
-        var carton_start2 = (parseInt(cartonfrom2))+parseInt(1);
-        var carton_end2 = parseInt(carton_start2) + parseInt(carton2) - parseInt(1);
-        if(carton2 == 1) {
-          $('#carton_from_to2').val(carton_start2);
-        }
-        else {
-          $('#carton_from_to2').val(carton_start2+' - '+carton_end2);
-        }
+        if (carton2 != '') {
+          var carton_start2 = (parseInt(cartonfrom2)) + parseInt(1);
+          var carton_end2 = parseInt(carton_start2) + parseInt(carton2) - parseInt(1);
+          if (carton2 == 1) {
+            $('#carton_from_to2').val(carton_start2);
+          } else {
+            $('#carton_from_to2').val(carton_start2 + ' - ' + carton_end2);
+          }
         }
         var carton_content2 = $('#carton_contents2').val();
         cartoncontent2 = carton_content2.split(" ");
@@ -737,7 +876,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         content_type2 = cartoncontent2[1];
 
         var qty2 = parseInt(carton2) * parseInt(contentss2);
-        $('#qty2').val(qty2+" "+content_type2);
+        $('#qty2').val(qty2 + " " + content_type2);
 
         var rate2 = $('#rate2').val();
         var per2 = $('#per2').val();
@@ -746,13 +885,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring2 = '"' + per2 + '"';
           persplit2 = perstring2.split(" ");
           perval2 = persplit2[0].replace('"', "");
-
-          var pers2 = 1 / parseInt(perval2);
-          if(cracker_name2 == '2 3/4 Kuruvi' || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
-            var amt2 = carton2 * rate2 ;
-      }
-          else {
-          var amt2 = qty2 * rate2 * pers2;
+          if (perval2 == 'Piece"' || perval2 == 'Pocket"' || perval2 == 'Unit"') {
+            perval2 = 1;
+          } else {
+            perval2 = perval2;
+          }
+        
+          var pers2 = parseFloat(perval2) / parseFloat(100);
+     if (cracker_name2 == '2 3/4 Kuruvi' || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
+            var amt2 = carton2 * rate2;
+          } else {
+            var amt2 = qty2 * rate2 * pers2;
           }
         } else {
           var amt2 = qty2 * rate2;
@@ -764,41 +907,44 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto3 = $('#carton_from_to2').val();
         cartonfromtosplit3 = cartonfromto3.split(" - ");
         cartonfrom3 = cartonfromtosplit3[1];
-        if(cartonfrom3==undefined){
+        if (cartonfrom3 == undefined) {
           cartonfrom3 = cartonfromtosplit3[0];
         }
-        if(carton3 != '') {
-        var carton_start3 = (parseInt(cartonfrom3))+parseInt(1);
-        var carton_end3 = parseInt(carton_start3) + parseInt(carton3) - parseInt(1);
-        if(carton3 == 1) {
-          $('#carton_from_to3').val(carton_start3);
-        }
-        else {
-          $('#carton_from_to3').val(carton_start3+' - '+carton_end3);
+        if (carton3 != '') {
+          var carton_start3 = (parseInt(cartonfrom3)) + parseInt(1);
+          var carton_end3 = parseInt(carton_start3) + parseInt(carton3) - parseInt(1);
+          if (carton3 == 1) {
+            $('#carton_from_to3').val(carton_start3);
+          } else {
+            $('#carton_from_to3').val(carton_start3 + ' - ' + carton_end3);
           }
-      }
+        }
         var carton_content3 = $('#carton_contents3').val();
         cartoncontent3 = carton_content3.split(" ");
         contentss3 = cartoncontent3[0];
         content_type3 = cartoncontent3[1];
 
         var qty3 = parseInt(carton3) * parseInt(contentss3);
-        $('#qty3').val(qty3+" "+content_type3);
+        $('#qty3').val(qty3 + " " + content_type3);
 
         var rate3 = $('#rate3').val();
         var per3 = $('#per3').val();
 
         if ((cracker_name3 == '2 3/4 Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') || (content_type3 == "Pocket" || content_type3 == "Piece")) {
-                perstring3 = '"' + per3 + '"';
+          perstring3 = '"' + per3 + '"';
           persplit3 = perstring3.split(" ");
           perval3 = persplit3[0].replace('"', "");
-
-          var pers3 = 1 / parseInt(perval3);
-          if(cracker_name3 == '2 3/4 Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
-            var amt3 = carton3 * rate3 ;
-      }
-          else {
-          var amt3 = qty3 * rate3 * pers3;
+          if (perval3 == 'Piece"' || perval3 == 'Pocket"' || perval3 == 'Unit"') {
+            perval3 = 1;
+          } else {
+            perval3 = perval3;
+          }
+        
+          var pers3 = parseFloat(perval3) / parseFloat(100);
+     if (cracker_name3 == '2 3/4 Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
+            var amt3 = carton3 * rate3;
+          } else {
+            var amt3 = qty3 * rate3 * pers3;
           }
         } else {
           var amt3 = qty3 * rate3;
@@ -810,25 +956,25 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto4 = $('#carton_from_to3').val();
         cartonfromtosplit4 = cartonfromto4.split(" - ");
         cartonfrom4 = cartonfromtosplit4[1];
-          if(cartonfrom4==undefined){
+        if (cartonfrom4 == undefined) {
           cartonfrom4 = cartonfromtosplit4[0];
         }
-        if(carton4 != '') {
-        var carton_start4 = parseInt(cartonfrom4)+parseInt(1);
-        var carton_end4 = parseInt(carton_start4) + parseInt(carton4) - parseInt(1);
-    if(carton4 == 1) {
-      $('#carton_from_to4').val(carton_start4);
-    }  else {
-         $('#carton_from_to4').val(carton_start4+' - '+carton_end4);
+        if (carton4 != '') {
+          var carton_start4 = parseInt(cartonfrom4) + parseInt(1);
+          var carton_end4 = parseInt(carton_start4) + parseInt(carton4) - parseInt(1);
+          if (carton4 == 1) {
+            $('#carton_from_to4').val(carton_start4);
+          } else {
+            $('#carton_from_to4').val(carton_start4 + ' - ' + carton_end4);
+          }
         }
-      }
         var carton_content4 = $('#carton_contents4').val();
         cartoncontent4 = carton_content4.split(" ");
         contentss4 = cartoncontent4[0];
         content_type4 = cartoncontent4[1];
 
         var qty4 = parseInt(carton4) * parseInt(contentss4);
-        $('#qty4').val(qty4+" "+content_type4);
+        $('#qty4').val(qty4 + " " + content_type4);
 
         var rate4 = $('#rate4').val();
         var per4 = $('#per4').val();
@@ -837,13 +983,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring4 = '"' + per4 + '"';
           persplit4 = perstring4.split(" ");
           perval4 = persplit4[0].replace('"', "");
+          if (perval4 == 'Piece"' || perval4 == 'Pocket"' || perval4 == 'Unit"') {
+            perval4 = 1;
+          } else {
+            perval4 = perval4;
+          }
 
-          var pers4 = 1 / parseInt(perval4);
-          if(cracker_name4 == '2 3/4 Kuruvi' || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
-            var amt4 = carton4 * rate4 ;
-      }
-          else {
-          var amt4 = qty4 * rate4 * pers4;
+          var pers4 = parseFloat(perval4) / parseFloat(100);
+              if (cracker_name4 == '2 3/4 Kuruvi' || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
+            var amt4 = carton4 * rate4;
+          } else {
+            var amt4 = qty4 * rate4 * pers4;
           }
         } else {
           var amt4 = qty4 * rate4;
@@ -854,19 +1004,18 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto5 = $('#carton_from_to4').val();
         cartonfromtosplit5 = cartonfromto5.split(" - ");
         cartonfrom5 = cartonfromtosplit5[1];
-        if(cartonfrom5==undefined){
+        if (cartonfrom5 == undefined) {
           cartonfrom5 = cartonfromtosplit5[0];
         }
-         if(carton5 != '') {
-        var carton_start5 = (parseInt(cartonfrom5))+parseInt(1);
-        var carton_end5 = parseInt(carton_start5) + parseInt(carton5) - parseInt(1);
-        if(carton5 == 1) {
-          $('#carton_from_to5').val(carton_start5);
+        if (carton5 != '') {
+          var carton_start5 = (parseInt(cartonfrom5)) + parseInt(1);
+          var carton_end5 = parseInt(carton_start5) + parseInt(carton5) - parseInt(1);
+          if (carton5 == 1) {
+            $('#carton_from_to5').val(carton_start5);
+          } else {
+            $('#carton_from_to5').val(carton_start5 + ' - ' + carton_end5);
+          }
         }
-        else {
-        $('#carton_from_to5').val(carton_start5+' - '+carton_end5);
-        }
-      }
         var carton_content5 = $('#carton_contents5').val();
         cartoncontent5 = carton_content5.split(" ");
         contentss5 = cartoncontent5[0];
@@ -874,7 +1023,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
         var qty5 = parseInt(carton5) * parseInt(contentss5);
 
-        $('#qty5').val(qty5+" "+content_type5);
+        $('#qty5').val(qty5 + " " + content_type5);
         var rate5 = $('#rate5').val();
         var per5 = $('#per5').val();
 
@@ -882,13 +1031,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring5 = '"' + per5 + '"';
           persplit5 = perstring5.split(" ");
           perval5 = persplit5[0].replace('"', "");
+          if (perval5 == 'Piece"' || perval5 == 'Pocket"' || perval5 == 'Unit"') {
+            perval5 = 1;
+          } else {
+            perval5 = perval5;
+          }
 
-          var pers5 = 1 / parseInt(perval5);
-          if(cracker_name5 == '2 3/4 Kuruvi' || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
-            var amt5= carton5 * rate5 ;
-      }
-          else {
-          var amt5 = qty5 * rate5 * pers5;
+          var pers5 = parseFloat(perval5) / parseFloat(100);
+       if (cracker_name5 == '2 3/4 Kuruvi' || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
+            var amt5 = carton5 * rate5;
+          } else {
+            var amt5 = qty5 * rate5 * pers5;
           }
         } else {
           var amt5 = qty5 * rate5;
@@ -899,18 +1052,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto6 = $('#carton_from_to5').val();
         cartonfromtosplit6 = cartonfromto6.split(" - ");
         cartonfrom6 = cartonfromtosplit6[1];
-        if(cartonfrom6==undefined){
+        if (cartonfrom6 == undefined) {
           cartonfrom6 = cartonfromtosplit6[0];
         }
-        if(carton6 != '') {
-        var carton_start6 = (parseInt(cartonfrom6))+parseInt(1);
-        var carton_end6 = parseInt(carton_start6) + parseInt(carton6) - parseInt(1);
-        if(carton6 == 1) {
-        $('#carton_from_to6').val(carton_start6);
-        }
-        else {
-          $('#carton_from_to6').val(carton_start6+' - '+carton_end6);
-        }
+        if (carton6 != '') {
+          var carton_start6 = (parseInt(cartonfrom6)) + parseInt(1);
+          var carton_end6 = parseInt(carton_start6) + parseInt(carton6) - parseInt(1);
+          if (carton6 == 1) {
+            $('#carton_from_to6').val(carton_start6);
+          } else {
+            $('#carton_from_to6').val(carton_start6 + ' - ' + carton_end6);
+          }
         }
         var carton_content6 = $('#carton_contents6').val();
         cartoncontent6 = carton_content6.split(" ");
@@ -919,7 +1071,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
         var qty6 = parseInt(carton6) * parseInt(contentss6);
 
-        $('#qty6').val(qty6+" "+content_type6);
+        $('#qty6').val(qty6 + " " + content_type6);
         var rate6 = $('#rate6').val();
         var per6 = $('#per6').val();
 
@@ -927,13 +1079,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring6 = '"' + per6 + '"';
           persplit6 = perstring6.split(" ");
           perval6 = persplit6[0].replace('"', "");
+          if (perval6 == 'Piece"' || perval6 == 'Pocket"' || perval6 == 'Unit"') {
+            perval6 = 1;
+          } else {
+            perval6 = perval6;
+          }
 
-          var pers6 = 1 / parseInt(perval6);
-          if(cracker_name6 == '2 3/4 Kuruvi' || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
-            var amt6 = carton6 * rate6 ;
-      }
-          else {
-          var amt6 = qty6 * rate6 * pers6;
+          var pers6 = parseFloat(perval6) / parseFloat(100);
+      if (cracker_name6 == '2 3/4 Kuruvi' || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
+            var amt6 = carton6 * rate6;
+          } else {
+            var amt6 = qty6 * rate6 * pers6;
           }
         } else {
           var amt6 = qty6 * rate6;
@@ -945,18 +1101,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto7 = $('#carton_from_to6').val();
         cartonfromtosplit7 = cartonfromto7.split(" - ");
         cartonfrom7 = cartonfromtosplit7[1];
-        if(cartonfrom7==undefined){
+        if (cartonfrom7 == undefined) {
           cartonfrom7 = cartonfromtosplit7[0];
         }
-        if(carton7 != '') {
-        var carton_start7 = (parseInt(cartonfrom7))+parseInt(1);
-        var carton_end7 = parseInt(carton_start7) + parseInt(carton7) - parseInt(1);
-        if(carton7 == 1) {
-        $('#carton_from_to7').val(carton_start7);
-        }
-        else {
-          $('#carton_from_to7').val(carton_start7+' - '+carton_end7);
-        }
+        if (carton7 != '') {
+          var carton_start7 = (parseInt(cartonfrom7)) + parseInt(1);
+          var carton_end7 = parseInt(carton_start7) + parseInt(carton7) - parseInt(1);
+          if (carton7 == 1) {
+            $('#carton_from_to7').val(carton_start7);
+          } else {
+            $('#carton_from_to7').val(carton_start7 + ' - ' + carton_end7);
+          }
         }
         var carton_content7 = $('#carton_contents7').val();
         cartoncontent7 = carton_content7.split(" ");
@@ -965,7 +1120,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
         var qty7 = parseInt(carton7) * parseInt(contentss7);
 
-        $('#qty7').val(qty7+" "+content_type7);
+        $('#qty7').val(qty7 + " " + content_type7);
         var rate7 = $('#rate7').val();
         var per7 = $('#per7').val();
 
@@ -973,13 +1128,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring7 = '"' + per7 + '"';
           persplit7 = perstring7.split(" ");
           perval7 = persplit7[0].replace('"', "");
-
-          var pers7 = 1 / parseInt(perval7);
-          if(cracker_name7 == '2 3/4 Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
-            var amt7 = carton7 * rate7 ;
-      }
-          else {
-          var amt7 = qty7 * rate7 * pers7;
+          if (perval7 == 'Piece"' || perval7 == 'Pocket"' || perval7 == 'Unit"') {
+            perval7 = 1;
+          } else {
+            perval7 = perval7;
+          }
+          
+          var pers7 = parseFloat(perval7) / parseFloat(100);
+      if (cracker_name7 == '2 3/4 Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
+            var amt7 = carton7 * rate7;
+          } else {
+            var amt7 = qty7 * rate7 * pers7;
           }
         } else {
           var amt7 = qty7 * rate7;
@@ -991,18 +1150,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto8 = $('#carton_from_to7').val();
         cartonfromtosplit8 = cartonfromto8.split(" - ");
         cartonfrom8 = cartonfromtosplit8[1];
-        if(cartonfrom8==undefined){
+        if (cartonfrom8 == undefined) {
           cartonfrom8 = cartonfromtosplit8[0];
         }
-        if(carton8 != '') {
-        var carton_start8 = (parseInt(cartonfrom8))+parseInt(1);
-        var carton_end8 = parseInt(carton_start8) + parseInt(carton8) - parseInt(1);
-        if(carton8 == 1) {
-        $('#carton_from_to8').val(carton_start8);
-        }
-        else {
-          $('#carton_from_to8').val(carton_start8+' - '+carton_end8);
-        }
+        if (carton8 != '') {
+          var carton_start8 = (parseInt(cartonfrom8)) + parseInt(1);
+          var carton_end8 = parseInt(carton_start8) + parseInt(carton8) - parseInt(1);
+          if (carton8 == 1) {
+            $('#carton_from_to8').val(carton_start8);
+          } else {
+            $('#carton_from_to8').val(carton_start8 + ' - ' + carton_end8);
+          }
         }
         var carton_content8 = $('#carton_contents8').val();
         cartoncontent8 = carton_content8.split(" ");
@@ -1010,7 +1168,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         content_type8 = cartoncontent8[1];
 
         var qty8 = parseInt(carton8) * parseInt(contentss8);
-        $('#qty8').val(qty8+" "+content_type8);
+        $('#qty8').val(qty8 + " " + content_type8);
 
         var rate8 = $('#rate8').val();
         var per8 = $('#per8').val();
@@ -1019,13 +1177,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring8 = '"' + per8 + '"';
           persplit8 = perstring8.split(" ");
           perval8 = persplit8[0].replace('"', "");
+          if (perval8 == 'Piece"' || perval8 == 'Pocket"' || perval8 == 'Unit"') {
+            perval8 = 1;
+          } else {
+            perval8 = perval8;
+          }
 
-          var pers8 = 1 / parseInt(perval8);
-          if(cracker_name8 == '2 3/4 Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
-            var amt8 = carton8 * rate8 ;
-      }
-          else {
-          var amt8 = qty8 * rate8 * pers8;
+          var pers8 = parseFloat(perval8) / parseFloat(100);
+     if (cracker_name8 == '2 3/4 Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
+            var amt8 = carton8 * rate8;
+          } else {
+            var amt8 = qty8 * rate8 * pers8;
           }
         } else {
           var amt8 = qty8 * rate8;
@@ -1037,18 +1199,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         var cartonfromto9 = $('#carton_from_to8').val();
         cartonfromtosplit9 = cartonfromto9.split(" - ");
         cartonfrom9 = cartonfromtosplit9[1];
-        if(cartonfrom9==undefined){
+        if (cartonfrom9 == undefined) {
           cartonfrom9 = cartonfromtosplit9[0];
         }
-        if(carton9 != '') {
-        var carton_start9 = (parseInt(cartonfrom9))+parseInt(1);
-        var carton_end9 = parseInt(carton_start9) + parseInt(carton9) - parseInt(1);
-        if(carton9 == 1) {
-        $('#carton_from_to9').val(carton_start9);
-        }
-        else {
-          $('#carton_from_to9').val(carton_start9+' - '+carton_end9);
-        }
+        if (carton9 != '') {
+          var carton_start9 = (parseInt(cartonfrom9)) + parseInt(1);
+          var carton_end9 = parseInt(carton_start9) + parseInt(carton9) - parseInt(1);
+          if (carton9 == 1) {
+            $('#carton_from_to9').val(carton_start9);
+          } else {
+            $('#carton_from_to9').val(carton_start9 + ' - ' + carton_end9);
+          }
         }
         var carton_content9 = $('#carton_contents9').val();
         cartoncontent9 = carton_content9.split(" ");
@@ -1057,7 +1218,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
         var qty9 = parseInt(carton9) * parseInt(contentss9);
 
-        $('#qty9').val(qty9+" "+content_type9);
+        $('#qty9').val(qty9 + " " + content_type9);
         var rate9 = $('#rate9').val();
         var per9 = $('#per9').val();
 
@@ -1065,13 +1226,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
           perstring9 = '"' + per9 + '"';
           persplit9 = perstring9.split(" ");
           perval9 = persplit9[0].replace('"', "");
+          if (perval9 == 'Piece"' || perval9 == 'Pocket"' || perval9 == 'Unit"') {
+            perval9 = 1;
+          } else {
+            perval9 = perval9;
+          }
 
-          var pers9 = 1 / parseInt(perval9);
-          if(cracker_name9 == '2 3/4 Kuruvi' || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
-            var amt9 = carton9* rate9 ;
-      }
-          else {
-          var amt9 = qty9 * rate9 * pers9;
+          var pers9 = parseFloat(perval9) / parseFloat(100);
+     if (cracker_name9 == '2 3/4 Kuruvi' || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
+            var amt9 = carton9 * rate9;
+          } else {
+            var amt9 = qty9 * rate9 * pers9;
           }
         } else {
           var amt9 = qty9 * rate9;
@@ -1080,234 +1245,249 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
         $('#amount9').val(amt9);
 
         var carton10 = $('#carton10').val();
-var cartonfromto10 = $('#carton_from_to9').val();
-cartonfromtosplit10 = cartonfromto10.split(" - ");
-cartonfrom10 = cartonfromtosplit10[1];
-if(cartonfrom10==undefined){
+        var cartonfromto10 = $('#carton_from_to9').val();
+        cartonfromtosplit10 = cartonfromto10.split(" - ");
+        cartonfrom10 = cartonfromtosplit10[1];
+        if (cartonfrom10 == undefined) {
           cartonfrom10 = cartonfromtosplit10[0];
         }
-if(carton10 != '') {
-var carton_start10 = (parseInt(cartonfrom10))+parseInt(1);
-var carton_end10 = parseInt(carton_start10) + parseInt(carton10) - parseInt(1);
-if(carton10 == 1) {
-$('#carton_from_to10').val(carton_start10);
-}
-else {
-  $('#carton_from_to10').val(carton_start10+' - '+carton_end10);
-}
-}
-var carton_content10 = $('#carton_contents10').val();
-cartoncontent10 = carton_content10.split(" ");
-contentss10 = cartoncontent10[0];
-content_type10 = cartoncontent10[1];
+        if (carton10 != '') {
+          var carton_start10 = (parseInt(cartonfrom10)) + parseInt(1);
+          var carton_end10 = parseInt(carton_start10) + parseInt(carton10) - parseInt(1);
+          if (carton10 == 1) {
+            $('#carton_from_to10').val(carton_start10);
+          } else {
+            $('#carton_from_to10').val(carton_start10 + ' - ' + carton_end10);
+          }
+        }
+        var carton_content10 = $('#carton_contents10').val();
+        cartoncontent10 = carton_content10.split(" ");
+        contentss10 = cartoncontent10[0];
+        content_type10 = cartoncontent10[1];
 
-var qty10 = parseInt(carton10) * parseInt(contentss10);
+        var qty10 = parseInt(carton10) * parseInt(contentss10);
 
-$('#qty10').val(qty10+" "+content_type10);
-var rate10 = $('#rate10').val();
-var per10 = $('#per10').val();
+        $('#qty10').val(qty10 + " " + content_type10);
+        var rate10 = $('#rate10').val();
+        var per10 = $('#per10').val();
 
-if ((cracker_name10 == '2 3/4 Kuruvi' || cracker_name10 == '2 Sound Cracker' || cracker_name10 == '3 Sound Cracker' || cracker_name10 == '3 1/2 Lakshmi' || cracker_name10 == '4 Lakshmi') || (content_type10 == "Pocket" || content_type10 == "Piece")) {
-  perstring10 = '"' + per10 + '"';
-  persplit10 = perstring10.split(" ");
-  perval10 = persplit10[0].replace('"', "");
+        if ((cracker_name10 == '2 3/4 Kuruvi' || cracker_name10 == '2 Sound Cracker' || cracker_name10 == '3 Sound Cracker' || cracker_name10 == '3 1/2 Lakshmi' || cracker_name10 == '4 Lakshmi') || (content_type10 == "Pocket" || content_type10 == "Piece")) {
+          perstring10 = '"' + per10 + '"';
+          persplit10 = perstring10.split(" ");
+          perval10 = persplit10[0].replace('"', "");
+          if (perval10 == 'Piece"' || perval10 == 'Pocket"' || perval10 == 'Unit"') {
+            perval10 = 1;
+          } else {
+            perval10 = perval10;
+          }
 
-  var pers10 = 1 / parseInt(perval10);
-  if(cracker_name10 == '2 3/4 Kuruvi' || cracker_name10 == '2 Sound Cracker' || cracker_name10 == '3 Sound Cracker' || cracker_name10 == '3 1/2 Lakshmi' || cracker_name10 == '4 Lakshmi') {
-    var amt10 = carton10* rate10 ;
-}
-  else {
-  var amt10 = qty10 * rate10 * pers10;
-  }
-} else {
-  var amt10 = qty10 * rate10;
-}
+          var pers10 = parseFloat(perval10) / parseFloat(100);
+    if (cracker_name10 == '2 3/4 Kuruvi' || cracker_name10 == '2 Sound Cracker' || cracker_name10 == '3 Sound Cracker' || cracker_name10 == '3 1/2 Lakshmi' || cracker_name10 == '4 Lakshmi') {
+            var amt10 = carton10 * rate10;
+          } else {
+            var amt10 = qty10 * rate10 * pers10;
+          }
+        } else {
+          var amt10 = qty10 * rate10;
+        }
 
-$('#amount10').val(amt10);
+        $('#amount10').val(amt10);
 
-var carton11 = $('#carton11').val();
-var cartonfromto11 = $('#carton_from_to10').val();
-cartonfromtosplit11 = cartonfromto11.split(" - ");
-cartonfrom11 = cartonfromtosplit11[1];
-if(cartonfrom11==undefined){
+        var carton11 = $('#carton11').val();
+        var cartonfromto11 = $('#carton_from_to10').val();
+        cartonfromtosplit11 = cartonfromto11.split(" - ");
+        cartonfrom11 = cartonfromtosplit11[1];
+        if (cartonfrom11 == undefined) {
           cartonfrom11 = cartonfromtosplit11[0];
         }
-if(carton11 != '') {
-var carton_start11 = (parseInt(cartonfrom11))+parseInt(1);
-var carton_end11 = parseInt(carton_start11) + parseInt(carton11) - parseInt(1);
-if(carton11 == 1) {
-$('#carton_from_to11').val(carton_start11);
-}
-else {
-  $('#carton_from_to11').val(carton_start11+' - '+carton_end11);
-}
-}
-var carton_content11 = $('#carton_contents11').val();
-cartoncontent11 = carton_content11.split(" ");
-contentss11 = cartoncontent11[0];
-content_type11 = cartoncontent11[1];
+        if (carton11 != '') {
+          var carton_start11 = (parseInt(cartonfrom11)) + parseInt(1);
+          var carton_end11 = parseInt(carton_start11) + parseInt(carton11) - parseInt(1);
+          if (carton11 == 1) {
+            $('#carton_from_to11').val(carton_start11);
+          } else {
+            $('#carton_from_to11').val(carton_start11 + ' - ' + carton_end11);
+          }
+        }
+        var carton_content11 = $('#carton_contents11').val();
+        cartoncontent11 = carton_content11.split(" ");
+        contentss11 = cartoncontent11[0];
+        content_type11 = cartoncontent11[1];
 
-var qty11 = parseInt(carton11) * parseInt(contentss11);
+        var qty11 = parseInt(carton11) * parseInt(contentss11);
 
-$('#qty11').val(qty11+" "+content_type11);
-var rate11 = $('#rate11').val();
-var per11 = $('#per11').val();
+        $('#qty11').val(qty11 + " " + content_type11);
+        var rate11 = $('#rate11').val();
+        var per11 = $('#per11').val();
 
-if ((cracker_name11 == '2 3/4 Kuruvi' || cracker_name11 == '2 Sound Cracker' || cracker_name11 == '3 Sound Cracker' || cracker_name11 == '3 1/2 Lakshmi' || cracker_name11 == '4 Lakshmi') || (content_type11 == "Pocket" || content_type11 == "Piece")) {
-  perstring11 = '"' + per11 + '"';
-  persplit11 = perstring11.split(" ");
-  perval11 = persplit11[0].replace('"', "");
+        if ((cracker_name11 == '2 3/4 Kuruvi' || cracker_name11 == '2 Sound Cracker' || cracker_name11 == '3 Sound Cracker' || cracker_name11 == '3 1/2 Lakshmi' || cracker_name11 == '4 Lakshmi') || (content_type11 == "Pocket" || content_type11 == "Piece")) {
+          perstring11 = '"' + per11 + '"';
+          persplit11 = perstring11.split(" ");
+          perval11 = persplit11[0].replace('"', "");
+          if (perval11 == 'Piece"' || perval11 == 'Pocket"' || perval11 == 'Unit"') {
+            perval11 = 1;
+          } else {
+            perval11 = perval11;
+          }
 
-  var pers11 = 1 / parseInt(perval11);
-  if(cracker_name11 == '2 3/4 Kuruvi' || cracker_name11 == '2 Sound Cracker' || cracker_name11 == '3 Sound Cracker' || cracker_name11 == '3 1/2 Lakshmi' || cracker_name11 == '4 Lakshmi') {
-    var amt11 = carton11* rate11 ;
-}
-  else {
-  var amt11 = qty11 * rate11 * pers11;
-  }
-} else {
-  var amt11 = qty11 * rate11;
-}
+          var pers11 = parseFloat(perval11) / parseFloat(100);
+             if (cracker_name11 == '2 3/4 Kuruvi' || cracker_name11 == '2 Sound Cracker' || cracker_name11 == '3 Sound Cracker' || cracker_name11 == '3 1/2 Lakshmi' || cracker_name11 == '4 Lakshmi') {
+            var amt11 = carton11 * rate11;
+          } else {
+            var amt11 = qty11 * rate11 * pers11;
+          }
+        } else {
+          var amt11 = qty11 * rate11;
+        }
 
-$('#amount11').val(amt11);
+        $('#amount11').val(amt11);
 
-var carton12 = $('#carton12').val();
-var cartonfromto12 = $('#carton_from_to11').val();
-cartonfromtosplit12 = cartonfromto12.split(" - ");
-cartonfrom12 = cartonfromtosplit12[1];
-if(cartonfrom12==undefined){
+        var carton12 = $('#carton12').val();
+        var cartonfromto12 = $('#carton_from_to11').val();
+        cartonfromtosplit12 = cartonfromto12.split(" - ");
+        cartonfrom12 = cartonfromtosplit12[1];
+        if (cartonfrom12 == undefined) {
           cartonfrom12 = cartonfromtosplit12[0];
         }
-if(carton12 != '') {
-var carton_start12 = (parseInt(cartonfrom12))+parseInt(1);
-var carton_end12 = parseInt(carton_start12) + parseInt(carton12) - parseInt(1);
-if(carton12 == 1) {
-$('#carton_from_to12').val(carton_start12);
-}
-else {
-  $('#carton_from_to12').val(carton_start12+' - '+carton_end12);
-}
-}
-var carton_content12 = $('#carton_contents12').val();
-cartoncontent12 = carton_content12.split(" ");
-contentss12 = cartoncontent12[0];
-content_type12 = cartoncontent12[1];
+        if (carton12 != '') {
+          var carton_start12 = (parseInt(cartonfrom12)) + parseInt(1);
+          var carton_end12 = parseInt(carton_start12) + parseInt(carton12) - parseInt(1);
+          if (carton12 == 1) {
+            $('#carton_from_to12').val(carton_start12);
+          } else {
+            $('#carton_from_to12').val(carton_start12 + ' - ' + carton_end12);
+          }
+        }
+        var carton_content12 = $('#carton_contents12').val();
+        cartoncontent12 = carton_content12.split(" ");
+        contentss12 = cartoncontent12[0];
+        content_type12 = cartoncontent12[1];
 
-var qty12 = parseInt(carton12) * parseInt(contentss12);
+        var qty12 = parseInt(carton12) * parseInt(contentss12);
 
-$('#qty12').val(qty12+" "+content_type12);
-var rate12 = $('#rate12').val();
-var per12 = $('#per12').val();
+        $('#qty12').val(qty12 + " " + content_type12);
+        var rate12 = $('#rate12').val();
+        var per12 = $('#per12').val();
 
-if ((cracker_name12 == '2 3/4 Kuruvi' || cracker_name12 == '2 Sound Cracker' || cracker_name12 == '3 Sound Cracker' || cracker_name12 == '3 1/2 Lakshmi' || cracker_name12 == '4 Lakshmi') || (content_type12 == "Pocket" || content_type12 == "Piece")) {
-  perstring12 = '"' + per12 + '"';
-  persplit12 = perstring12.split(" ");
-  perval12 = persplit12[0].replace('"', "");
+        if ((cracker_name12 == '2 3/4 Kuruvi' || cracker_name12 == '2 Sound Cracker' || cracker_name12 == '3 Sound Cracker' || cracker_name12 == '3 1/2 Lakshmi' || cracker_name12 == '4 Lakshmi') || (content_type12 == "Pocket" || content_type12 == "Piece")) {
+          perstring12 = '"' + per12 + '"';
+          persplit12 = perstring12.split(" ");
+          perval12 = persplit12[0].replace('"', "");
+          if (perval12 == 'Piece"' || perval12 == 'Pocket"' || perval12 == 'Unit"') {
+            perval12 = 1;
+          } else {
+            perval12 = perval12;
+          }
 
-  var pers12 = 1 / parseInt(perval12);
-  if(cracker_name12 == '2 3/4 Kuruvi' || cracker_name12 == '2 Sound Cracker' || cracker_name12 == '3 Sound Cracker' || cracker_name12 == '3 1/2 Lakshmi' || cracker_name12 == '4 Lakshmi') {
-    var amt12 = carton12* rate12 ;
-}
-  else {
-  var amt12 = qty12 * rate12 * pers12;
-  }
-} else {
-  var amt12 = qty12 * rate12;
-}
+          var pers12 = parseFloat(perval12) / parseFloat(100);
+         if (cracker_name12 == '2 3/4 Kuruvi' || cracker_name12 == '2 Sound Cracker' || cracker_name12 == '3 Sound Cracker' || cracker_name12 == '3 1/2 Lakshmi' || cracker_name12 == '4 Lakshmi') {
+            var amt12 = carton12 * rate12;
+          } else {
+            var amt12 = qty12 * rate12 * pers12;
+          }
+        } else {
+          var amt12 = qty12 * rate12;
+        }
 
-$('#amount12').val(amt12);
+        $('#amount12').val(amt12);
 
-var carton13 = $('#carton13').val();
-var cartonfromto13 = $('#carton_from_to12').val();
-cartonfromtosplit13 = cartonfromto13.split(" - ");
-cartonfrom13 = cartonfromtosplit13[1];
-if(cartonfrom13==undefined){
+        var carton13 = $('#carton13').val();
+        var cartonfromto13 = $('#carton_from_to12').val();
+        cartonfromtosplit13 = cartonfromto13.split(" - ");
+        cartonfrom13 = cartonfromtosplit13[1];
+        if (cartonfrom13 == undefined) {
           cartonfrom13 = cartonfromtosplit13[0];
         }
-if(carton13 != '') {
-var carton_start13 = (parseInt(cartonfrom13))+parseInt(1);
-var carton_end13 = parseInt(carton_start13) + parseInt(carton13) - parseInt(1);
-if(carton13 == 1) {
-$('#carton_from_to13').val(carton_start13);
-}
-else{
-  $('#carton_from_to13').val(carton_start13+' - '+carton_end13);
-}
-}
-var carton_content13 = $('#carton_contents13').val();
-cartoncontent13 = carton_content13.split(" ");
-contentss13 = cartoncontent13[0];
-content_type13 = cartoncontent13[1];
+        if (carton13 != '') {
+          var carton_start13 = (parseInt(cartonfrom13)) + parseInt(1);
+          var carton_end13 = parseInt(carton_start13) + parseInt(carton13) - parseInt(1);
+          if (carton13 == 1) {
+            $('#carton_from_to13').val(carton_start13);
+          } else {
+            $('#carton_from_to13').val(carton_start13 + ' - ' + carton_end13);
+          }
+        }
+        var carton_content13 = $('#carton_contents13').val();
+        cartoncontent13 = carton_content13.split(" ");
+        contentss13 = cartoncontent13[0];
+        content_type13 = cartoncontent13[1];
 
-var qty13 = parseInt(carton13) * parseInt(contentss13);
+        var qty13 = parseInt(carton13) * parseInt(contentss13);
 
-$('#qty13').val(qty13+" "+content_type13);
-var rate13 = $('#rate13').val();
-var per13 = $('#per13').val();
+        $('#qty13').val(qty13 + " " + content_type13);
+        var rate13 = $('#rate13').val();
+        var per13 = $('#per13').val();
 
-if ((cracker_name13 == '2 3/4 Kuruvi' || cracker_name13 == '2 Sound Cracker' || cracker_name13 == '3 Sound Cracker' || cracker_name13 == '3 1/2 Lakshmi' || cracker_name13 == '4 Lakshmi') || (content_type13 == "Pocket" || content_type13 == "Piece")) {
-  perstring13 = '"' + per13 + '"';
-  persplit13 = perstring13.split(" ");
-  perval13 = persplit13[0].replace('"', "");
+        if ((cracker_name13 == '2 3/4 Kuruvi' || cracker_name13 == '2 Sound Cracker' || cracker_name13 == '3 Sound Cracker' || cracker_name13 == '3 1/2 Lakshmi' || cracker_name13 == '4 Lakshmi') || (content_type13 == "Pocket" || content_type13 == "Piece")) {
+          perstring13 = '"' + per13 + '"';
+          persplit13 = perstring13.split(" ");
+          perval13 = persplit13[0].replace('"', "");
+          if (perval13 == 'Piece"' || perval13 == 'Pocket"' || perval13 == 'Unit"') {
+            perval13 = 1;
+          } else {
+            perval13 = perval13;
+          }
 
-  var pers13 = 1 / parseInt(perval13);
-  if(cracker_name13 == '2 3/4 Kuruvi' || cracker_name13 == '2 Sound Cracker' || cracker_name13 == '3 Sound Cracker' || cracker_name13 == '3 1/2 Lakshmi' || cracker_name13 == '4 Lakshmi') {
-    var amt13 = carton13* rate13 ;
-}
-  else {
-  var amt13 = qty13 * rate13 * pers13;
-  }
-} else {
-  var amt13 = qty13 * rate13;
-}
+          var pers13 = parseFloat(perval13) / parseFloat(100);
+            if (cracker_name13 == '2 3/4 Kuruvi' || cracker_name13 == '2 Sound Cracker' || cracker_name13 == '3 Sound Cracker' || cracker_name13 == '3 1/2 Lakshmi' || cracker_name13 == '4 Lakshmi') {
+            var amt13 = carton13 * rate13;
+          } else {
+            var amt13 = qty13 * rate13 * pers13;
+          }
+        } else {
+          var amt13 = qty13 * rate13;
+        }
 
-$('#amount13').val(amt13);
+        $('#amount13').val(amt13);
 
-var carton14 = $('#carton14').val();
-var cartonfromto14 = $('#carton_from_to13').val();
-cartonfromtosplit14 = cartonfromto14.split(" - ");
-cartonfrom14 = cartonfromtosplit14[1];
-if(cartonfrom14==undefined){
+        var carton14 = $('#carton14').val();
+        var cartonfromto14 = $('#carton_from_to13').val();
+        cartonfromtosplit14 = cartonfromto14.split(" - ");
+        cartonfrom14 = cartonfromtosplit14[1];
+        if (cartonfrom14 == undefined) {
           cartonfrom14 = cartonfromtosplit14[0];
         }
-if(carton14 != '') {
-var carton_start14 = (parseInt(cartonfrom14))+parseInt(1);
-var carton_end14 = parseInt(carton_start14) + parseInt(carton14) - parseInt(1);
-if(carton14 == 1) {
-$('#carton_from_to14').val(carton_start14);
-}
-else {
+        if (carton14 != '') {
+          var carton_start14 = (parseInt(cartonfrom14)) + parseInt(1);
+          var carton_end14 = parseInt(carton_start14) + parseInt(carton14) - parseInt(1);
+          if (carton14 == 1) {
+            $('#carton_from_to14').val(carton_start14);
+          } else {
 
-}
-}
-var carton_content14 = $('#carton_contents14').val();
-cartoncontent14 = carton_content14.split(" ");
-contentss14 = cartoncontent14[0];
-content_type14 = cartoncontent14[1];
+          }
+        }
+        var carton_content14 = $('#carton_contents14').val();
+        cartoncontent14 = carton_content14.split(" ");
+        contentss14 = cartoncontent14[0];
+        content_type14 = cartoncontent14[1];
 
-var qty14 = parseInt(carton14) * parseInt(contentss14);
+        var qty14 = parseInt(carton14) * parseInt(contentss14);
 
-$('#qty14').val(qty14+" "+content_type14);
-var rate14 = $('#rate14').val();
-var per14 = $('#per14').val();
+        $('#qty14').val(qty14 + " " + content_type14);
+        var rate14 = $('#rate14').val();
+        var per14 = $('#per14').val();
 
-if ((cracker_name14 == '2 3/4 Kuruvi' || cracker_name14 == '2 Sound Cracker' || cracker_name14 == '3 Sound Cracker' || cracker_name14 == '3 1/2 Lakshmi' || cracker_name14 == '4 Lakshmi') || (content_type14 == "Pocket" || content_type14 == "Piece")) {
-  perstring14 = '"' + per14 + '"';
-  persplit14 = perstring14.split(" ");
-  perval14 = persplit14[0].replace('"', "");
+        if ((cracker_name14 == '2 3/4 Kuruvi' || cracker_name14 == '2 Sound Cracker' || cracker_name14 == '3 Sound Cracker' || cracker_name14 == '3 1/2 Lakshmi' || cracker_name14 == '4 Lakshmi') || (content_type14 == "Pocket" || content_type14 == "Piece")) {
+          perstring14 = '"' + per14 + '"';
+          persplit14 = perstring14.split(" ");
+          perval14 = persplit14[0].replace('"', "");
+          if (perval14 == 'Piece"' || perval14 == 'Pocket"' || perval14 == 'Unit"') {
+            perval14 = 1;
+          } else {
+            perval14 = perval14;
+          }
 
-  var pers14 = 1 / parseInt(perval14);
-  if(cracker_name14 == '2 3/4 Kuruvi' || cracker_name14 == '2 Sound Cracker' || cracker_name14 == '3 Sound Cracker' || cracker_name14 == '3 1/2 Lakshmi' || cracker_name14 == '4 Lakshmi') {
-    var amt14 = carton14* rate14 ;
-}
-  else {
-  var amt14 = qty14 * rate14 * pers14;
-  }
-} else {
-  var amt14 = qty14 * rate14;
-}
+          var pers14 = parseFloat(perval14) / parseFloat(100);
+          if (cracker_name14 == '2 3/4 Kuruvi' || cracker_name14 == '2 Sound Cracker' || cracker_name14 == '3 Sound Cracker' || cracker_name14 == '3 1/2 Lakshmi' || cracker_name14 == '4 Lakshmi') {
+            var amt14 = carton14 * rate14;
+          } else {
+            var amt14 = qty14 * rate14 * pers14;
+          }
+        } else {
+          var amt14 = qty14 * rate14;
+        }
 
-$('#amount14').val(amt14);
+        $('#amount14').val(amt14);
 
         if (isNaN(contentss)) {
           contentss = 0;
@@ -1341,20 +1521,20 @@ $('#amount14').val(amt14);
         }
 
         if (isNaN(contentss10)) {
-  contentss10 = 0;
-}
-if (isNaN(contentss11)) {
-  contentss11 = 0;
-}
-if (isNaN(contentss12)) {
-  contentss12 = 0;
-}
-if (isNaN(contentss13)) {
-  contentss13 = 0;
-}
-if (isNaN(contentss14)) {
-  contentss14 = 0;
-}
+          contentss10 = 0;
+        }
+        if (isNaN(contentss11)) {
+          contentss11 = 0;
+        }
+        if (isNaN(contentss12)) {
+          contentss12 = 0;
+        }
+        if (isNaN(contentss13)) {
+          contentss13 = 0;
+        }
+        if (isNaN(contentss14)) {
+          contentss14 = 0;
+        }
 
         if (isNaN(carton) || carton == '') {
           carton = 0;
@@ -1452,7 +1632,61 @@ if (isNaN(contentss14)) {
 
         var good_Value = amt + amt1 + amt2 + amt3 + amt4 + amt5 + amt6 + amt7 + amt8 + amt9 + amt10 + amt11 + amt12 + amt13 + amt14;
         $('#good_value').val(good_Value);
+ 
+        if(good_Value) {        
+        var discount = $('#discount').val();
+        var amount = good_Value;
+        console.log(amount);
+        var dis = (amount * discount) / 100;
+        $('#discount_amount').val(Math.round(dis));
 
+        var taxable = Math.round(amount - dis);
+        $('#taxable_value').val(taxable);
+        var state_type = $('#state_type').val();
+        console.log(state_type);
+        var igst = $('#igst').val();
+        var sgst = $('#sgst').val();
+        var cgst = $('#cgst').val();
+
+        console.log(igst + "" + sgst + "" + cgst);
+        if (state_type == "Interstate") {
+          $('#cgst').val('');
+          $('#sgst').val('');
+          $('#cgst_amount').val('');
+          $('#sgst_amount').val('');
+
+          var caligst = (igst * taxable) / 100;
+          $('#igst_amount').val(caligst);
+          console.log(caligst);
+
+          var tax = parseFloat(caligst);
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          console.log(netamount);
+ $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
+          console.log(netfloor - netfix);
+ 
+          $('#round_off').val((netfloor - netfix).toFixed(2));
+
+        } else if (state_type == "Intrastate") {
+          $('#igst').val('');
+          $('#igst_amount').val('');
+          var calsgst = (sgst * taxable) / 100;
+          var calcgst = (cgst * taxable) / 100;
+          $('#sgst_amount').val(calsgst);
+          $('#cgst_amount').val(calcgst);
+
+          var tax = parseFloat(calsgst) + parseFloat(calcgst);
+
+          var netamount = (parseFloat(taxable)) + parseFloat(tax);
+          $('#net_amount').val(Math.round(netamount));
+          var netfloor = Math.floor(tax);
+          var netfix = tax.toFixed(2);
+
+          $('#round_off').val((netfloor - netfix).toFixed(2));
+        }
+      }
       });
       $('#cracker_name').change(function() {
         var vals = this.value;
@@ -1470,6 +1704,7 @@ if (isNaN(contentss14)) {
               $('#rate').val(response.data.rate);
               $('#carton_contents').val(response.data.casecontents);
               $('#per').val(response.data.per);
+              
             }
             if (response.msg == "Failure") {}
           }
@@ -1675,114 +1910,114 @@ if (isNaN(contentss14)) {
       });
 
       $('#cracker_name10').change(function() {
-  var vals = this.value;
-  var crackerid = $('#cracker10 [value="' + vals + '"]').data('idss');
-  $.ajax({
-    url: 'action.php?action=crackerdetails',
-    type: 'POST',
-    dataType: "JSON",
-    data: {
-      'action': "crackerdetails",
-      'id': crackerid,
-    },
-    success: function(response) {
-      if (response.msg == "Success") {
-        $('#rate10').val(response.data.rate);
-        $('#carton_contents10').val(response.data.casecontents);
-        $('#per10').val(response.data.per);
-      }
-      if (response.msg == "Failure") {}
-    }
-  });
-});
+        var vals = this.value;
+        var crackerid = $('#cracker10 [value="' + vals + '"]').data('idss');
+        $.ajax({
+          url: 'action.php?action=crackerdetails',
+          type: 'POST',
+          dataType: "JSON",
+          data: {
+            'action': "crackerdetails",
+            'id': crackerid,
+          },
+          success: function(response) {
+            if (response.msg == "Success") {
+              $('#rate10').val(response.data.rate);
+              $('#carton_contents10').val(response.data.casecontents);
+              $('#per10').val(response.data.per);
+            }
+            if (response.msg == "Failure") {}
+          }
+        });
+      });
 
-$('#cracker_name11').change(function() {
-  var vals = this.value;
-  var crackerid = $('#cracker11 [value="' + vals + '"]').data('idss');
-  $.ajax({
-    url: 'action.php?action=crackerdetails',
-    type: 'POST',
-    dataType: "JSON",
-    data: {
-      'action': "crackerdetails",
-      'id': crackerid,
-    },
-    success: function(response) {
-      if (response.msg == "Success") {
-        $('#rate11').val(response.data.rate);
-        $('#carton_contents11').val(response.data.casecontents);
-        $('#per11').val(response.data.per);
-      }
-      if (response.msg == "Failure") {}
-    }
-  });
-});
+      $('#cracker_name11').change(function() {
+        var vals = this.value;
+        var crackerid = $('#cracker11 [value="' + vals + '"]').data('idss');
+        $.ajax({
+          url: 'action.php?action=crackerdetails',
+          type: 'POST',
+          dataType: "JSON",
+          data: {
+            'action': "crackerdetails",
+            'id': crackerid,
+          },
+          success: function(response) {
+            if (response.msg == "Success") {
+              $('#rate11').val(response.data.rate);
+              $('#carton_contents11').val(response.data.casecontents);
+              $('#per11').val(response.data.per);
+            }
+            if (response.msg == "Failure") {}
+          }
+        });
+      });
 
-$('#cracker_name12').change(function() {
-  var vals = this.value;
-  var crackerid = $('#cracker12 [value="' + vals + '"]').data('idss');
-  $.ajax({
-    url: 'action.php?action=crackerdetails',
-    type: 'POST',
-    dataType: "JSON",
-    data: {
-      'action': "crackerdetails",
-      'id': crackerid,
-    },
-    success: function(response) {
-      if (response.msg == "Success") {
-        $('#rate12').val(response.data.rate);
-        $('#carton_contents12').val(response.data.casecontents);
-        $('#per12').val(response.data.per);
-      }
-      if (response.msg == "Failure") {}
-    }
-  });
-});
+      $('#cracker_name12').change(function() {
+        var vals = this.value;
+        var crackerid = $('#cracker12 [value="' + vals + '"]').data('idss');
+        $.ajax({
+          url: 'action.php?action=crackerdetails',
+          type: 'POST',
+          dataType: "JSON",
+          data: {
+            'action': "crackerdetails",
+            'id': crackerid,
+          },
+          success: function(response) {
+            if (response.msg == "Success") {
+              $('#rate12').val(response.data.rate);
+              $('#carton_contents12').val(response.data.casecontents);
+              $('#per12').val(response.data.per);
+            }
+            if (response.msg == "Failure") {}
+          }
+        });
+      });
 
-$('#cracker_name13').change(function() {
-  var vals = this.value;
-  var crackerid = $('#cracker13 [value="' + vals + '"]').data('idss');
-  $.ajax({
-    url: 'action.php?action=crackerdetails',
-    type: 'POST',
-    dataType: "JSON",
-    data: {
-      'action': "crackerdetails",
-      'id': crackerid,
-    },
-    success: function(response) {
-      if (response.msg == "Success") {
-        $('#rate13').val(response.data.rate);
-        $('#carton_contents13').val(response.data.casecontents);
-        $('#per13').val(response.data.per);
-      }
-      if (response.msg == "Failure") {}
-    }
-  });
-});
+      $('#cracker_name13').change(function() {
+        var vals = this.value;
+        var crackerid = $('#cracker13 [value="' + vals + '"]').data('idss');
+        $.ajax({
+          url: 'action.php?action=crackerdetails',
+          type: 'POST',
+          dataType: "JSON",
+          data: {
+            'action': "crackerdetails",
+            'id': crackerid,
+          },
+          success: function(response) {
+            if (response.msg == "Success") {
+              $('#rate13').val(response.data.rate);
+              $('#carton_contents13').val(response.data.casecontents);
+              $('#per13').val(response.data.per);
+            }
+            if (response.msg == "Failure") {}
+          }
+        });
+      });
 
-$('#cracker_name14').change(function() {
-  var vals = this.value;
-  var crackerid = $('#cracker14 [value="' + vals + '"]').data('idss');
-  $.ajax({
-    url: 'action.php?action=crackerdetails',
-    type: 'POST',
-    dataType: "JSON",
-    data: {
-      'action': "crackerdetails",
-      'id': crackerid,
-    },
-    success: function(response) {
-      if (response.msg == "Success") {
-        $('#rate14').val(response.data.rate);
-        $('#carton_contents14').val(response.data.casecontents);
-        $('#per14').val(response.data.per);
-      }
-      if (response.msg == "Failure") {}
-    }
-  });
-});
+      $('#cracker_name14').change(function() {
+        var vals = this.value;
+        var crackerid = $('#cracker14 [value="' + vals + '"]').data('idss');
+        $.ajax({
+          url: 'action.php?action=crackerdetails',
+          type: 'POST',
+          dataType: "JSON",
+          data: {
+            'action': "crackerdetails",
+            'id': crackerid,
+          },
+          success: function(response) {
+            if (response.msg == "Success") {
+              $('#rate14').val(response.data.rate);
+              $('#carton_contents14').val(response.data.casecontents);
+              $('#per14').val(response.data.per);
+            }
+            if (response.msg == "Failure") {}
+          }
+        });
+      });
 
       $('#state_type').change(function() {
         var vals = this.value;
@@ -1964,11 +2199,11 @@ $('#cracker_name14').change(function() {
               </div>
             </div>
             <div class="row col-md-12">
-              <div class="form-group col-md-2">
+              <div class="form-group col-md-3">
                 <label class="control-label">Despatched From</label>
                 <input class="form-control" type="text" value="<?= isset($val_sql[0][12]) ? $val_sql[0][12] : "" ?>" name="despatched_from" id="despatched_from" placeholder="Enter Despateched From">
               </div>
-              <div class="form-group col-md-2">
+              <div class="form-group col-md-3">
                 <label class="control-label">Despatched To</label>
                 <input class="form-control" type="text" value="<?= isset($val_sql[0][13]) ? $val_sql[0][13] : "" ?>" name="despatched_to" id="despatched_to" placeholder="Enter Despateched To">
               </div>
@@ -1976,19 +2211,11 @@ $('#cracker_name14').change(function() {
                 <label class="control-label">Transport Name</label>
                 <input class="form-control" value="<?= isset($val_sql[0][14]) ? $val_sql[0][14] : "" ?>" type="text" name="transport_name" id="transport_name" placeholder="Enter Transport Name">
               </div>
-              <div class="form-group col-md-2">
+              <div class="form-group col-md-3">
                 <label class="control-label">Transport GSTIN</label>
                 <input class="form-control" value="<?= isset($val_sql[0][15]) ? $val_sql[0][15] : "" ?>" type="text" name="transport_gstin" id="transport_gstin" placeholder="Enter Transport GSTIN">
               </div>
-              <div class="form-group col-md-3">
-                <?= $states = isset($val_sql[0][3]) ? $val_sql[0][3] : ""; ?>
-                <label class="control-label">GST Type</label>
-                <select class="form-control" name="state_type" id="state_type">
-                  <option value="" disabled selected>Select State</option>
-                  <option value="Interstate" <?=($states=="Interstate") ? 'Selected' : ''?>>Interstate</option>
-                  <option value="Intrastate" <?=($states=="Intrastate") ? 'Selected' : ''?>>Intrastate</option>
-                </select>
-              </div>
+
             </div>
           </div>
         </div>
@@ -2034,10 +2261,12 @@ $('#cracker_name14').change(function() {
                   <div class="panel-body">
                     <div class="row form-group col-md-12">
                       <div class="form-group col-md-2">
+                        <input type="hidden" value="<?=!empty( $lastval)? $lastval:1;?>" name="cartonval" id="cartonval"/>
                         <input class="form-control" type="text" value="<?= isset($val_sql[0][16]) ? $val_sql[0][16] : "" ?>" name="carton_from_to" id="carton_from_to" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="cracker" class="form-control" value="<?= isset($val_sql[0][17]) ? $val_sql[0][17] : "" ?>" name="cracker_name" id="cracker_name" placeholder="Enter cracker name">
+                      <input class="form-control" name="billid" id="billid" value="<?= isset($val_sql[0][0]) ? $val_sql[0][0] : "" ?>" type="hidden" >
+                <input list="cracker" class="form-control" value="<?= isset($val_sql[0][17]) ? $val_sql[0][17] : "" ?>" name="cracker_name" id="cracker_name" placeholder="Enter cracker name">
                         <datalist id="cracker">
                           <?php
                           $crackersql = "select * from cracker";
@@ -2079,6 +2308,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[1][16]) ? $val_sql[1][16] : "" ?>" name="carton_from_to1" id="carton_from_to1" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid1" id="billid1" value="<?= isset($val_sql[1][0]) ? $val_sql[1][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker1" class="form-control" value="<?= isset($val_sql[1][17]) ? $val_sql[1][17] : "" ?>" name="cracker_name1" id="cracker_name1" placeholder="Enter cracker name">
                         <datalist id="cracker1">
                           <?php
@@ -2104,7 +2335,7 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" name="rate1" id="rate1" value="<?= isset($val_sql[1][22]) ? $val_sql[1][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql[1][23]) ? $val_sql[1][23]: "" ?>" name="per1" id="per1" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[1][23]) ? $val_sql[1][23] : "" ?>" name="per1" id="per1" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -2121,6 +2352,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[2][16]) ? $val_sql[2][16] : "" ?>" name="carton_from_to2" id="carton_from_to2" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid2" id="billid2" value="<?= isset($val_sql[2][0]) ? $val_sql[2][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker2" class="form-control" value="<?= isset($val_sql[2][17]) ? $val_sql[2][17] : "" ?>" name="cracker_name2" id="cracker_name2" placeholder="Enter cracker name">
                         <datalist id="cracker2">
                           <?php
@@ -2134,7 +2367,7 @@ $('#cracker_name14').change(function() {
                         </datalist>
                       </div>
                       <div class="form-group col-md-1">
-                        <input class="form-control" type="text" name="carton2" id="carton2" value="<?= isset($val_sql[2][18]) ? $val_sql[2][18]: "" ?>" placeholder="Carton">
+                        <input class="form-control" type="text" name="carton2" id="carton2" value="<?= isset($val_sql[2][18]) ? $val_sql[2][18] : "" ?>" placeholder="Carton">
                       </div>
                       <div class="form-group col-md-1">
                         <input class="form-control" type="text" name="carton_contents2" id="carton_contents2" value="<?= isset($val_sql[2][19]) ? $val_sql[2][19] : "" ?>" placeholder="Contents">
@@ -2163,6 +2396,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[3][16]) ? $val_sql[3][16] : "" ?>" name="carton_from_to3" id="carton_from_to3" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid3" id="billid3" value="<?= isset($val_sql[3][0]) ? $val_sql[3][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker3" class="form-control" value="<?= isset($val_sql[3][17]) ? $val_sql[3][17] : "" ?>" name="cracker_name3" id="cracker_name3" placeholder="Enter cracker name">
                         <datalist id="cracker3">
                           <?php
@@ -2205,6 +2440,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[4][16]) ? $val_sql[4][16] : "" ?>" name="carton_from_to4" id="carton_from_to4" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid4" id="billid4" value="<?= isset($val_sql[4][0]) ? $val_sql[4][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker4" class="form-control" value="<?= isset($val_sql[4][17]) ? $val_sql[4][17] : "" ?>" name="cracker_name4" id="cracker_name4" placeholder="Enter cracker name">
                         <datalist id="cracker4">
                           <?php
@@ -2230,7 +2467,7 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" name="rate4" id="rate4" value="<?= isset($val_sql[4][22]) ? $val_sql[4][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql[4][23]) ? $val_sql[4][23]: "" ?>" name="per4" id="per4" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[4][23]) ? $val_sql[4][23] : "" ?>" name="per4" id="per4" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -2289,6 +2526,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[5][16]) ? $val_sql[5][16] : "" ?>" name="carton_from_to5" id="carton_from_to5" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid5" id="billid5" value="<?= isset($val_sql[5][0]) ? $val_sql[5][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker5" class="form-control" value="<?= isset($val_sql[5][17]) ? $val_sql[5][17] : "" ?>" name="cracker_name5" id="cracker_name5" placeholder="Enter cracker name">
                         <datalist id="cracker5">
                           <?php
@@ -2314,7 +2553,7 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" name="rate5" id="rate5" value="<?= isset($val_sql[5][22]) ? $val_sql[5][22] : "" ?>" placeholder="Rate">
                       </div>
                       <div class="form-group col-md-2">
-                        <input list="pers" class="form-control" value="<?= isset($val_sql[5][23]) ? $val_sql[5][23]: "" ?>" name="per5" id="per5" placeholder="Enter Per">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[5][23]) ? $val_sql[5][23] : "" ?>" name="per5" id="per5" placeholder="Enter Per">
                         <datalist id="pers">
                           <option value="Unit">Unit</option>
                           <option value="Pocket">Pocket</option>
@@ -2331,6 +2570,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[6][16]) ? $val_sql[6][16] : "" ?>" name="carton_from_to6" id="carton_from_to6" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid6" id="billid6" value="<?= isset($val_sql[6][0]) ? $val_sql[6][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker6" class="form-control" value="<?= isset($val_sql[6][17]) ? $val_sql[6][17] : "" ?>" name="cracker_name6" id="cracker_name6" placeholder="Enter cracker name">
                         <datalist id="cracker6">
                           <?php
@@ -2373,6 +2614,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[7][16]) ? $val_sql[7][16] : "" ?>" name="carton_from_to7" id="carton_from_to7" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid7" id="billid7" value="<?= isset($val_sql[7][0]) ? $val_sql[7][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker7" class="form-control" value="<?= isset($val_sql[7][17]) ? $val_sql[7][17] : "" ?>" name="cracker_name7" id="cracker_name7" placeholder="Enter cracker name">
                         <datalist id="cracker7">
                           <?php
@@ -2415,6 +2658,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[8][16]) ? $val_sql[8][16] : "" ?>" name="carton_from_to8" id="carton_from_to8" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid8" id="billid8" value="<?= isset($val_sql[8][0]) ? $val_sql[8][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker8" class="form-control" value="<?= isset($val_sql[8][17]) ? $val_sql[8][17] : "" ?>" name="cracker_name8" id="cracker_name8" placeholder="Enter cracker name">
                         <datalist id="cracker8">
                           <?php
@@ -2457,6 +2702,8 @@ $('#cracker_name14').change(function() {
                         <input class="form-control" type="text" value="<?= isset($val_sql[9][16]) ? $val_sql[9][16] : "" ?>" name="carton_from_to9" id="carton_from_to9" placeholder="Carton From - To">
                       </div>
                       <div class="form-group col-md-2">
+                      <input class="form-control" name="billid9" id="billid9" value="<?= isset($val_sql[9][0]) ? $val_sql[9][0] : "" ?>" type="hidden" >
+             
                         <input list="cracker9" class="form-control" value="<?= isset($val_sql[9][17]) ? $val_sql[9][17] : "" ?>" name="cracker_name9" id="cracker_name9" placeholder="Enter cracker name">
                         <datalist id="cracker9">
                           <?php
@@ -2501,255 +2748,265 @@ $('#cracker_name14').change(function() {
 
             <div class="panel-group" id="accordion">
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h4 class="panel-title text-right">
-      <a class="btn btn-success" style="color:#fff !important" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Add Items</a>
-    </h4>
-    <div class="row col-md-12">
-      <div class="form-group col-md-2">
-        <label class="control-label">Carton From - To</label>
-      </div>
-      <div class="form-group col-md-2">
-        <label class="control-label">Consignee Name</label>
-      </div>
-      <div class="form-group col-md-1">
-        <label class="control-label">Carton</label>
-      </div>
-      <div class="form-group col-md-1">
-        <label class="control-label">Carton&nbsp;Contents</label>
-      </div>
-      <div class="form-group col-md-1">
-        <label class="control-label">Qty</label>
-      </div>
-      <div class="form-group col-md-1">
-        <label class="control-label">Rate</label>
-      </div>
-      <div class="form-group col-md-2">
-        <label class="control-label">Per</label>
-      </div>
-      <div class="form-group col-md-2">
-        <label class="control-label">Amount</label>
-      </div>
-    </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title text-right">
+                    <a class="btn btn-success" style="color:#fff !important" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Add Items</a>
+                  </h4>
+                  <div class="row col-md-12">
+                    <div class="form-group col-md-2">
+                      <label class="control-label">Carton From - To</label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="control-label">Consignee Name</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                      <label class="control-label">Carton</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                      <label class="control-label">Carton&nbsp;Contents</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                      <label class="control-label">Qty</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                      <label class="control-label">Rate</label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="control-label">Per</label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="control-label">Amount</label>
+                    </div>
+                  </div>
 
-  </div>
-  <div id="collapse3" class="panel-collapse collapse">
-    <div class="panel-body">
-      <div class="row form-group col-md-12">
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" value="<?= isset($val_sql[10][16]) ? $val_sql[10][16] : "" ?>" name="carton_from_to10" id="carton_from_to10" placeholder="Carton From - To">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="cracker10" class="form-control" value="<?= isset($val_sql[10][17]) ? $val_sql[10][17] : "" ?>" name="cracker_name10" id="cracker_name10" placeholder="Enter cracker name">
-          <datalist id="cracker10">
-            <?php
-            $crackersql = "select * from cracker";
-            $crackerexesql = mysqli_query($con, $crackersql);
-            while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
-              <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
-            <?php
-            }
-            ?>
-          </datalist>
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton10" id="carton10" value="<?= isset($val_sql[10][18]) ? $val_sql[10][18] : "" ?>" placeholder="Carton">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton_contents10" id="carton_contents10" value="<?= isset($val_sql[10][19]) ? $val_sql[10][19] : "" ?>" placeholder="Contents">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" value="<?= isset($val_sql[10][21]) ? $val_sql[10][21] : "" ?>" name="qty10" id="qty10" placeholder="Qty">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="rate10" id="rate10" value="<?= isset($val_sql[10][22]) ? $val_sql[10][22] : "" ?>" placeholder="Rate">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="pers" class="form-control" value="<?= isset($val_sql[10][23]) ? $val_sql[10][23]: "" ?>" name="per10" id="per10" placeholder="Enter Per">
-          <datalist id="pers">
-            <option value="Unit">Unit</option>
-            <option value="Pocket">Pocket</option>
-            <option value="Piece">Piece</option>
-          </datalist>
-        </div>
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" name="amount10" id="amount10" value="<?= isset($val_sql[10][24]) ? $val_sql[10][24] : "" ?>" placeholder="Amount">
-        </div>
-      </div>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="row form-group col-md-12">
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[10][16]) ? $val_sql[10][16] : "" ?>" name="carton_from_to10" id="carton_from_to10" placeholder="Carton From - To">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <input class="form-control" name="billid10" id="billid10" value="<?= isset($val_sql[10][0]) ? $val_sql[10][0] : "" ?>" type="hidden" >
+             
+                        <input list="cracker10" class="form-control" value="<?= isset($val_sql[10][17]) ? $val_sql[10][17] : "" ?>" name="cracker_name10" id="cracker_name10" placeholder="Enter cracker name">
+                        <datalist id="cracker10">
+                          <?php
+                          $crackersql = "select * from cracker";
+                          $crackerexesql = mysqli_query($con, $crackersql);
+                          while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
+                            <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
+                          <?php
+                          }
+                          ?>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton10" id="carton10" value="<?= isset($val_sql[10][18]) ? $val_sql[10][18] : "" ?>" placeholder="Carton">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton_contents10" id="carton_contents10" value="<?= isset($val_sql[10][19]) ? $val_sql[10][19] : "" ?>" placeholder="Contents">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[10][21]) ? $val_sql[10][21] : "" ?>" name="qty10" id="qty10" placeholder="Qty">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="rate10" id="rate10" value="<?= isset($val_sql[10][22]) ? $val_sql[10][22] : "" ?>" placeholder="Rate">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[10][23]) ? $val_sql[10][23] : "" ?>" name="per10" id="per10" placeholder="Enter Per">
+                        <datalist id="pers">
+                          <option value="Unit">Unit</option>
+                          <option value="Pocket">Pocket</option>
+                          <option value="Piece">Piece</option>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" name="amount10" id="amount10" value="<?= isset($val_sql[10][24]) ? $val_sql[10][24] : "" ?>" placeholder="Amount">
+                      </div>
+                    </div>
 
-      <div class="row form-group col-md-12">
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" value="<?= isset($val_sql[11][16]) ? $val_sql[11][16] : "" ?>" name="carton_from_to11" id="carton_from_to11" placeholder="Carton From - To">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="cracker11" class="form-control" value="<?= isset($val_sql[11][17]) ? $val_sql[11][17] : "" ?>" name="cracker_name11" id="cracker_name11" placeholder="Enter cracker name">
-          <datalist id="cracker11">
-            <?php
-            $crackersql = "select * from cracker";
-            $crackerexesql = mysqli_query($con, $crackersql);
-            while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
-              <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
-            <?php
-            }
-            ?>
-          </datalist>
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton11" id="carton11" value="<?= isset($val_sql[11][18]) ? $val_sql[11][18] : "" ?>" placeholder="Carton">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton_contents11" id="carton_contents11" value="<?= isset($val_sql[11][19]) ? $val_sql[11][19] : "" ?>" placeholder="Contents">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" value="<?= isset($val_sql[11][21]) ? $val_sql[11][21] : "" ?>" name="qty11" id="qty11" placeholder="Qty">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="rate11" id="rate11" value="<?= isset($val_sql[11][22]) ? $val_sql[11][22] : "" ?>" placeholder="Rate">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="pers" class="form-control" value="<?= isset($val_sql[11][23]) ? $val_sql[11][23] : "" ?>" name="per11" id="per11" placeholder="Enter Per">
-          <datalist id="pers">
-            <option value="Unit">Unit</option>
-            <option value="Pocket">Pocket</option>
-            <option value="Piece">Piece</option>
-          </datalist>
-        </div>
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" name="amount11" id="amount11" value="<?= isset($val_sql[11][24]) ? $val_sql[11][24] : "" ?>" placeholder="Amount">
-        </div>
-      </div>
+                    <div class="row form-group col-md-12">
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[11][16]) ? $val_sql[11][16] : "" ?>" name="carton_from_to11" id="carton_from_to11" placeholder="Carton From - To">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <input class="form-control" name="billid11" id="billid11" value="<?= isset($val_sql[11][0]) ? $val_sql[11][0] : "" ?>" type="hidden" >
+             
+                        <input list="cracker11" class="form-control" value="<?= isset($val_sql[11][17]) ? $val_sql[11][17] : "" ?>" name="cracker_name11" id="cracker_name11" placeholder="Enter cracker name">
+                        <datalist id="cracker11">
+                          <?php
+                          $crackersql = "select * from cracker";
+                          $crackerexesql = mysqli_query($con, $crackersql);
+                          while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
+                            <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
+                          <?php
+                          }
+                          ?>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton11" id="carton11" value="<?= isset($val_sql[11][18]) ? $val_sql[11][18] : "" ?>" placeholder="Carton">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton_contents11" id="carton_contents11" value="<?= isset($val_sql[11][19]) ? $val_sql[11][19] : "" ?>" placeholder="Contents">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[11][21]) ? $val_sql[11][21] : "" ?>" name="qty11" id="qty11" placeholder="Qty">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="rate11" id="rate11" value="<?= isset($val_sql[11][22]) ? $val_sql[11][22] : "" ?>" placeholder="Rate">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[11][23]) ? $val_sql[11][23] : "" ?>" name="per11" id="per11" placeholder="Enter Per">
+                        <datalist id="pers">
+                          <option value="Unit">Unit</option>
+                          <option value="Pocket">Pocket</option>
+                          <option value="Piece">Piece</option>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" name="amount11" id="amount11" value="<?= isset($val_sql[11][24]) ? $val_sql[11][24] : "" ?>" placeholder="Amount">
+                      </div>
+                    </div>
 
-      <div class="row form-group col-md-12">
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" value="<?= isset($val_sql[12][16]) ? $val_sql[12][16] : "" ?>" name="carton_from_to12" id="carton_from_to12" placeholder="Carton From - To">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="cracker12" class="form-control" value="<?= isset($val_sql[12][17]) ? $val_sql[12][17] : "" ?>" name="cracker_name12" id="cracker_name12" placeholder="Enter cracker name">
-          <datalist id="cracker12">
-            <?php
-            $crackersql = "select * from cracker";
-            $crackerexesql = mysqli_query($con, $crackersql);
-            while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
-              <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
-            <?php
-            }
-            ?>
-          </datalist>
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton12" id="carton12" value="<?= isset($val_sql[12][18]) ? $val_sql[12][18] : "" ?>" placeholder="Carton">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton_contents12" id="carton_contents12" value="<?= isset($val_sql[12][19]) ? $val_sql[12][19] : "" ?>" placeholder="Contents">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" value="<?= isset($val_sql[12][21]) ? $val_sql[12][21] : "" ?>" name="qty12" id="qty12" placeholder="Qty">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="rate12" id="rate12" value="<?= isset($val_sql[12][22]) ? $val_sql[12][22] : "" ?>" placeholder="Rate">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="pers" class="form-control" value="<?= isset($val_sql[12][23]) ? $val_sql[12][23] : "" ?>" name="per12" id="per12" placeholder="Enter Per">
-          <datalist id="pers">
-            <option value="Unit">Unit</option>
-            <option value="Pocket">Pocket</option>
-            <option value="Piece">Piece</option>
-          </datalist>
-        </div>
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" name="amount12" id="amount12" value="<?= isset($val_sql[12][24]) ? $val_sql[12][24] : "" ?>" placeholder="Amount">
-        </div>
-      </div>
+                    <div class="row form-group col-md-12">
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[12][16]) ? $val_sql[12][16] : "" ?>" name="carton_from_to12" id="carton_from_to12" placeholder="Carton From - To">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <input class="form-control" name="billid12" id="billid12" value="<?= isset($val_sql[12][0]) ? $val_sql[12][0] : "" ?>" type="hidden" >
+             
+                        <input list="cracker12" class="form-control" value="<?= isset($val_sql[12][17]) ? $val_sql[12][17] : "" ?>" name="cracker_name12" id="cracker_name12" placeholder="Enter cracker name">
+                        <datalist id="cracker12">
+                          <?php
+                          $crackersql = "select * from cracker";
+                          $crackerexesql = mysqli_query($con, $crackersql);
+                          while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
+                            <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
+                          <?php
+                          }
+                          ?>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton12" id="carton12" value="<?= isset($val_sql[12][18]) ? $val_sql[12][18] : "" ?>" placeholder="Carton">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton_contents12" id="carton_contents12" value="<?= isset($val_sql[12][19]) ? $val_sql[12][19] : "" ?>" placeholder="Contents">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[12][21]) ? $val_sql[12][21] : "" ?>" name="qty12" id="qty12" placeholder="Qty">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="rate12" id="rate12" value="<?= isset($val_sql[12][22]) ? $val_sql[12][22] : "" ?>" placeholder="Rate">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[12][23]) ? $val_sql[12][23] : "" ?>" name="per12" id="per12" placeholder="Enter Per">
+                        <datalist id="pers">
+                          <option value="Unit">Unit</option>
+                          <option value="Pocket">Pocket</option>
+                          <option value="Piece">Piece</option>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" name="amount12" id="amount12" value="<?= isset($val_sql[12][24]) ? $val_sql[12][24] : "" ?>" placeholder="Amount">
+                      </div>
+                    </div>
 
-      <div class="row form-group col-md-12">
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" value="<?= isset($val_sql[13][16]) ? $val_sql[13][16] : "" ?>" name="carton_from_to13" id="carton_from_to13" placeholder="Carton From - To">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="cracker13" class="form-control" value="<?= isset($val_sql[13][17]) ? $val_sql[13][17] : "" ?>" name="cracker_name13" id="cracker_name13" placeholder="Enter cracker name">
-          <datalist id="cracker13">
-            <?php
-            $crackersql = "select * from cracker";
-            $crackerexesql = mysqli_query($con, $crackersql);
-            while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
-              <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
-            <?php
-            }
-            ?>
-          </datalist>
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton13" id="carton13" value="<?= isset($val_sql[13][18]) ? $val_sql[13][18] : "" ?>" placeholder="Carton">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton_contents13" id="carton_contents13" value="<?= isset($val_sql[13][19]) ? $val_sql[13][19] : "" ?>" placeholder="Contents">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" value="<?= isset($val_sql[13][21]) ? $val_sql[13][21] : "" ?>" name="qty13" id="qty13" placeholder="Qty">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="rate13" id="rate13" value="<?= isset($val_sql[13][22]) ? $val_sql[13][22] : "" ?>" placeholder="Rate">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="pers" class="form-control" value="<?= isset($val_sql[13][23]) ? $val_sql[13][23] : "" ?>" name="per13" id="per13" placeholder="Enter Per">
-          <datalist id="pers">
-            <option value="Unit">Unit</option>
-            <option value="Pocket">Pocket</option>
-            <option value="Piece">Piece</option>
-          </datalist>
-        </div>
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" name="amount13" id="amount13" value="<?= isset($val_sql[13][24]) ? $val_sql[13][24] : "" ?>" placeholder="Amount">
-        </div>
-      </div>
+                    <div class="row form-group col-md-12">
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[13][16]) ? $val_sql[13][16] : "" ?>" name="carton_from_to13" id="carton_from_to13" placeholder="Carton From - To">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <input class="form-control" name="billid13" id="billid13" value="<?= isset($val_sql[13][0]) ? $val_sql[13][0] : "" ?>" type="hidden" >
+             
+                        <input list="cracker13" class="form-control" value="<?= isset($val_sql[13][17]) ? $val_sql[13][17] : "" ?>" name="cracker_name13" id="cracker_name13" placeholder="Enter cracker name">
+                        <datalist id="cracker13">
+                          <?php
+                          $crackersql = "select * from cracker";
+                          $crackerexesql = mysqli_query($con, $crackersql);
+                          while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
+                            <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
+                          <?php
+                          }
+                          ?>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton13" id="carton13" value="<?= isset($val_sql[13][18]) ? $val_sql[13][18] : "" ?>" placeholder="Carton">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton_contents13" id="carton_contents13" value="<?= isset($val_sql[13][19]) ? $val_sql[13][19] : "" ?>" placeholder="Contents">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[13][21]) ? $val_sql[13][21] : "" ?>" name="qty13" id="qty13" placeholder="Qty">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="rate13" id="rate13" value="<?= isset($val_sql[13][22]) ? $val_sql[13][22] : "" ?>" placeholder="Rate">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[13][23]) ? $val_sql[13][23] : "" ?>" name="per13" id="per13" placeholder="Enter Per">
+                        <datalist id="pers">
+                          <option value="Unit">Unit</option>
+                          <option value="Pocket">Pocket</option>
+                          <option value="Piece">Piece</option>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" name="amount13" id="amount13" value="<?= isset($val_sql[13][24]) ? $val_sql[13][24] : "" ?>" placeholder="Amount">
+                      </div>
+                    </div>
 
-      <div class="row form-group col-md-12">
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" value="<?= isset($val_sql[14][16]) ? $val_sql[14][16] : "" ?>" name="carton_from_to14" id="carton_from_to14" placeholder="Carton From - To">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="cracker14" class="form-control" value="<?= isset($val_sql[14][17]) ? $val_sql[14][17] : "" ?>" name="cracker_name14" id="cracker_name14" placeholder="Enter cracker name">
-          <datalist id="cracker14">
-            <?php
-            $crackersql = "select * from cracker";
-            $crackerexesql = mysqli_query($con, $crackersql);
-            while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
-              <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
-            <?php
-            }
-            ?>
-          </datalist>
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton14" id="carton14" value="<?= isset($val_sql[14][18]) ? $val_sql[14][18] : "" ?>" placeholder="Carton">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="carton_contents14" id="carton_contents14" value="<?= isset($val_sql[14][19]) ? $val_sql[14][19] : "" ?>" placeholder="Contents">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" value="<?= isset($val_sql[14][21]) ? $val_sql[14][21] : "" ?>" name="qty14" id="qty14" placeholder="Qty">
-        </div>
-        <div class="form-group col-md-1">
-          <input class="form-control" type="text" name="rate14" id="rate14" value="<?= isset($val_sql[14][22]) ? $val_sql[14][22] : "" ?>" placeholder="Rate">
-        </div>
-        <div class="form-group col-md-2">
-          <input list="pers" class="form-control" value="<?= isset($val_sql[14][23]) ? $val_sql[14][23] : "" ?>" name="per14" id="per14" placeholder="Enter Per">
-          <datalist id="pers">
-            <option value="Unit">Unit</option>
-            <option value="Pocket">Pocket</option>
-            <option value="Piece">Piece</option>
-          </datalist>
-        </div>
-        <div class="form-group col-md-2">
-          <input class="form-control" type="text" name="amount14" id="amount14" value="<?= isset($val_sql[14][24]) ? $val_sql[14][24] : "" ?>" placeholder="Amount">
-        </div>
-      </div>
+                    <div class="row form-group col-md-12">
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[14][16]) ? $val_sql[14][16] : "" ?>" name="carton_from_to14" id="carton_from_to14" placeholder="Carton From - To">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <input class="form-control" name="billid14" id="billid14" value="<?= isset($val_sql[14][0]) ? $val_sql[14][0] : "" ?>" type="hidden" >
+             
+                        <input list="cracker14" class="form-control" value="<?= isset($val_sql[14][17]) ? $val_sql[14][17] : "" ?>" name="cracker_name14" id="cracker_name14" placeholder="Enter cracker name">
+                        <datalist id="cracker14">
+                          <?php
+                          $crackersql = "select * from cracker";
+                          $crackerexesql = mysqli_query($con, $crackersql);
+                          while ($crackersql = mysqli_fetch_assoc($crackerexesql)) { ?>
+                            <option value="<?= $crackersql['name'] ?>" data-idss="<?= $crackersql['id'] ?>"><?= $crackersql['name'] ?></option>
+                          <?php
+                          }
+                          ?>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton14" id="carton14" value="<?= isset($val_sql[14][18]) ? $val_sql[14][18] : "" ?>" placeholder="Carton">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="carton_contents14" id="carton_contents14" value="<?= isset($val_sql[14][19]) ? $val_sql[14][19] : "" ?>" placeholder="Contents">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" value="<?= isset($val_sql[14][21]) ? $val_sql[14][21] : "" ?>" name="qty14" id="qty14" placeholder="Qty">
+                      </div>
+                      <div class="form-group col-md-1">
+                        <input class="form-control" type="text" name="rate14" id="rate14" value="<?= isset($val_sql[14][22]) ? $val_sql[14][22] : "" ?>" placeholder="Rate">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input list="pers" class="form-control" value="<?= isset($val_sql[14][23]) ? $val_sql[14][23] : "" ?>" name="per14" id="per14" placeholder="Enter Per">
+                        <datalist id="pers">
+                          <option value="Unit">Unit</option>
+                          <option value="Pocket">Pocket</option>
+                          <option value="Piece">Piece</option>
+                        </datalist>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input class="form-control" type="text" name="amount14" id="amount14" value="<?= isset($val_sql[14][24]) ? $val_sql[14][24] : "" ?>" placeholder="Amount">
+                      </div>
+                    </div>
 
-    </div>
-  </div>
-</div>
-</div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="row col-md-12">
               <div class="form-group col-md-1"></div>
               <div class="form-group col-md-3 text-right">
@@ -2789,7 +3046,18 @@ $('#cracker_name14').change(function() {
               </div>
             </div>
             <div class="row col-md-12">
-              <div class="form-group col-md-7">
+              <div class="form-group col-md-3">
+              </div>
+              <div class="form-group col-md-1">
+                <label class="control-label">GST Type</label>
+              </div>
+              <div class="form-group col-md-3">
+                <?= $states = isset($val_sql[0][3]) ? $val_sql[0][3] : ""; ?>
+                <select class="form-control" name="state_type" id="state_type">
+                  <option value="" disabled selected>Select State</option>
+                  <option value="Interstate" <?= ($states == "Interstate") ? 'Selected' : '' ?>>Interstate</option>
+                  <option value="Intrastate" <?= ($states == "Intrastate") ? 'Selected' : '' ?>>Intrastate</option>
+                </select>
               </div>
               <div class="form-group col-md-2">
                 <input class="form-control" type="text" name="igst" id="igst" value="<?= isset($val_sql[0][31]) ? $val_sql[0][31] : "" ?>" placeholder="Igst">
@@ -2940,7 +3208,7 @@ if (isset($_POST['add_bill'])) {
   $carton1 = isset($_POST['carton1']) ? $_POST['carton1'] : "";
   $carton_contents1 = isset($_POST['carton_contents1']) ? $_POST['carton_contents1'] : "";
   $qty1 = isset($_POST['qty1']) ? $_POST['qty1'] : "";
-  $rate1 = isset($_POST['rate1']) ? $_POST['qty1'] : "";
+  $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : "";
   $per1 = isset($_POST['per1']) ? $_POST['per1'] : "";
   $amount1 = isset($_POST['amount1']) ? $_POST['amount1'] : "";
 
@@ -3245,6 +3513,22 @@ if (isset($_POST['add_bill'])) {
   $per14 = isset($_POST['per14']) ? $_POST['per14'] : "";
   $amount14 = isset($_POST['amount14']) ? $_POST['amount14'] : "";
 
+  $billid=isset($_POST['billid'])?$_POST['billid']:'';
+  $billid1=isset($_POST['billid1'])?$_POST['billid1']:'';
+  $billid2=isset($_POST['billid2'])?$_POST['billid2']:'';
+  $billid3=isset($_POST['billid3'])?$_POST['billid3']:'';
+  $billid4=isset($_POST['billid4'])?$_POST['billid4']:'';
+  $billid5=isset($_POST['billid5'])?$_POST['billid5']:'';
+  $billid6=isset($_POST['billid6'])?$_POST['billid6']:'';
+  $billid7=isset($_POST['billid7'])?$_POST['billid7']:'';
+  $billid8=isset($_POST['billid8'])?$_POST['billid8']:'';
+  $billid9=isset($_POST['billid9'])?$_POST['billid9']:'';
+  $billid10=isset($_POST['billid10'])?$_POST['billid10']:'';
+  $billid11=isset($_POST['billid11'])?$_POST['billid11']:'';
+  $billid12=isset($_POST['billid12'])?$_POST['billid12']:'';
+  $billid13=isset($_POST['billid13'])?$_POST['billid13']:'';
+  $billid14=isset($_POST['billid14'])?$_POST['billid14']:'';
+
   if ($id == '') {
     if ($cracker_name != '') {
       $sqlins = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to','$cracker_name','$carton','$carton_contents','$qty','$rate','$per','$amount','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
@@ -3308,64 +3592,154 @@ if (isset($_POST['add_bill'])) {
     }
   } else {
     if ($cracker_name != '') {
-      $sqlins = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to',cracker_name='$cracker_name',carton='$carton',carton_contents='$carton_contents',qty='$qty',rate='$rate',per='$per',amount='$amount',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid!='') {
+      $sqlins = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to',cracker_name='$cracker_name',carton='$carton',carton_contents='$carton_contents',qty='$qty',rate='$rate',per='$per',amount='$amount',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid";
       $exesql = mysqli_query($con, $sqlins);
+      }
+      else {
+        $sqlins = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to','$cracker_name','$carton','$carton_contents','$qty','$rate','$per','$amount','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql = mysqli_query($con, $sqlins);
+      }
     }
     if ($cracker_name1 != '') {
-      $sqlins1 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to1',cracker_name='$cracker_name1',carton='$carton1',carton_contents='$carton_contents1',qty='$qty1',rate='$rate1',per='$per1',amount='$amount1',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid1!='') {
+      $sqlins1 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to1',cracker_name='$cracker_name1',carton='$carton1',carton_contents='$carton_contents1',qty='$qty1',rate='$rate1',per='$per1',amount='$amount1',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid1";
       $exesql1 = mysqli_query($con, $sqlins1);
+      }
+      else {
+        $sqlins1 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to1','$cracker_name1','$carton1','$carton_contents1','$qty1','$rate1','$per1','$amount1','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+      $exesql1 = mysqli_query($con, $sqlins1);
+      }
     }
     if ($cracker_name2 != '') {
-      $sqlins2 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to2',cracker_name='$cracker_name2',carton='$carton2',carton_contents='$carton_contents2',qty='$qty2',rate='$rate2',per='$per2',amount='$amount2',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid2!='') {
+      $sqlins2 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to2',cracker_name='$cracker_name2',carton='$carton2',carton_contents='$carton_contents2',qty='$qty2',rate='$rate2',per='$per2',amount='$amount2',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid2";
       $exesql2 = mysqli_query($con, $sqlins2);
+      }
+      else {
+        $sqlins2 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to2','$cracker_name2','$carton2','$carton_contents2','$qty2','$rate2','$per2','$amount2','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql2 = mysqli_query($con, $sqlins2);
+      }
     }
     if ($cracker_name3 != '') {
-      $sqlins3 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to3',cracker_name='$cracker_name3',carton='$carton3',carton_contents='$carton_contents3',qty='$qty3',rate='$rate3',per='$per3',amount='$amount3',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid3!='') {
+      $sqlins3 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to3',cracker_name='$cracker_name3',carton='$carton3',carton_contents='$carton_contents3',qty='$qty3',rate='$rate3',per='$per3',amount='$amount3',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid3";
       $exesql3 = mysqli_query($con, $sqlins3);
+      }
+      else {
+        $sqlins3 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to3','$cracker_name3','$carton3','$carton_contents3','$qty3','$rate3','$per3','$amount3','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql3 = mysqli_query($con, $sqlins3);
+      }
     }
     if ($cracker_name4 != '') {
-      $sqlins4 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to4',cracker_name='$cracker_name4',carton='$carton4',carton_contents='$carton_contents4',qty='$qty4',rate='$rate4',per='$per4',amount='$amount4',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid4!='') {
+      $sqlins4 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to4',cracker_name='$cracker_name4',carton='$carton4',carton_contents='$carton_contents4',qty='$qty4',rate='$rate4',per='$per4',amount='$amount4',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid4";
       $exesql4 = mysqli_query($con, $sqlins4);
+      }
+      else {
+        $sqlins4 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to4','$cracker_name4','$carton4','$carton_contents4','$qty4','$rate4','$per4','$amount4','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql4 = mysqli_query($con, $sqlins4);
+      }
     }
     if ($cracker_name5 != '') {
-      $sqlins5 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to5',cracker_name='$cracker_name5',carton='$carton5',carton_contents='$carton_contents5',qty='$qty5',rate='$rate5',per='$per5',amount='$amount5',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid5!=''){
+      $sqlins5 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to5',cracker_name='$cracker_name5',carton='$carton5',carton_contents='$carton_contents5',qty='$qty5',rate='$rate5',per='$per5',amount='$amount5',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid5";
       $exesql5 = mysqli_query($con, $sqlins5);
+      }
+      else {
+        $sqlins5 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to5','$cracker_name5','$carton5','$carton_contents5','$qty5','$rate5','$per5','$amount5','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql5 = mysqli_query($con, $sqlins5);
+      }
     }
     if ($cracker_name6 != '') {
-      $sqlins6 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to6',cracker_name='$cracker_name6',carton='$carton6',carton_contents='$carton_contents6',qty='$qty6',rate='$rate6',per='$per6',amount='$amount6',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid6!='') {
+      $sqlins6 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to6',cracker_name='$cracker_name6',carton='$carton6',carton_contents='$carton_contents6',qty='$qty6',rate='$rate6',per='$per6',amount='$amount6',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid6";
       $exesql6 = mysqli_query($con, $sqlins6);
+      }
+      else {
+        $sqlins6 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to6','$cracker_name6','$carton6','$carton_contents6','$qty6','$rate6','$per6','$amount6','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql6 = mysqli_query($con, $sqlins6);
+      }
     }
     if ($cracker_name7 != '') {
-      $sqlins7 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to7',cracker_name='$cracker_name7',carton='$carton7',carton_contents='$carton_contents7',qty='$qty7',rate='$rate7',per='$per7',amount='$amount7',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid7!='') {
+      $sqlins7 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to7',cracker_name='$cracker_name7',carton='$carton7',carton_contents='$carton_contents7',qty='$qty7',rate='$rate7',per='$per7',amount='$amount7',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid7";
       $exesql7 = mysqli_query($con, $sqlins7);
+      }
+      else{
+        $sqlins7 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to7','$cracker_name7','$carton7','$carton_contents7','$qty7','$rate7','$per7','$amount7','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql7 = mysqli_query($con, $sqlins7);
+      }
     }
     if ($cracker_name8 != '') {
-      $sqlins8 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to8',cracker_name='$cracker_name8',carton='$carton8',carton_contents='$carton_contents8',qty='$qty8',rate='$rate8',per='$per8',amount='$amount8',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid8!=''){
+      $sqlins8 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to8',cracker_name='$cracker_name8',carton='$carton8',carton_contents='$carton_contents8',qty='$qty8',rate='$rate8',per='$per8',amount='$amount8',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid8";
       $exesql8 = mysqli_query($con, $sqlins8);
+      }
+      else {
+        $sqlins8 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to8','$cracker_name8','$carton8','$carton_contents8','$qty8','$rate8','$per8','$amount8','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql8 = mysqli_query($con, $sqlins8);
+      }
     }
     if ($cracker_name9 != '') {
-      $sqlins9 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to9',cracker_name='$cracker_name9',carton='$carton9',carton_contents='$carton_contents9',qty='$qty9',rate='$rate9',per='$per9',amount='$amount9',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid9!='') {
+      $sqlins9 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to9',cracker_name='$cracker_name9',carton='$carton9',carton_contents='$carton_contents9',qty='$qty9',rate='$rate9',per='$per9',amount='$amount9',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid9";
       $exesql9 = mysqli_query($con, $sqlins9);
+      }
+      else {
+        $sqlins9 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to9','$cracker_name9','$carton9','$carton_contents9','$qty9','$rate9','$per9','$amount9','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql9 = mysqli_query($con, $sqlins9);
+      }
     }
     if ($cracker_name10 != '') {
-      $sqlins10 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to10',cracker_name='$cracker_name10',carton='$carton10',carton_contents='$carton_contents10',qty='$qty10',rate='$rate10',per='$per10',amount='$amount10',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid10!='') {
+      $sqlins10 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to10',cracker_name='$cracker_name10',carton='$carton10',carton_contents='$carton_contents10',qty='$qty10',rate='$rate10',per='$per10',amount='$amount10',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid10";
       $exesql10 = mysqli_query($con, $sqlins10);
+      }
+      else {
+        $sqlins10 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to10','$cracker_name10','$carton10','$carton_contents10','$qty10','$rate10','$per10','$amount10','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql10 = mysqli_query($con, $sqlins10);
+      }
     }
     if ($cracker_name11 != '') {
-      $sqlins11 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to11',cracker_name='$cracker_name11',carton='$carton11',carton_contents='$carton_contents11',qty='$qty11',rate='$rate11',per='$per11',amount='$amount11',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid11!='') {
+      $sqlins11 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to11',cracker_name='$cracker_name11',carton='$carton11',carton_contents='$carton_contents11',qty='$qty11',rate='$rate11',per='$per11',amount='$amount11',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid11";
       $exesql11 = mysqli_query($con, $sqlins11);
+      }
+      else {
+        $sqlins11 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to11','$cracker_name11','$carton11','$carton_contents11','$qty11','$rate11','$per11','$amount11','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql11 = mysqli_query($con, $sqlins11);
+      }
     }
     if ($cracker_name12 != '') {
-      $sqlins12 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to12',cracker_name='$cracker_name12',carton='$carton12',carton_contents='$carton_contents12',qty='$qty12',rate='$rate12',per='$per12',amount='$amount12',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid12!='') {
+      $sqlins12 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to12',cracker_name='$cracker_name12',carton='$carton12',carton_contents='$carton_contents12',qty='$qty12',rate='$rate12',per='$per12',amount='$amount12',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid12";
       $exesql12 = mysqli_query($con, $sqlins12);
+      }
+      else {
+        $sqlins12 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to12','$cracker_name12','$carton12','$carton_contents12','$qty12','$rate12','$per12','$amount12','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql12 = mysqli_query($con, $sqlins12);
+      }
     }
     if ($cracker_name13 != '') {
-      $sqlins13 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to13',cracker_name='$cracker_name13',carton='$carton13',carton_contents='$carton_contents13',qty='$qty13',rate='$rate13',per='$per13',amount='$amount13',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid13!='') {
+      $sqlins13 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to13',cracker_name='$cracker_name13',carton='$carton13',carton_contents='$carton_contents13',qty='$qty13',rate='$rate13',per='$per13',amount='$amount13',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid13";
       $exesql13 = mysqli_query($con, $sqlins13);
+      }
+      else {
+        $sqlins13 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to13','$cracker_name13','$carton13','$carton_contents13','$qty13','$rate13','$per13','$amount13','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql13 = mysqli_query($con, $sqlins13);
+      }
     }
     if ($cracker_name14 != '') {
-      $sqlins14 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to14',cracker_name='$cracker_name14',carton='$carton14',carton_contents='$carton_contents14',qty='$qty14',rate='$rate14',per='$per14',amount='$amount14',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$id";
+      if($billid14!='') {
+      $sqlins14 = "update customerbill set consignee_name='$consignee_name',state='$state',state_type='$state_type',gstin='$gstin',consignee_address='$consignee_address',place='$place',invoice_no='$invoice_no',invoice_date='$invoice_date',eway_bill='$eway_bill',hsn_code='$hsn_code',vehicle_no='$vehicle_no',despatched_from='$despatched_from',despatched_to='$despatched_to',transport_name='$transport_name',transport_gstin='$transport_gstin',carton_from_to='$carton_from_to14',cracker_name='$cracker_name14',carton='$carton14',carton_contents='$carton_contents14',qty='$qty14',rate='$rate14',per='$per14',amount='$amount14',total_carton='$total_carton',good_value='$good_value',discount='$discount',discount_amount='$discount_amount',taxable_value='$taxable_value',igst='$igst',igst_amount='$igst_amount',cgst='$cgst',cgst_amount='$cgst_amount',sgst='$sgst',sgst_amount='$sgst_amount',round_off='$round_off',net_amount='$net_amount' where id=$billid14";
       $exesql14 = mysqli_query($con, $sqlins14);
+      }
+      else {
+        $sqlins14 = "insert into customerbill(consignee_name,state,state_type,gstin,consignee_address,place,invoice_no,invoice_date,eway_bill,hsn_code,vehicle_no,despatched_from,despatched_to,transport_name,transport_gstin,carton_from_to,cracker_name,carton,carton_contents,qty,rate,per,amount,total_carton,good_value,discount,discount_amount,taxable_value,igst,igst_amount,cgst,cgst_amount,sgst,sgst_amount,round_off,net_amount) values('$consignee_name','$state','$state_type','$gstin','$consignee_address','$place','$invoice_no','$invoice_date','$eway_bill','$hsn_code','$vehicle_no','$despatched_from','$despatched_to','$transport_name','$transport_gstin','$carton_from_to14','$cracker_name14','$carton14','$carton_contents14','$qty14','$rate14','$per14','$amount14','$total_carton','$good_value','$discount','$discount_amount','$taxable_value','$igst','$igst_amount','$cgst','$cgst_amount','$sgst','$sgst_amount','$round_off','$net_amount')";
+        $exesql14 = mysqli_query($con, $sqlins14);
+      }
     }
   }
   if ($exesql || $exe_sql1 || $exesql2 || $exesql3 || $exesql4 || $exesql5 || $exesql6 || $exesql7 || $exesql8 || $exesql9 || $exesql10 || $exesql11 || $exesql12 || $exesql13 || $exesql14) {

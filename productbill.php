@@ -1,14 +1,33 @@
 <style>
+  @media print {
+    body {
+      margin: 1px solid #000 !important;
+    }
+  }
+
+  hr {
+    border: 1px solid #000 !important;
+  }
+
   body {
     font-size: 14px !important;
+    font-weight: 900 !important;
+    color: #000 !important;
   }
+
   p {
-    margin-bottom: 6px !important;
+    margin-bottom: 7px !important;
+    font-weight: 500 !important;
   }
-  .table th, .table td {
-    padding: 6px !important;
+
+  .table th,
+  .table td {
+    padding: 6.5px !important;
+    color: #000 !important;
   }
+
   table td {
+    color: #000 !important;
     border-top: none !important;
   }
 </style>
@@ -20,7 +39,7 @@ if ($id != '') {
   $exebill = mysqli_query($con, $sqlbill);
   $valbill = mysqli_fetch_assoc($exebill);
   $no = mysqli_num_rows($exebill);
-  
+
   $sqlbills = "select * from customerbill where invoice_no=$id";
   $exebills = mysqli_query($con, $sqlbills);
 }
@@ -29,7 +48,7 @@ if ($id != '') {
 <html lang="en">
 
 <head>
-<meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+  <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
   <!-- Twitter meta-->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:site" content="@pratikborsadiya">
@@ -70,44 +89,41 @@ if ($id != '') {
       <div class="col-md-12">
         <div class="tile">
           <section class="invoice">
-            <div class="row mb-0">
+            <div class="row mb-2">
               <div class="row col-12">
                 <div class="col-3 text-center">
-                  <img src="company.jpg" width="200" />
+                  <img src="company.jpg" width="180" />
+                  <strong>
+                    <p style="font-size: 16px;"><b>GSTIN : 33AAHFJ5113G1ZR</b></p>
+                  </strong>
                   <div>
-                    <address>
-                      <strong>
-                        <p style="font-size: 16px;"><b>GSTIN : 33AAHFJ5113G1ZR</b></p>
-                      </strong>
-                    </address>
                   </div>
                 </div>
                 <div class="col-6">
-                  <h3 class="page-header text-center mt-2"> Tax Invoice</h3>
-                  <h3 class="page-header text-center mt-2" style="font-family: ui-rounded !important;"> 
-                  JEYALAKSHMI PRIYA</h3>
-                  <h3 class="page-header text-center mt-2" style="font-family: ui-rounded !important;">
-                     SPARKLERS FACTORY & FIREWORKS</h3>
-                  <div class="col-12 text-center mt-2">
+                  <h3 class="page-header text-center mt-1"> Tax Invoice</h3>
+                  <h3 class="page-header text-center mt-1" style="font-family: ui-rounded !important;">
+                    JEYALAKSHMI PRIYA</h3>
+                  <h3 class="page-header text-center mt-1" style="font-family: ui-rounded !important;">
+                    SPARKLERS FACTORY & FIREWORKS</h3>
+                  <div class="col-12 text-center mt-1">
                     <strong>
-                      261 / 2A / 3 - Karuppasamy Nagar. S.N. Puram Road   <br />Thiruthangal, Sivakasi - 626130.
-                      <br/>  Factory at 453, 460/3B Anai Kuttam Village - 626130.
+                      261 / 2A / 3 - Karuppasamy Nagar. S.N. Puram Road <br />Thiruthangal, Sivakasi - 626130.
+                      <br /> Factory at 453, 460/3B Anai Kuttam Village - 626130.
                     </strong>
                   </div>
                 </div>
                 <div class="col-3 text-center">
-                  <img src="neer.jpg" width="200" />
-                  <h6></h6>
-                  <strong>
-                  <p style="font-size: 11.5px;font-weight:800 !important;"><b>LICENCE NO : E/Ho/TN/21/1151(E23679)<br/>
-                  LICENCE NO : E/Ho/TN/20/711(E23678)</b></p>
-                  </strong>
+                  <img src="neer.jpg" width="180" />
+                  <p style="font-size: 11px;font-weight:800 !important;"><b>LICENCE NO : E/Ho/TN/21/1151(E23679)<br />
+                      LICENCE NO : E/Ho/TN/20/711(E23678)</b></p>
                 </div>
               </div>
             </div>
-            <hr />
             <div class="row col-md-12">
-              <div class="col-6 mb-1 mt-2">
+              <div class="col-6 mb-1 mt-2" style="border-left: 1px solid #000;margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding: 10px !important;">
+                <div style="border-top: 1px solid #000;position:relative;top:-10px;left:-10px;width:215% !important"></div>
                 <h5>Consignee's Name and Address :</h5>
                 <div class="ml-4 mb-1">
                   <h6 class="mb-1"><?= strtoupper(($valbill['consignee_name'])) ?></h6>
@@ -117,544 +133,1336 @@ if ($id != '') {
                   <h6 class="mb-1">GSTIN : <?= $valbill['gstin'] ?></h6>
                 </div>
               </div>
-              <div class="col-6" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+              <div class="col-5" style="border-left:1px solid #000">
                 <div class="col-12 text-center  mt-5">
                   <h5>Invoice No : <?= $valbill['invoice_no'] ?></h5>
                   <h5>Date : <td><?= date('d-m-Y', strtotime($valbill['invoice_date'])) ?></td>
                   </h5>
                 </div>
               </div>
+              <div class="col-1" style="    border-right: 1px solid #000;
+    position: relative;
+    left: 30px;"></div>
             </div>
             <div class="row">
               <div class="col-12 table-responsive">
-                <table class="table text-center" style="height:auto !important;border-bottom: 1px solid #dee2e6 !important;border-left:1px solid #dee2e6;border-right:1px solid #dee2e6">
+                <table class="table text-center" style="height:auto !important;border-bottom: 1px solid #000 !important;border-left:1px solid #000;border-right:1px solid #000">
                   <thead>
                     <tr>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">SI</th>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">Carton From - To</th>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">Product Name</th>
-                      <th colspan="2" style="border-right:1px solid #dee2e6;" class="text-center">Package Details</th>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">Qty</th>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">RATE</th>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">PER</th>
-                      <th rowspan="2" style="border-right:1px solid #dee2e6;">AMOUNT</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">SI</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">Carton From - To</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">Product Name</th>
+                      <th colspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;" class="text-center">Package Details</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">Qty</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">RATE</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">PER</th>
+                      <th rowspan="2" style="border-right:1px solid #000;border-top:1px solid #000 !important;">AMOUNT</th>
                     </tr>
                     <tr>
-                      <th style="border-right:1px solid #dee2e6;">Carton</th>
-                      <th style="border-right:1px solid #dee2e6;">Carton Contents</th>
+                      <th style="border-right:1px solid #000;border-top:1px solid #000 !important;">Carton</th>
+                      <th style="border-right:1px solid #000;border-top:1px solid #000 !important;">Carton Contents</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                     $j = 0;
-                    $totalcartoncontents = 0;
-                    $amount = 0;
-                    $discount=0;
-                    while( $valbills = mysqli_fetch_assoc($exebills)) {
+                   
+                    while ($valbills = mysqli_fetch_assoc($exebills)) {
                       $j += 1;
-                      $totalcarton = explode(' ',$valbills['carton_contents']);
-                      $totalcartoncontents += $totalcarton[0];
-                      $amount += $valbills['amount'];
-                      $dis = ($valbills['amount']*$valbills['discount'])/100;
-                      $discount += $dis;
+                     ?>
+                      <tr>
+                        <td style="border-right: 1px solid #000;"><?= $j ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['carton_from_to'] ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['cracker_name'] ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['carton'] ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['carton_contents'] ?>s</td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['qty'] ?>&nbsp;Units</td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['rate'] ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['per'] ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['amount'] ?></td>
+                      </tr>
+                    <?php }
+                    if ($no == 1) {
                     ?>
-                    <tr>
-                      <td style="border-right: 1px solid #dee2e6;"><?=$j?></td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['carton_from_to'] ?></td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['cracker_name'] ?></td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['carton'] ?></td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['carton_contents'] ?>s</td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['qty'] ?>&nbsp;Units</td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['rate'] ?></td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['per'] ?></td>
-                      <td style="border-right: 1px solid #dee2e6;"><?= $valbills['amount'] ?></td>
-                    </tr>
-                    <?php } 
-                    if($no==1) {
-                      ?>
-                 <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <?php
-                    }
-                    if($no==2) { ?>
-                   <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <?php
-                    }
-                    if($no==3) { ?>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      
-                       <?php }
-                  if($no==4) { ?>
-                   <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                         <?php }
-                 if($no==5) { ?>
-                <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                       <?php }
-               if($no==6) { ?>
-              <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>\
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                       <?php }
-             if($no==7) { ?>
-            <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                       <?php }
-           if($no==9) { ?>
-        <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                      
-                      <tr><td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td>
-                      <td  style=" border-right: 1px solid #dee2e6;"><br/></td></tr>
-                       <?php }
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 2) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+
+                    <?php } else if ($no == 3) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+
+                    <?php } else if ($no == 4) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+
+                    <?php } else if ($no == 5) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 6) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php }
+                    if ($no == 7) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 8) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 9) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 10) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 11) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 12) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 13) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php } else if ($no == 14) { ?>
+                      <tr>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                        <td style=" border-right: 1px solid #000;">&nbsp;</td>
+                      </tr>
+                    <?php }
                     ?>
                   </tbody>
                 </table>
               </div>
             </div>
             <div class="row invoice-info" style="margin-top: -15px;">
-              <div class="col-5" style="border-left: 1px solid rgba(0, 0, 0, 0.1);position: relative;left: 15px;">
-                <table class="col-12 ml-5">
+              <div class="col-5" style="border-left: 1px solid #000;position: relative;left: 15px;">
+                <table class="col-12 ml-5" style="border:none !important">
                   <tr>
-                    <td><p class="mt-1"><b>HSN Code</b></p></td>
-                    <td><p class="mt-1">:</p></td>
-                    <td> <p class="mt-1 text-center"><strong><?= $valbill['hsn_code'] ?></strong></p>
+                    <td width="30%">
+                      <p class="mt-1"><b>HSN Code</b></p>
+                    </td>
+                    <td width="5%">
+                      <p class="mt-1">:</p>
+                    </td>
+                    <td>
+                      <p class="mt-1 text-left"><strong><?= $valbill['hsn_code'] ?></strong></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><p>Total Cartons</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"> <?= $valbill['total_carton'] ?></p></td>
+                    <td>
+                      <p>Total Cartons</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"> <?= $valbill['total_carton'] ?></p>
+                    </td>
                   </tr>
                   <tr>
-                    <td><p>Despatched From</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"><?= $valbill['despatched_from'] ?></p></td>
+                    <td>
+                      <p>Despatched From</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"><?= $valbill['despatched_from'] ?></p>
+                    </td>
                   </tr>
                   <tr>
-                    <td><p>Despatched To</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"><?= $valbill['despatched_to'] ?></p></td>
+                    <td>
+                      <p>Despatched To</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"><?= $valbill['despatched_to'] ?></p>
+                    </td>
                   </tr>
                   <tr>
-                    <td><p>Vehicle No</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"><?= $valbill['vehicle_no'] ?></p></td>
+                    <td>
+                      <p>Vehicle No</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"><?= $valbill['vehicle_no'] ?></p>
+                    </td>
                   </tr>
                   <tr>
-                    <td><p>Transport Name</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"><?= $valbill['transport_name'] ?></p></td>
+                    <td>
+                      <p>Transport Name</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"><?= $valbill['transport_name'] ?></p>
+                    </td>
                   </tr>
                   <tr>
-                    <td><p>Transport GSTIN</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"><?= $valbill['transport_gstin'] ?></p></td>
+                    <td>
+                      <p>Transport GSTIN</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"><?= $valbill['transport_gstin'] ?></p>
+                    </td>
                   </tr>
                   <tr>
-                    <td><p>E-way Bill</p></td>
-                    <td><p>:</p></td>
-                    <td><p class="text-center"><?= $valbill['eway_bill'] ?></p></td>
+                    <td>
+                      <p>E-way Bill</p>
+                    </td>
+                    <td>
+                      <p>:</p>
+                    </td>
+                    <td>
+                      <p class="text-left"><?= $valbill['eway_bill'] ?></p>
+                    </td>
                   </tr>
                 </table>
               </div>
-              <div class="col-1 text-center" style="position:relative;left:-20px;border-right:1px solid rgba(0, 0, 0, 0.1)">
+              <div class="col-1 text-center" style="position:relative;left:-20px;border-right:1px solid #000">
               </div>
-              <div class="col-3 text-right mt-1" style="position: relative;left:100px">
-                <table>
+              <div class="col-3 text-right mt-1" style="position: relative;left:150px">
+                <table style="border:none !important">
                   <tbody>
                     <tr>
                       <td>
-                 <p> <b>GOODS VALUE</b></p>
+                        <p> <b>GOODS VALUE</b></p>
                       </td>
                     </tr>
                     <tr>
@@ -684,7 +1492,7 @@ if ($id != '') {
                       <td>:</td>
                       <td></td>
                       <td>
-                        <p  class="pt-2"><b><?= $valbill['sgst'] ?>&nbsp;%</b></p>
+                        <p class="pt-2"><b><?= $valbill['sgst'] ?>&nbsp;%</b></p>
                       </td>
                     </tr>
                     <tr>
@@ -694,7 +1502,7 @@ if ($id != '') {
                       <td>:</td>
                       <td></td>
                       <td>
-                        <p  class="pt-2"><b><?= $valbill['cgst'] ?>&nbsp;%</b></p>
+                        <p class="pt-2"><b><?= $valbill['cgst'] ?>&nbsp;%</b></p>
                       </td>
                     </tr>
                     <tr>
@@ -709,10 +1517,10 @@ if ($id != '') {
                     </tr>
                 </table>
               </div>
-              <div class="col-1" style="position:relative;left:30px;border-left:1px solid rgba(0, 0, 0, 0.1)">
+              <div class="col-1" style="position:relative;left:100px;border-left:1px solid #000">
               </div>
-              <div class="col-1 text-left" style="position: relative;left:-5px;">
-                <table>
+              <div class="col-1 text-left" style="position: relative;left:50px;">
+                <table style="border:none !important">
                   <tr>
                     <td>
                       <p class="mt-1"><b><?= $valbill['good_value'] ?></b></p>
@@ -729,34 +1537,40 @@ if ($id != '') {
                     </td>
                   </tr>
                   <tr>
-                    <?php 
-                      $tax = 0;
+                    <?php
+                    $tax = 0;
                     ?>
-                    <?php if ($valbill['igst_amount'] != '') { 
-                      ?>
+                    <?php if ($valbill['igst_amount'] != '') {
+                    ?>
                       <td>
                         <p class="pt-2"><b><?= $valbill['igst_amount'] ?></b></p>
                       </td>
                     <?php } else { ?>
-                      <td><p class="pt-2">-</p></td>
+                      <td>
+                        <p class="pt-2">-</p>
+                      </td>
                     <?php } ?>
                   </tr>
                   <tr> <?php if ($valbill['sgst_amount'] != '') { ?>
                       <td>
-                       <p class="pt-2"><b><?= $valbill['sgst_amount'] ?></b></p>
+                        <p class="pt-2"><b><?= $valbill['sgst_amount'] ?></b></p>
                       </td>
                     <?php } else { ?>
-                      <td><p class="pt-2">-</p></td>
-                     <?php } ?>
+                      <td>
+                        <p class="pt-2">-</p>
+                      </td>
+                    <?php } ?>
                   </tr>
                   <tr>
-                    <?php if ($valbill['cgst_amount'] != '') { 
-                      ?>
+                    <?php if ($valbill['cgst_amount'] != '') {
+                    ?>
                       <td>
-                       <p class="pt-2"><b><?=  $valbill['cgst_amount'] ?></b></p>
+                        <p class="pt-2"><b><?= $valbill['cgst_amount'] ?></b></p>
                       </td>
                     <?php } else { ?>
-                      <td><p class="pt-2">-</p></td>
+                      <td>
+                        <p class="pt-2">-</p>
+                      </td>
                     <?php }
                     ?>
                   </tr>
@@ -772,15 +1586,16 @@ if ($id != '') {
                   </tr>
                 </table>
               </div>
-              <div class="col-1" style="position:relative;left:-15px;border-right:1px solid rgba(0, 0, 0, 0.1)">
+              <div class="col-1" style="position:relative;left:-15px;border-right:1px solid #000">
               </div>
             </div>
-            <hr />
-            <div class="row col-12" style="border-top:1px sold #dee2e6">
-              <div class="col-md-2" style="border-left:1px solid #dee2e6"></div>
-              <div class="col-md-8 text-center">
+
+            <div class="row col-xs-12" style="width: 100% !important;
+    position: relative !important;
+    left: 15px !important;">
+              <div class="col-md-12 text-center" style="border:1px solid #000 !important;">
                 <?php
-              $number = $valbill['net_amount'];
+                $number = $valbill['net_amount'];
                 $no = floor($number);
                 $point = round($number - $no, 2) * 100;
                 $hundred = null;
@@ -824,11 +1639,9 @@ if ($id != '') {
                 echo '<h6 class="mt-2"><tr><strong><i>Total Amount In Words : <i>' . ucfirst($result) . "Rupees </i>" . "</i></strong></h6>";
                 ?>
               </div>
-              <div class="col-md-2" style="position:relative;left:30px;border-right:1px solid #dee2e6"></div>
             </div>
-            <hr />
             <div class="row col-12">
-              <div class="col-9" style="border-left:1px solid #dee2e6">
+              <div class="col-9" style="border-left:1px solid #000;">
                 <h6 class="mt-1">Declaration :</h6>
                 <h6 class="pl-4">We declare that this invoice shows the actual price of the goods and that all
                   particulars are true and collect.
@@ -837,28 +1650,31 @@ if ($id != '') {
                 <table class="table table-bordered">
                   <tr>
                     <td>
-                    <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
-                      <h6 style="font-size:14px !important;margin-bottom:-12px !important">Bank Name : Punjab National Bank</h6><br />
-                      <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Number : 4199002100015343</h6><br />
-                   <h6 style="font-size:14px !important;margin-bottom:-12px !important">IFSC Code : PUNB0419900</h6>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">Account Name : Jeyalakshmi Priya Sparklers Factory</p>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">Bank Name : Punjab National Bank</p>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">Account Number : 4199002100015343</p>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">IFSC Code : PUNB0419900</p>
                     </td>
                     <td>
-                    <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Name : Jeyalakshmi Priya Sparklers Factory</h6><br />
-                   <h6 style="font-size:14px !important;margin-bottom:-12px !important">Bank Name :   Tamilnadu Mercantile Bank</h6><br />
-                    <h6 style="font-size:14px !important;margin-bottom:-12px !important">Account Number : 003700050900353</h6><br />
-                    <h6 style="font-size:14px !important;margin-bottom:6px !important">IFSC Code : TMBL0000003</h6>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">Account Name : Jeyalakshmi Priya Sparklers Factory</p>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">Bank Name : Tamilnadu Mercantile Bank</p>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">Account Number : 003700050900353</p>
+                      <p style="font-weight: 600 !important;font-size:13.5px !important">IFSC Code : TMBL0000003</p>
                     </td>
                   </tr>
                 </table>
+                <div style="border-bottom:1px solid #000;position: relative;
+    left: -15px;
+    width: 143%;
+    top: 15px;"></div>
               </div>
-              <div class="col-3" style="border-left:1px solid #dee2e6 !important;border-right:1px solid #dee2e6 !important;position:relative;left:30px">
+              <div class="col-3" style="border-left:1px solid #000 !important;border-right:1px solid #000 !important;position:relative;left:30px">
                 <p class="mt-1"><i>For Jeyalakshmi Priya Sparklers Factory & Fireworks</i></p>
                 <h6><br /><br /><br /><br /><br /><br /><br /><br /></h6>
                 <h6 class="text-right"><i>Manager / Partner</i></h6>
               </div>
             </div>
-            <hr />
-            <div class="row d-print-none mt-2">
+            <div class="row d-print-none mt-4">
               <div class="col-12 text-right"><a class="btn btn-primary" href="javascript:window.print();"><i class="fa fa-print"></i> Print</a></div>
             </div>
           </section>
