@@ -176,9 +176,9 @@ if ($id != '') {
                         <td style="border-right: 1px solid #000;"><?= $valbills['cracker_name'] ?></td>
                         <td style="border-right: 1px solid #000;"><?= $valbills['carton'] ?></td>
                         <td style="border-right: 1px solid #000;"><?= $valbills['carton_contents'] ?>s</td>
-                        <td style="border-right: 1px solid #000;"><?= $valbills['qty'] ?>&nbsp;Units</td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['qty'] ?>s</td>
                         <td style="border-right: 1px solid #000;"><?= $valbills['rate'] ?></td>
-                        <td style="border-right: 1px solid #000;"><?= $valbills['per'] ?></td>
+                        <td style="border-right: 1px solid #000;"><?= $valbills['per'] ?>s</td>
                         <td style="border-right: 1px solid #000;"><?= $valbills['amount'] ?></td>
                       </tr>
                     <?php }

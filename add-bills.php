@@ -53,11 +53,12 @@ else {
           perval = persplit[0].replace('"', "");
           if (perval == 'Piece"' || perval == 'Pocket"' || perval == 'Unit"') {
             perval = 1;
+            var pers = perval;
           } else {
             perval = perval;
+            var pers = parseFloat(perval) / parseFloat(100);
           }
 
-          var pers = parseFloat(perval) / parseFloat(100);
           if (cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') {
             var amt = carton * rate;
           } else {
@@ -89,11 +90,12 @@ else {
           perval1 = persplit1[0].replace('"', "");
           if (perval1 == 'Piece"' || perval1 == 'Pocket"' || perval1 == 'Unit"') {
             perval1 = 1;
+            var pers1 = 1;
           } else {
             perval1 = perval1;
-          }
+            var pers1 = parseFloat(perval1) / parseFloat(100);
+        }
         
-          var pers1 = parseFloat(perval1) / parseFloat(100);
           if (cracker_name1 == '2 3/4 Kuruvi' || cracker_name1 == '2 Sound Cracker' || cracker_name1 == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
             var amt1 = carton1 * rate1;
           } else {
@@ -125,11 +127,12 @@ else {
           perval2 = persplit2[0].replace('"', "");
           if (perval2 == 'Piece"' || perval2 == 'Pocket"' || perval2 == 'Unit"') {
             perval2 = 1;
-          } else {
+            var pers2 = 1;
+      } else {
             perval2 = perval2;
-          }
+            var pers2 = parseFloat(perval2) / parseFloat(100);
+      }
         
-          var pers2 = parseFloat(perval2) / parseFloat(100);
      if (cracker_name2 == '2 3/4 Kuruvi' || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
             var amt2 = carton2 * rate2;
           } else {
@@ -161,11 +164,12 @@ else {
           perval3 = persplit3[0].replace('"', "");
           if (perval3 == 'Piece"' || perval3 == 'Pocket"' || perval3 == 'Unit"') {
             perval3 = 1;
+            var pers3 = 1;
           } else {
             perval3 = perval3;
+            var pers3 = parseFloat(perval3) / parseFloat(100);
           }
         
-          var pers3 = parseFloat(perval3) / parseFloat(100);
      if (cracker_name3 == '2 3/4 Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
             var amt3 = carton3 * rate3;
           } else {
@@ -197,11 +201,12 @@ else {
           perval4 = persplit4[0].replace('"', "");
           if (perval4 == 'Piece"' || perval4 == 'Pocket"' || perval4 == 'Unit"') {
             perval4 = 1;
+            var pers4 = 1;
           } else {
             perval4 = perval4;
+            var pers4 = parseFloat(perval4) / parseFloat(100);
           }
 
-          var pers4 = parseFloat(perval4) / parseFloat(100);
               if (cracker_name4 == '2 3/4 Kuruvi' || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
             var amt4 = carton4 * rate4;
           } else {
@@ -232,11 +237,12 @@ else {
           perval5 = persplit5[0].replace('"', "");
           if (perval5 == 'Piece"' || perval5 == 'Pocket"' || perval5 == 'Unit"') {
             peval5 = 1;
+            var pers5 = 1;
           } else {
             perval5 = perval5;
+            var pers5 = parseFloat(perval5) / parseFloat(100);
           }
 
-          var pers5 = parseFloat(perval5) / parseFloat(100);
        if (cracker_name5 == '2 3/4 Kuruvi' || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
             var amt5 = carton5 * rate5;
           } else {
@@ -267,11 +273,12 @@ else {
           perval6 = persplit6[0].replace('"', "");
           if (perval6 == 'Piece"' || perval6 == 'Pocket"' || perval6 == 'Unit"') {
             perval6 = 1;
+            var pers6 = 1;
           } else {
             perval6 = perval6;
+            var pers6 = parseFloat(perval6) / parseFloat(100);
           }
 
-          var pers6 = parseFloat(perval6) / parseFloat(100);
       if (cracker_name6 == '2 3/4 Kuruvi' || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
             var amt6 = carton6 * rate6;
           } else {
@@ -303,12 +310,13 @@ else {
           perval7 = persplit7[0].replace('"', "");
           if (perval7 == 'Piece"' || perval7 == 'Pocket"' || perval7 == 'Unit"') {
             perval7 = 1;
+            var pers7 = 1;
           } else {
             perval7 = perval7;
-          }
+            var pers7 = parseFloat(perval7) / parseFloat(100);
+        }
           
-          var pers7 = parseFloat(perval7) / parseFloat(100);
-      if (cracker_name7 == '2 3/4 Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
+        if (cracker_name7 == '2 3/4 Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
             var amt7 = carton7 * rate7;
           } else {
             var amt7 = qty7 * rate7 * pers7;
@@ -339,12 +347,13 @@ else {
           perval8 = persplit8[0].replace('"', "");
           if (perval8 == 'Piece"' || perval8 == 'Pocket"' || perval8 == 'Unit"') {
             perval8 = 1;
+            var pers8 = 1;
           } else {
             perval8 = perval8;
-          }
+            var pers8 = parseFloat(perval8) / parseFloat(100);
+         }
 
-          var pers8 = parseFloat(perval8) / parseFloat(100);
-     if (cracker_name8 == '2 3/4 Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
+      if (cracker_name8 == '2 3/4 Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
             var amt8 = carton8 * rate8;
           } else {
             var amt8 = qty8 * rate8 * pers8;
@@ -375,11 +384,12 @@ else {
           perval9 = persplit9[0].replace('"', "");
           if (perval9 == 'Piece"' || perval9 == 'Pocket"' || perval9 == 'Unit"') {
             perval9 = 1;
+            var pers9 = 1;
           } else {
             perval9 = perval9;
+            var pers9 = parseFloat(perval9) / parseFloat(100);
           }
 
-          var pers9 = parseFloat(perval9) / parseFloat(100);
      if (cracker_name9 == '2 3/4 Kuruvi' || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
             var amt9 = carton9 * rate9;
           } else {
@@ -409,11 +419,12 @@ else {
           perval10 = persplit10[0].replace('"', "");
           if (perval10 == 'Piece"' || perval10 == 'Pocket"' || perval10 == 'Unit"') {
             perval10 = 1;
+            var pers10 = 1;
           } else {
             perval10 = perval10;
+            var pers10 = parseFloat(perval10) / parseFloat(100);
           }
 
-          var pers10 = parseFloat(perval10) / parseFloat(100);
     if (cracker_name10 == '2 3/4 Kuruvi' || cracker_name10 == '2 Sound Cracker' || cracker_name10 == '3 Sound Cracker' || cracker_name10 == '3 1/2 Lakshmi' || cracker_name10 == '4 Lakshmi') {
             var amt10 = carton10 * rate10;
           } else {
@@ -445,11 +456,12 @@ else {
           perval11 = persplit11[0].replace('"', "");
           if (perval11 == 'Piece"' || perval11 == 'Pocket"' || perval11 == 'Unit"') {
             perval11 = 1;
+            var pers11 = 1;
           } else {
             perval11 = perval11;
+            var pers11 = parseFloat(perval11) / parseFloat(100);
           }
 
-          var pers11 = parseFloat(perval11) / parseFloat(100);
              if (cracker_name11 == '2 3/4 Kuruvi' || cracker_name11 == '2 Sound Cracker' || cracker_name11 == '3 Sound Cracker' || cracker_name11 == '3 1/2 Lakshmi' || cracker_name11 == '4 Lakshmi') {
             var amt11 = carton11 * rate11;
           } else {
@@ -480,11 +492,12 @@ else {
           perval12 = persplit12[0].replace('"', "");
           if (perval12 == 'Piece"' || perval12 == 'Pocket"' || perval12 == 'Unit"') {
             perval12 = 1;
+            var pers12 = 1;
           } else {
             perval12 = perval12;
+            var pers12 = parseFloat(perval12) / parseFloat(100);
           }
 
-          var pers12 = parseFloat(perval12) / parseFloat(100);
          if (cracker_name12 == '2 3/4 Kuruvi' || cracker_name12 == '2 Sound Cracker' || cracker_name12 == '3 Sound Cracker' || cracker_name12 == '3 1/2 Lakshmi' || cracker_name12 == '4 Lakshmi') {
             var amt12 = carton12 * rate12;
           } else {
@@ -517,11 +530,12 @@ else {
           perval13 = persplit13[0].replace('"', "");
           if (perval13 == 'Piece"' || perval13 == 'Pocket"' || perval13 == 'Unit"') {
             perval13 = 1;
+            var pers13 = 1;
           } else {
             perval13 = perval13;
+            var pers13 = parseFloat(perval13) / parseFloat(100);
           }
 
-          var pers13 = parseFloat(perval13) / parseFloat(100);
             if (cracker_name13 == '2 3/4 Kuruvi' || cracker_name13 == '2 Sound Cracker' || cracker_name13 == '3 Sound Cracker' || cracker_name13 == '3 1/2 Lakshmi' || cracker_name13 == '4 Lakshmi') {
             var amt13 = carton13 * rate13;
           } else {
@@ -553,11 +567,12 @@ else {
           perval14 = persplit14[0].replace('"', "");
           if (perval14 == 'Piece"' || perval14 == 'Pocket"' || perval14 == 'Unit"') {
             perval14 = 1;
+            var pers14 = 1;
           } else {
             perval14 = perval14;
+            var pers14 = parseFloat(perval14) / parseFloat(100);
           }
 
-          var pers14 = parseFloat(perval14) / parseFloat(100);
           if (cracker_name14 == '2 3/4 Kuruvi' || cracker_name14 == '2 Sound Cracker' || cracker_name14 == '3 Sound Cracker' || cracker_name14 == '3 1/2 Lakshmi' || cracker_name14 == '4 Lakshmi') {
             var amt14 = carton14 * rate14;
           } else {
@@ -846,11 +861,12 @@ else {
           perval = persplit[0].replace('"', "");
           if (perval == 'Piece"' || perval == 'Pocket"' || perval == 'Unit"') {
             perval = 1;
+            var pers = 1;
           } else {
             perval = perval;
+            var pers = parseFloat(perval) / parseFloat(100);
           }
         
-          var pers = parseFloat(perval) / parseFloat(100);
     if (cracker_name == '2 3/4 Kuruvi' || cracker_name == '2 Sound Cracker' || cracker_name == '3 Sound Cracker' || cracker_name == '3 1/2 Lakshmi' || cracker_name == '4 Lakshmi') {
             var amt = carton * rate;
           } else {
@@ -889,11 +905,12 @@ else {
           perval1 = persplit1[0].replace('"', "");
           if (perval1 == 'Piece"' || perval1 == 'Pocket"' || perval1 == 'Unit"') {
             perval1 = 1;
+            var pers1 = 1;
           } else {
             perval1 = perval1;
+            var pers1 = parseFloat(perval1) / parseFloat(100);
           }
         
-          var pers1 = parseFloat(perval1) / parseFloat(100);
           if (cracker_name1 == '2 3/4 Kuruvi' || cracker_name1 == '2 Sound Cracker' || cracker_name1 == '3 Sound Cracker' || cracker_name1 == '3 1/2 Lakshmi' || cracker_name1 == '4 Lakshmi') {
             var amt1 = carton1 * rate1;
           } else {
@@ -938,11 +955,12 @@ else {
           perval2 = persplit2[0].replace('"', "");
           if (perval2 == 'Piece"' || perval2 == 'Pocket"' || perval2 == 'Unit"') {
             perval2 = 1;
+            var pers2 = 1;
           } else {
             perval2 = perval2;
+            var pers2 = parseFloat(perval2) / parseFloat(100);
           }
         
-          var pers2 = parseFloat(perval2) / parseFloat(100);
      if (cracker_name2 == '2 3/4 Kuruvi' || cracker_name2 == '2 Sound Cracker' || cracker_name2 == '3 Sound Cracker' || cracker_name2 == '3 1/2 Lakshmi' || cracker_name2 == '4 Lakshmi') {
             var amt2 = carton2 * rate2;
           } else {
@@ -987,12 +1005,13 @@ else {
           perval3 = persplit3[0].replace('"', "");
           if (perval3 == 'Piece"' || perval3 == 'Pocket"' || perval3 == 'Unit"') {
             perval3 = 1;
+            var pers3 = 1;
           } else {
             perval3 = perval3;
-          }
+            var pers3 = parseFloat(perval3) / parseFloat(100);
+         }
         
-          var pers3 = parseFloat(perval3) / parseFloat(100);
-     if (cracker_name3 == '2 3/4 Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
+      if (cracker_name3 == '2 3/4 Kuruvi' || cracker_name3 == '2 Sound Cracker' || cracker_name3 == '3 Sound Cracker' || cracker_name3 == '3 1/2 Lakshmi' || cracker_name3 == '4 Lakshmi') {
             var amt3 = carton3 * rate3;
           } else {
             var amt3 = qty3 * rate3 * pers3;
@@ -1036,11 +1055,12 @@ else {
           perval4 = persplit4[0].replace('"', "");
           if (perval4 == 'Piece"' || perval4 == 'Pocket"' || perval4 == 'Unit"') {
             perval4 = 1;
+            var pers4 = 1;
           } else {
             perval4 = perval4;
+            var pers4 = parseFloat(perval4) / parseFloat(100);
           }
 
-          var pers4 = parseFloat(perval4) / parseFloat(100);
               if (cracker_name4 == '2 3/4 Kuruvi' || cracker_name4 == '2 Sound Cracker' || cracker_name4 == '3 Sound Cracker' || cracker_name4 == '3 1/2 Lakshmi' || cracker_name4 == '4 Lakshmi') {
             var amt4 = carton4 * rate4;
           } else {
@@ -1084,11 +1104,12 @@ else {
           perval5 = persplit5[0].replace('"', "");
           if (perval5 == 'Piece"' || perval5 == 'Pocket"' || perval5 == 'Unit"') {
             peval5 = 1;
+            var pers5 = 1;
           } else {
             perval5 = perval5;
+            var pers5 = parseFloat(perval5) / parseFloat(100);
           }
 
-          var pers5 = parseFloat(perval5) / parseFloat(100);
        if (cracker_name5 == '2 3/4 Kuruvi' || cracker_name5 == '2 Sound Cracker' || cracker_name5 == '3 Sound Cracker' || cracker_name5 == '3 1/2 Lakshmi' || cracker_name5 == '4 Lakshmi') {
             var amt5 = carton5 * rate5;
           } else {
@@ -1132,11 +1153,12 @@ else {
           perval6 = persplit6[0].replace('"', "");
           if (perval6 == 'Piece"' || perval6 == 'Pocket"' || perval6 == 'Unit"') {
             perval6 = 1;
+            var pers6 = 1;
           } else {
             perval6 = perval6;
+            var pers6 = parseFloat(perval6) / parseFloat(100);
           }
 
-          var pers6 = parseFloat(perval6) / parseFloat(100);
       if (cracker_name6 == '2 3/4 Kuruvi' || cracker_name6 == '2 Sound Cracker' || cracker_name6 == '3 Sound Cracker' || cracker_name6 == '3 1/2 Lakshmi' || cracker_name6 == '4 Lakshmi') {
             var amt6 = carton6 * rate6;
           } else {
@@ -1181,11 +1203,12 @@ else {
           perval7 = persplit7[0].replace('"', "");
           if (perval7 == 'Piece"' || perval7 == 'Pocket"' || perval7 == 'Unit"') {
             perval7 = 1;
+            var pers7 = 1;
           } else {
             perval7 = perval7;
+            var pers7 = parseFloat(perval7) / parseFloat(100);
           }
           
-          var pers7 = parseFloat(perval7) / parseFloat(100);
       if (cracker_name7 == '2 3/4 Kuruvi' || cracker_name7 == '2 Sound Cracker' || cracker_name7 == '3 Sound Cracker' || cracker_name7 == '3 1/2 Lakshmi' || cracker_name7 == '4 Lakshmi') {
             var amt7 = carton7 * rate7;
           } else {
@@ -1230,11 +1253,12 @@ else {
           perval8 = persplit8[0].replace('"', "");
           if (perval8 == 'Piece"' || perval8 == 'Pocket"' || perval8 == 'Unit"') {
             perval8 = 1;
+            var pers8 = 1;
           } else {
             perval8 = perval8;
+            var pers8 = parseFloat(perval8) / parseFloat(100);
           }
 
-          var pers8 = parseFloat(perval8) / parseFloat(100);
      if (cracker_name8 == '2 3/4 Kuruvi' || cracker_name8 == '2 Sound Cracker' || cracker_name8 == '3 Sound Cracker' || cracker_name8 == '3 1/2 Lakshmi' || cracker_name8 == '4 Lakshmi') {
             var amt8 = carton8 * rate8;
           } else {
@@ -1279,11 +1303,12 @@ else {
           perval9 = persplit9[0].replace('"', "");
           if (perval9 == 'Piece"' || perval9 == 'Pocket"' || perval9 == 'Unit"') {
             perval9 = 1;
+            var pers9 = 1;
           } else {
             perval9 = perval9;
+            var pers9 = parseFloat(perval9) / parseFloat(100);
           }
 
-          var pers9 = parseFloat(perval9) / parseFloat(100);
      if (cracker_name9 == '2 3/4 Kuruvi' || cracker_name9 == '2 Sound Cracker' || cracker_name9 == '3 Sound Cracker' || cracker_name9 == '3 1/2 Lakshmi' || cracker_name9 == '4 Lakshmi') {
             var amt9 = carton9 * rate9;
           } else {
@@ -1328,11 +1353,12 @@ else {
           perval10 = persplit10[0].replace('"', "");
           if (perval10 == 'Piece"' || perval10 == 'Pocket"' || perval10 == 'Unit"') {
             perval10 = 1;
+            var pers10 = 1;
           } else {
             perval10 = perval10;
+            var pers10 = parseFloat(perval10) / parseFloat(100);
           }
 
-          var pers10 = parseFloat(perval10) / parseFloat(100);
     if (cracker_name10 == '2 3/4 Kuruvi' || cracker_name10 == '2 Sound Cracker' || cracker_name10 == '3 Sound Cracker' || cracker_name10 == '3 1/2 Lakshmi' || cracker_name10 == '4 Lakshmi') {
             var amt10 = carton10 * rate10;
           } else {
@@ -1377,11 +1403,12 @@ else {
           perval11 = persplit11[0].replace('"', "");
           if (perval11 == 'Piece"' || perval11 == 'Pocket"' || perval11 == 'Unit"') {
             perval11 = 1;
-          } else {
+            var pers11 = 1;
+        } else {
             perval11 = perval11;
+            var pers11 = parseFloat(perval11) / parseFloat(100);
           }
 
-          var pers11 = parseFloat(perval11) / parseFloat(100);
              if (cracker_name11 == '2 3/4 Kuruvi' || cracker_name11 == '2 Sound Cracker' || cracker_name11 == '3 Sound Cracker' || cracker_name11 == '3 1/2 Lakshmi' || cracker_name11 == '4 Lakshmi') {
             var amt11 = carton11 * rate11;
           } else {
@@ -1426,11 +1453,12 @@ else {
           perval12 = persplit12[0].replace('"', "");
           if (perval12 == 'Piece"' || perval12 == 'Pocket"' || perval12 == 'Unit"') {
             perval12 = 1;
+            var pers12 = 1;
           } else {
             perval12 = perval12;
+            var pers12 = parseFloat(perval12) / parseFloat(100);
           }
 
-          var pers12 = parseFloat(perval12) / parseFloat(100);
          if (cracker_name12 == '2 3/4 Kuruvi' || cracker_name12 == '2 Sound Cracker' || cracker_name12 == '3 Sound Cracker' || cracker_name12 == '3 1/2 Lakshmi' || cracker_name12 == '4 Lakshmi') {
             var amt12 = carton12 * rate12;
           } else {
@@ -1475,11 +1503,12 @@ else {
           perval13 = persplit13[0].replace('"', "");
           if (perval13 == 'Piece"' || perval13 == 'Pocket"' || perval13 == 'Unit"') {
             perval13 = 1;
+            var pers13 = 1;
           } else {
             perval13 = perval13;
+            var pers13 = parseFloat(perval13) / parseFloat(100);
           }
 
-          var pers13 = parseFloat(perval13) / parseFloat(100);
             if (cracker_name13 == '2 3/4 Kuruvi' || cracker_name13 == '2 Sound Cracker' || cracker_name13 == '3 Sound Cracker' || cracker_name13 == '3 1/2 Lakshmi' || cracker_name13 == '4 Lakshmi') {
             var amt13 = carton13 * rate13;
           } else {
@@ -1524,11 +1553,12 @@ else {
           perval14 = persplit14[0].replace('"', "");
           if (perval14 == 'Piece"' || perval14 == 'Pocket"' || perval14 == 'Unit"') {
             perval14 = 1;
+            var pers14 = 1;
           } else {
             perval14 = perval14;
+            var pers14 = parseFloat(perval14) / parseFloat(100);
           }
 
-          var pers14 = parseFloat(perval14) / parseFloat(100);
           if (cracker_name14 == '2 3/4 Kuruvi' || cracker_name14 == '2 Sound Cracker' || cracker_name14 == '3 Sound Cracker' || cracker_name14 == '3 1/2 Lakshmi' || cracker_name14 == '4 Lakshmi') {
             var amt14 = carton14 * rate14;
           } else {
