@@ -3,6 +3,7 @@ error_reporting(0);
 include("connection.php");
 $id = isset($_GET['id']) ? $_GET['id'] : "";
 
+if($id=='') {
 $sqlcarton ="select * from customerbill order by id desc limit 1";
 $execarton =mysqli_query($con,$sqlcarton);
 $valcarton=mysqli_fetch_assoc($execarton);
@@ -13,6 +14,20 @@ if($lastcarton[1] != '') {
 }
 else {
   $lastval = $lastcarton[0];
+}
+}
+else {
+  $sqlcarton ="select * from customerbill where id=$id";
+$execarton =mysqli_query($con,$sqlcarton);
+$valcarton=mysqli_fetch_assoc($execarton);
+$last_carton = isset($valcarton['carton_from_to'])?$valcarton['carton_from_to']:"";
+$lastcarton = explode("-",$last_carton);
+if($lastcarton[1] != '') {
+  $lastval = $lastcarton[1];
+}
+else {
+  $lastval = $lastcarton[0];
+}
 }
 ?>
 <!DOCTYPE html>
@@ -838,7 +853,13 @@ else {
 
         var carton = $('#carton').val();
         var cartonval = $('#cartonval').val();
-        var cartonvals = parseInt(carton)+parseInt(cartonval);
+        if(cartonval==1) {
+          cartonval=1;
+        }
+        else {
+          cartonval=parseInt(cartonval)+parseInt(1);
+        }
+        var cartonvals = parseInt(carton)+parseInt(cartonval)-parseInt(1);
         if (carton == 1) {
           $('#carton_from_to').val(cartonval);
         } else {
@@ -879,8 +900,14 @@ else {
         $('#amount').val(amt);
 
         var carton1 = $('#carton1').val();
+        var cartonfromto1 = $('#carton_from_to').val();
+        cartonfromtosplit1 = cartonfromto1.split(" - ");
+        cartonfrom1 = cartonfromtosplit1[1];
+        if (cartonfrom1 == undefined) {
+          cartonfrom1 = cartonfromtosplit1[0];
+        }
         if (carton1 != '') {
-          var carton_start1 = (parseInt(carton)) + parseInt(1);
+          var carton_start1 = (parseInt(cartonfrom1)) + parseInt(1);
           var carton_end1 = parseInt(carton_start1) + parseInt(carton1) - parseInt(1);
           if (carton1 == 1) {
             $('#carton_from_to1').val(carton_start1);
@@ -888,6 +915,7 @@ else {
             $('#carton_from_to1').val(carton_start1 + ' - ' + carton_end1);
           }
         }
+
         var carton_content1 = $('#carton_contents1').val();
         cartoncontent1 = carton_content1.split(" ");
         contentss1 = cartoncontent1[0];
@@ -1533,7 +1561,7 @@ else {
           if (carton14 == 1) {
             $('#carton_from_to14').val(carton_start14);
           } else {
-
+            $('#carton_from_to14').val(carton_start14 + ' - ' + carton_end14);
           }
         }
         var carton_content14 = $('#carton_contents14').val();
