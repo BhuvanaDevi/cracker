@@ -71,7 +71,6 @@
                 <thead>
                   <tr>
                     <th>S. No</th>
-                    <th>Carton <br/> From - To</th>
                     <th>Invoice No</th>
                     <th>Invoice Date</th>
                     <th>Consignee Name</th>
@@ -84,7 +83,7 @@
                 </thead>
                 <tbody>
                   <?php 
-                  $sql = "select * from customerbill group by invoice_no";
+                  $sql = "select * from customerbill group by invoice_no order by id desc";
                   $exe_sql = mysqli_query($con,$sql);
                   $sno = 0;
                   while($val_sql = mysqli_fetch_assoc($exe_sql)) {
@@ -92,7 +91,6 @@
                   ?>
                   <tr>
                     <td><?=$sno?></td>
-                    <td><?=$val_sql['carton_from_to']?></td>
                     <td><?=$val_sql['invoice_no']?></td>
                     <td><?=date('d-m-Y',strtotime($val_sql['invoice_date']))?></td>
                     <td><?=$val_sql['consignee_name']?>
